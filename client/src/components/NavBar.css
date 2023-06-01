@@ -1,0 +1,48 @@
+.NavBar {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  user-select: none;
+}
+
+#nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 1200px;
+}
+
+a {
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+a:hover {
+  color: rgb(153, 112, 58);
+  text-decoration: underline;
+}
+
+button {
+  margin-right: 25px;
+  padding: 5px 15px;
+  background-color: rgb(170, 170, 170);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: rgb(179, 144, 98);
+}
+
+footer {
+    margin: 20px 0px;
+}
