@@ -1,4 +1,5 @@
 import './Home.css';
+import logo from '../img/icon-512x512.png'
 
 function Home() {
   return (
@@ -7,17 +8,19 @@ function Home() {
         <h1>LAMA</h1>
       </div>
       <div id="lama-logo">
-        <img id="logo" src="./icon-512x512.png" alt="Lama logo"></img>
+        <img id="logo" src={logo} alt="Lama logo"></img>
         <div id="logo-text">
-          <h2>Life</h2>
-          <h2>Admin</h2>
-          <h2>Management</h2>
-          <h2>Advisor</h2>
+          <h2><span className="first-letter">L</span>.ife</h2>
+          <h2><span className="first-letter">A</span>.dmin</h2>
+          <h2><span className="first-letter">M</span>.anagement</h2>
+          <h2><span className="first-letter">A</span>.dvisor</h2>
         </div>
       </div>
-      <section>Showcase here</section>
-      <section>Showcase here</section>
-      <section>Showcase here</section>
+      <div id="showcase">
+        <section>What is this</section>
+        <section>How to use</section>
+        <section>Start using now</section>
+      </div>
       <footer>Footer footer footer footer footer footer footer footer footer</footer>
     </div>
   );

@@ -28,7 +28,7 @@ a:hover {
   text-decoration: underline;
 }
 
-button {
+#nav-right > button {
   margin-right: 25px;
   padding: 5px 15px;
   background-color: rgb(170, 170, 170);
@@ -39,7 +39,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+#nav-right > button:hover {
   background-color: rgb(179, 144, 98);
 }
 

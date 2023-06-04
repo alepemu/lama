@@ -8,8 +8,11 @@
 #lama-title {
   margin-top: 25px;
   font-size: 5rem;
-  color: rgb(185, 179, 169);
-  text-shadow: 2px 2px rgb(0, 0, 0);
+  /* color: rgb(185, 179, 169); */
+  /* text-shadow: 2px 2px rgb(0, 0, 0); */
+  background: -webkit-linear-gradient(30deg, #9b9b9b, rgb(185, 179, 169));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #lama-logo {
@@ -28,13 +31,30 @@
   transition: 1s ease-in-out;
 }
 
+#logo-text {
+  color: rgb(134, 129, 119);
+}
+
+.first-letter {
+  color: rgb(0, 0, 0);
+}
+
+#showcase {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+  gap: 25px;
+}
+
 section {
-  margin: 25px 0px;
-  border: 1px solid grey;
+  border: 2px solid grey;
   border-radius: 25px;
-  width: 800px;
+  width: 600px;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(202, 204, 206);
 }

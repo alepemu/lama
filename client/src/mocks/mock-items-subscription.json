@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Cancel streaming service subscription",
+        "frequency": "",
+        "start_date": "",
+        "checked": "false"
+    },
+    {
+        "title": "Renew car hire insurance",
+        "frequency": "1 year",
+        "start_date": "",
+        "checked": "false"
+    },
+    {
+        "title": "Extend trial period of something",
+        "frequency": "",
+        "start_date": "",
+        "checked": "false"
+    }
+]

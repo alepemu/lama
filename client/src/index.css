@@ -1,10 +1,11 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: rgb(238, 236, 232);
+    background: linear-gradient(45deg, #ada2a2, #ffffff);
+    /* background-color: rgb(238, 236, 232); */
 }

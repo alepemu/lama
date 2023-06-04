@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Renew passport",
+        "frequency": "5 years",
+        "start_date": "15/10/2023",
+        "checked": "false"
+    },
+    {
+        "title": "Reminder 2",
+        "frequency": "2 weeks",
+        "start_date": "15/06/2023",
+        "checked": "false"
+    },
+    {
+        "title": "Reminder 3",
+        "frequency": "2 weeks",
+        "start_date": "15/06/2023",
+        "checked": "false"
+    },
+    {
+        "title": "Reminder 4",
+        "frequency": "none",
+        "start_date": "15/06/2023",
+        "checked": "false"
+    },
+    {
+        "title": "Reminder 5",
+        "frequency": "none",
+        "start_date": "15/06/2023",
+        "checked": "false"
+    }
+]

@@ -5,7 +5,7 @@ function NavBar() {
     <div className="NavBar">
       <div id="nav-links">
         <div id="nav-left">
-          <a>Home</a>
+          <a><strong>LAMA</strong></a>
           <a>Dashboard</a>
           <a>About</a>
         </div>

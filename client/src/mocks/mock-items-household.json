@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Flip mattress",
+        "frequency": "3 months",
+        "start_date": "",
+        "checked": "false"
+    },
+    {
+        "title": "Change bed clothing",
+        "frequency": "10 days",
+        "start_date": "",
+        "checked": "false"
+    },
+    {
+        "title": "Renew toothbrush",
+        "frequency": "3 months",
+        "start_date": "",
+        "checked": "false"
+    },
+    {
+        "title": "Clean A/C filters",
+        "frequency": "6 months",
+        "start_date": "",
+        "checked": "false"
+    },
+    {
+        "title": "Change water jug filter",
+        "frequency": "2 months",
+        "start_date": "",
+        "checked": "false"
+    }
+]
