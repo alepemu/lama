@@ -1,6 +1,6 @@
 'use strict';
 
-const { User, Category, Item } = require('../models/models');
+const { User, Category } = require('../models/models');
 
 exports.createCat = async (ctx) => {
   try {
@@ -43,7 +43,6 @@ exports.updateCat = async (ctx) => {
     // { "_id": "6480b01df511c7b079b0cf75",
     //   "name": "Household v2",
     //   "color": "yellow" }
-    console.log('hey');
     const catChanges = ctx.request.body;
     const catId = catChanges._id;
     ctx.body = await Category.findByIdAndUpdate(catId, { $set: catChanges });
