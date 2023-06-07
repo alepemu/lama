@@ -15,7 +15,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Chat />
+      {/* <Chat /> */}
     </div>
   );
 }

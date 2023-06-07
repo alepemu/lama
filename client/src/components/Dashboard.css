@@ -4,8 +4,12 @@
     align-items: center;
 }
 
+#welcome-msg {
+    margin: 60px 0px 30px;
+    font-style: italic;
+}
+
 #dashboard-adjustments {
-    margin-top: 60px;
     width: 825px;
     height: 60px;
     border: 2px solid grey;
@@ -16,9 +20,23 @@
 
 #dashboard-pool {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     padding: 25px;
     gap: 25px;
 }
+
+.btn-new-cat {
+    margin: 15px;
+    align-self: center;
+    padding: 10px 20px;
+    border: 1px solid grey;
+    background-color: lightgray;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+
+.btn-new-cat:hover {
+    background-color: grey;
+  }
+  

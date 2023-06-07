@@ -1,31 +1,21 @@
 import './Category.css';
 import Element from './Element';
-import Mocks from '../mocks/mock-items-household.json'
 
-
-function Category() {
-
- const listElements = Mocks.map(element => <Element item={element}/>)
-
+function Category({ cat }) {
+  const itemList = cat.items.map((element) => <Element key={'tbc'} item={element} />);
 
   return (
     <div className="Category">
       <div className="cat-header">
-        <h2 className="cat-title">Category Title</h2>
-        <div className="cat-buttons">
-          <button className="cat-edit">E</button>
-          <button className="cat-color-picker">C</button>
-        </div>
+        <h2 className="cat-title">{cat.name}</h2>
+        <button className="cat-color">C</button>
       </div>
       <div className="cat-content">
-        {/* <Element />
-        <Element />
-        <Element />
-        <Element /> */}
-        {listElements}
-
-          <button className="btn-new-item">+ Add new item</button>
-
+        {itemList}
+        <div className="cat-content-buttons">
+          <button className="btn-new">+ New Item</button>
+          <button className="btn-edit">Edit card</button>
+        </div>
       </div>
     </div>
   );

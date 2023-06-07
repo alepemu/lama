@@ -5,6 +5,10 @@
   border-bottom: 1px solid grey;
 }
 
+.Element:last-child {
+  border-bottom: 1px solid red;
+}
+
 .el-title {
   display: flex;
   align-items: center;

@@ -1,14 +1,14 @@
 [
     {
-        "category": "Category 1",
+        "name": "Category 1",
         "color": "default"
     },
     {
-        "category": "Category 2",
+        "name": "Category 2",
         "color": "default"
     },
     {
-        "category": "Category 3",
+        "name": "Category 3",
         "color": "default"
     }
 ]

@@ -18,22 +18,17 @@
   text-align: center;
 }
 
-.cat-edit,
-.cat-color-picker {
-  margin-left: 10px;
+.cat-color {
+  background-color: lightgray;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 0;
+  border: 1px solid grey;
   cursor: pointer;
 }
 
-.cat-edit:hover {
-  background-color: rgb(231, 139, 105);
-}
-
-.cat-color-picker:hover {
-  background-color: rgb(133, 124, 227);
+.cat-color:hover {
+  background-color: grey;
 }
 
 .cat-content {
@@ -42,8 +37,15 @@
   flex-direction: column;
 }
 
-.btn-new-item {
-    margin: 5px;
+.cat-content-buttons {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-new,
+.btn-edit {
+  margin: 5px;
   align-self: center;
   padding: 5px;
   border: 1px solid grey;
@@ -52,6 +54,7 @@
   cursor: pointer;
 }
 
-.btn-new-item:hover {
-    background-color: grey;
+.btn-new:hover,
+.btn-edit:hover {
+  background-color: grey;
 }
