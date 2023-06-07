@@ -2,11 +2,6 @@
 
 const mongoose = require('mongoose');
 
-// Importing the models
-// const User = require('./user');
-// const Category = require('./category');
-// const Item = require('./item');
-
 main().catch((err) => console.log(err));
 
 async function main() {
@@ -18,5 +13,4 @@ async function main() {
   }
 }
 
-// module.exports = { User, Category, Item };
 module.exports = mongoose;
