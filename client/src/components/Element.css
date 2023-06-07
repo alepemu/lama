@@ -1,0 +1,30 @@
+.Element {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px;
+  border-bottom: 1px solid grey;
+}
+
+.el-title {
+  display: flex;
+  align-items: center;
+}
+
+.el-checked {
+    margin-right: 5px;
+}
+
+.el-edit {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+
+}
+
+
+.el-details {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

@@ -21,6 +21,11 @@
 a {
   margin-left: 25px;
   cursor: pointer;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
 }
 
 a:hover {

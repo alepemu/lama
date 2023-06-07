@@ -1,0 +1,57 @@
+.Category {
+  width: 400px;
+  border: 2px solid grey;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cat-header {
+  background-color: rgb(204, 204, 156);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid grey;
+  padding: 5px 15px;
+}
+
+.cat-title {
+  text-align: center;
+}
+
+.cat-edit,
+.cat-color-picker {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+}
+
+.cat-edit:hover {
+  background-color: rgb(231, 139, 105);
+}
+
+.cat-color-picker:hover {
+  background-color: rgb(133, 124, 227);
+}
+
+.cat-content {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-new-item {
+    margin: 5px;
+  align-self: center;
+  padding: 5px;
+  border: 1px solid grey;
+  background-color: lightgray;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-new-item:hover {
+    background-color: grey;
+}

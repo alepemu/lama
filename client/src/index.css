@@ -6,6 +6,6 @@
 }
 
 body {
-    background: linear-gradient(45deg, #ada2a2, #ffffff);
-    /* background-color: rgb(238, 236, 232); */
+    /* background: linear-gradient(45deg, #ada2a2, #ffffff); */
+    background-color: rgb(238, 236, 232);
 }
