@@ -2,10 +2,9 @@
 
 const { Category, Item } = require('../models/models');
 
-exports.getItem = async (ctx) => {
+exports.getItemById = async (ctx) => {
   try {
-    // {"_id": "6480b2fd2c52e1d6d167330a"}
-    const itemId = ctx.request.body._id;
+    const itemId = ctx.params.id;
     ctx.body = await Item.findById(itemId);
     ctx.status = 200;
   } catch (error) {

@@ -1,11 +1,6 @@
 async function loadUser(userId) {
-  const response = await fetch('http://localhost:3100/getuser', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ _id: userId }),
-  });
+  const response = await fetch('http://localhost:3100/user/' + userId);
   const user = await response.json();
-  // console.log('api',user);
   return user;
 }
 

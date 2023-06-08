@@ -2,10 +2,9 @@
 
 const { User } = require('../models/models');
 
-exports.getUser = async (ctx) => {
+exports.getUserById = async (ctx) => {
   try {
-    // {"_id": "6480a98535fbc7221e4f2eb2"}
-    const userId = ctx.request.body._id;
+    const userId = ctx.params.id;
     ctx.body = await User.findById(userId);
     ctx.status = 200;
   } catch (error) {

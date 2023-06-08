@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
+import { newCat } from '../services/ApiCategory';
 import Category from './Category';
 import './Dashboard.css';
 
@@ -15,9 +16,20 @@ function Dashboard() {
         setUserCat(response.categories);
       })
       .catch((error) => console.log(error));
+    console.log('Dashboard rendered', userCat);
   }, []);
 
-  let catList = userCat.map((id) => <Category key={id} catId={id} />);
+  let catList = userCat.map((catId) => (
+    <Category key={catId} catId={catId} setUserCat={setUserCat} />
+  ));
+
+  function newCategory() {
+    const currentUser = user._id;
+    const content = { userId: currentUser, content: { name: 'newCatFromWeb1', color: 'default' } };
+    newCat(content)
+      .then((cat) => setUserCat([...userCat, cat]))
+      .catch((error) => console.log(error));
+  }
 
   return (
     <div className="Dashboard">
@@ -26,7 +38,9 @@ function Dashboard() {
         <h3>Notification Settings</h3>
       </div>
       <div id="dashboard-pool">{catList}</div>
-      <button className="btn-new-cat">Add New Category</button>
+      <button className="btn-new-cat" onClick={newCategory}>
+        Add New Category
+      </button>
     </div>
   );
 }

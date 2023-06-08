@@ -2,10 +2,9 @@
 
 const { User, Category } = require('../models/models');
 
-exports.getCat = async (ctx) => {
+exports.getCatById = async (ctx) => {
   try {
-    // {"_id": "6480b01df511c7b079b0cf75"}
-    const catId = ctx.request.body._id;
+    const catId = ctx.params.id;
     ctx.body = await Category.findById(catId);
     ctx.status = 200;
   } catch (error) {
@@ -23,7 +22,8 @@ exports.createCat = async (ctx) => {
     const newCat = await Category.create(content);
     const user = await User.findById(userId);
     const newCatList = [...user.categories, newCat._id];
-    ctx.body = await User.findByIdAndUpdate(userId, { $set: { categories: newCatList } });
+    const updatedUser = await User.findByIdAndUpdate(userId, { $set: { categories: newCatList } });
+    ctx.body = newCat;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;
@@ -42,7 +42,10 @@ exports.deleteCat = async (ctx) => {
     const isCategory = (cat) => cat._id === catId;
     const catIndex = user.categories.findIndex(isCategory);
     user.categories.splice(catIndex, 1);
-    ctx.body = await User.findByIdAndUpdate(userId, { $set: { categories: user.categories } });
+    const updatedUser = await User.findByIdAndUpdate(userId, {
+      $set: { categories: user.categories },
+    });
+    ctx.body = deletedCategory;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;

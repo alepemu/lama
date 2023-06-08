@@ -6,8 +6,8 @@
 - [x] Create pages
 - [ ] Dashboard redirects here if no user logged in
 ## Dashboard
-- [ ] Jupiter
-- [ ] Saturn
+- [ ]
+- [ ]
 ### Categories
 - [ ] Category deletion
 - [ ] Category name change
@@ -33,7 +33,7 @@ clear
 - 08.06 (T) -> Connect BE/FE |
 ~~Create pages for Log In / New User~~ |
 ~~Connect New User to BE~~ |
-Connect DB/BE to FE / Render elements |
+~~Connect DB/BE to FE / Render elements~~ |
 Connect New/Edit Category to BE |
 Connect New/Edit Item to BE |
 - 09.06 (F) -> MVP

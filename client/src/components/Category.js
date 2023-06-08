@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { loadCat } from '../services/ApiCategory';
+import { loadCat, delCat } from '../services/ApiCategory';
 import Element from './Element';
 import './Category.css';
 
-function Category({ catId }) {
+function Category({ catId, setUserCat }) {
   const [category, setCategory] = useState({});
   const [catItems, setCatItems] = useState([]);
 
@@ -16,7 +16,20 @@ function Category({ catId }) {
       .catch((error) => console.log(error));
   }, []);
 
-  let itemList = catItems.map((id) => <Element key={id} itemId={id} />);
+  let itemList = catItems.map((itemId) => <Element key={itemId} itemId={itemId} />);
+
+  function deleteCategory() {
+    const catId = category._id;
+    const userId = '6480a98535fbc7221e4f2eb2';
+    const content = { userId, catId };
+    delCat(content)
+      .then((cat) => console.log('removed cat', cat.name))
+      // .then(setUserCat((userCat) => userCat.filter((cat) => cat._id !== catId)))
+      // .then((cat) => setUserCat((userCat) => { console.log('userCat before filter', userCat);
+      // userCat.filter((cat) => cat._id !== catId)}))
+      // .then(console.log('UserCat filtered'))
+      .catch((error) => console.log(error));
+  }
 
   return (
     <div className="Category">
@@ -28,7 +41,9 @@ function Category({ catId }) {
         {itemList}
         <div className="cat-content-buttons">
           <button className="btn-new">+ New Item</button>
-          <button className="btn-edit">Edit card</button>
+          <button className="btn-edit" onClick={deleteCategory}>
+            Remove card
+          </button>
         </div>
       </div>
     </div>
