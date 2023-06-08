@@ -31,19 +31,39 @@ exports.createCat = async (ctx) => {
   }
 };
 
+// exports.deleteCat = async (ctx) => {
+//   try {
+//     // { "userId": "6480a98535fbc7221e4f2eb2",
+//     //   "catId": "..." }
+//     const userId = ctx.request.body.userId;
+//     const catId = ctx.request.body.catId;
+//     const deletedCategory = await Category.findByIdAndDelete(catId);
+//     const user = await User.findById(userId);
+//     const isCategory = (cat) => cat._id === catId;
+//     const catIndex = user.categories.findIndex(isCategory);
+//     user.categories.splice(catIndex, 1);
+//     const updatedUser = await User.findByIdAndUpdate(userId, {
+//       $set: { categories: user.categories },
+//     });
+//     ctx.body = deletedCategory;
+//     ctx.status = 200;
+//   } catch (error) {
+//     ctx.body = error.message;
+//     ctx.status = 500;
+//   }
+// };
+
 exports.deleteCat = async (ctx) => {
   try {
     // { "userId": "6480a98535fbc7221e4f2eb2",
     //   "catId": "..." }
     const userId = ctx.request.body.userId;
     const catId = ctx.request.body.catId;
-    const deletedCategory = await Category.findByIdAndDelete(catId);
     const user = await User.findById(userId);
-    const isCategory = (cat) => cat._id === catId;
-    const catIndex = user.categories.findIndex(isCategory);
-    user.categories.splice(catIndex, 1);
-    const updatedUser = await User.findByIdAndUpdate(userId, {
-      $set: { categories: user.categories },
+    const deletedCategory = await Category.findByIdAndDelete(catId);
+
+    await User.findByIdAndUpdate(userId, {
+      $set: { categories: user.categories.filter((cat) => cat.toString() !== catId) },
     });
     ctx.body = deletedCategory;
     ctx.status = 200;

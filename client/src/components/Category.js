@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { loadCat, delCat } from '../services/ApiCategory';
+import { loadCat } from '../services/ApiCategory';
 import Element from './Element';
 import './Category.css';
 
-function Category({ catId, setUserCat }) {
+function Category({ catId, deleteCategory }) {
   const [category, setCategory] = useState({});
   const [catItems, setCatItems] = useState([]);
 
@@ -18,32 +18,48 @@ function Category({ catId, setUserCat }) {
 
   let itemList = catItems.map((itemId) => <Element key={itemId} itemId={itemId} />);
 
-  function deleteCategory() {
-    const catId = category._id;
-    const userId = '6480a98535fbc7221e4f2eb2';
-    const content = { userId, catId };
-    delCat(content)
-      .then((cat) => console.log('removed cat', cat.name))
-      // .then(setUserCat((userCat) => userCat.filter((cat) => cat._id !== catId)))
-      // .then((cat) => setUserCat((userCat) => { console.log('userCat before filter', userCat);
-      // userCat.filter((cat) => cat._id !== catId)}))
-      // .then(console.log('UserCat filtered'))
-      .catch((error) => console.log(error));
-  }
+  // function deleteCategory() {
+  //   const catId = category._id;
+  //   const userId = '6480a98535fbc7221e4f2eb2';
+  //   const content = { userId, catId };
+  //   delCat(content)
+  //     .then((cat) => console.log('removed cat', cat.name))
+  //     // .then(setUserCat((userCat) => userCat.filter((cat) => cat._id !== catId)))
+  //     // .then((cat) => setUserCat((userCat) => { console.log('userCat before filter', userCat);
+  //     // userCat.filter((cat) => cat._id !== catId)}))
+  //     // .then(console.log('UserCat filtered'))
+  //     .catch((error) => console.log(error));
+  // }
+
+  // function deleteCategory() {
+  //   const catId = category._id;
+  //   const userId = '6480a98535fbc7221e4f2eb2';
+  //   const content = { userId, catId };
+  //   delCat(content)
+  //     .then((response) => console.log('deleted', response))
+  //     // .then(setUserCatList((userCatList) => userCatList.filter((cat) => cat._id !== catId)))
+  //     // .then(setUserCatList((userCatList) => userCatList))
+  //     .then(console.log('catId', catId))
+  //     .then(setUserCatList((list) => list))
+  //     .catch((error) => console.log(error));
+  // }
 
   return (
     <div className="Category">
       <div className="cat-header">
         <h2 className="cat-title">{category.name}</h2>
-        <button className="cat-color">C</button>
+        {/* <button className="cat-color">C</button> */}
+        <button className="cat-remove" onClick={() => deleteCategory(category._id)}>
+          Delete
+        </button>
       </div>
       <div className="cat-content">
         {itemList}
         <div className="cat-content-buttons">
-          <button className="btn-new">+ New Item</button>
-          <button className="btn-edit" onClick={deleteCategory}>
+          {/* <button className="btn-new">+ New Item</button> */}
+          {/* <button className="btn-edit" onClick={deleteCategory}>
             Remove card
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
