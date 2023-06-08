@@ -3,7 +3,7 @@ import { loadItem } from '../services/ApiItem';
 
 import './Element.css';
 
-function Element({ itemId }) {
+function Element({ itemId, deleteItem }) {
   const [item, setItem] = useState({});
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function Element({ itemId }) {
     <div className="Element">
       <div className="el-title">
         <input className="el-checked" type="checkbox"></input>
-        <button className="el-edit"></button>
+        <button className="el-edit" onClick={() => deleteItem(item._id)}></button>
         <h4>{item.title}</h4>
       </div>
 

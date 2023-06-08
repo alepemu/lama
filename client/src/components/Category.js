@@ -18,7 +18,7 @@ function Category({ catId, deleteCategory }) {
       .catch((error) => console.log(error));
   }, []);
 
-  let itemList = catItems.map((itemId) => <Element key={itemId} itemId={itemId} />);
+  let itemList = catItems.map((itemId) => <Element key={itemId} itemId={itemId} deleteItem={deleteItem}/>);
 
   function createItem(e) {
     e.preventDefault();
@@ -38,19 +38,18 @@ function Category({ catId, deleteCategory }) {
     setNewItemTitle('');
   }
 
-
-  // function deleteCategory(id) {
-  //   const catId = id;
-  //   const userId = user._id;
-  //   const content = { userId, catId };
-  //   delCat(content)
-  //     .then(
-  //       setUserCatList((userCatList) => {
-  //         return userCatList.filter((cat) => cat !== catId);
-  //       })
-  //     )
-  //     .catch((error) => console.log(error));
-  // }
+  function deleteItem(id) {
+    const itemId = id;
+    const catId = category._id;
+    const content = { catId, itemId };
+    delItem(content)
+      .then(
+        setCatItems((catItems) => {
+          return catItems.filter((item) => item !== itemId);
+        })
+      )
+      .catch((error) => console.log(error));
+  }
 
   return (
     <div className="Category">

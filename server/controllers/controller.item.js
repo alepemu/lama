@@ -37,15 +37,17 @@ exports.createItem = async (ctx) => {
 exports.deleteItem = async (ctx) => {
   try {
     // { "catId": "6480b01df511c7b079b0cf75",
-    //   "itemId": "6480d4862aaaaedb3eaf0dda" }
+    //   "itemId": "..." }
     const catId = ctx.request.body.catId;
     const itemId = ctx.request.body.itemId;
-    const deletedItem = await Item.findByIdAndDelete(itemId);
     const category = await Category.findById(catId);
-    const isItem = (item) => item._id === itemId;
-    const itemIndex = category.items.findIndex(isItem);
-    category.items.splice(itemIndex, 1);
-    ctx.body = await Category.findByIdAndUpdate(catId, { $set: { items: category.items } });
+    const deletedItem = await Item.findByIdAndDelete(itemId);
+
+    await Category.findByIdAndUpdate(catId, {
+      $set: { items: category.items.filter((item) => item.toString() !== itemId) },
+    });
+
+    ctx.body = deletedItem;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;
