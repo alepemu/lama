@@ -9,10 +9,11 @@ function NavBar() {
           <Link to="/">LAMA</Link>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/about">About</Link>
+          
         </div>
 
         <div id="nav-right">
-          <button>Log In</button>
+          <Link to="/login">Log In</Link>
         </div>
       </div>
     </div>
