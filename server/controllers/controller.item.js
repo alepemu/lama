@@ -25,7 +25,8 @@ exports.createItem = async (ctx) => {
     const newItem = await Item.create(content);
     const cat = await Category.findById(catId);
     const newItemList = [...cat.items, newItem._id];
-    ctx.body = await Category.findByIdAndUpdate(catId, { $set: { items: newItemList } });
+    const updatedCat = await Category.findByIdAndUpdate(catId, { $set: { items: newItemList } });
+    ctx.body = newItem;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;

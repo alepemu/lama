@@ -7,7 +7,7 @@ import './Dashboard.css';
 function Dashboard() {
   const [user, setUser] = useState({});
   const [userCatList, setUserCatList] = useState([]);
-  const [newCatTitle, setNewCat] = useState('');
+  const [newCatTitle, setNewCatTitle] = useState('');
 
   let currentUserId = '6480a98535fbc7221e4f2eb2';
 
@@ -37,7 +37,7 @@ function Dashboard() {
         setUserCatList([...userCatList, cat._id]);
       })
       .catch((error) => console.log(error));
-    setNewCat('');
+    setNewCatTitle('');
   }
 
   function deleteCategory(id) {
@@ -67,7 +67,7 @@ function Dashboard() {
           id="input-new-cat"
           name="new-cat-name"
           value={newCatTitle}
-          onChange={(e) => setNewCat(e.target.value)}
+          onChange={(e) => setNewCatTitle(e.target.value)}
           placeholder="Enter a new category name"
         ></input>
         <button className="btn-new-cat">Add New Category</button>

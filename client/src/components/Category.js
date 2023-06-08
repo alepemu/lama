@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { loadCat } from '../services/ApiCategory';
+import { newItem, delItem } from '../services/ApiItem';
 import Element from './Element';
 import './Category.css';
 
 function Category({ catId, deleteCategory }) {
   const [category, setCategory] = useState({});
   const [catItems, setCatItems] = useState([]);
+  const [newItemTitle, setNewItemTitle] = useState('');
 
   useEffect(() => {
     loadCat(catId)
@@ -18,29 +20,35 @@ function Category({ catId, deleteCategory }) {
 
   let itemList = catItems.map((itemId) => <Element key={itemId} itemId={itemId} />);
 
-  // function deleteCategory() {
-  //   const catId = category._id;
-  //   const userId = '6480a98535fbc7221e4f2eb2';
-  //   const content = { userId, catId };
-  //   delCat(content)
-  //     .then((cat) => console.log('removed cat', cat.name))
-  //     // .then(setUserCat((userCat) => userCat.filter((cat) => cat._id !== catId)))
-  //     // .then((cat) => setUserCat((userCat) => { console.log('userCat before filter', userCat);
-  //     // userCat.filter((cat) => cat._id !== catId)}))
-  //     // .then(console.log('UserCat filtered'))
-  //     .catch((error) => console.log(error));
-  // }
+  function createItem(e) {
+    e.preventDefault();
+    if (newItemTitle === '') {
+      alert('Give a name!');
+      return;
+    }
+    const content = {
+      catId: category._id,
+      content: { title: newItemTitle, frequency: 123456, start_date: 987654321, checked: false },
+    };
+    newItem(content)
+      .then((item) => {
+        setCatItems([...catItems, item._id]);
+      })
+      .catch((error) => console.log(error));
+    setNewItemTitle('');
+  }
 
-  // function deleteCategory() {
-  //   const catId = category._id;
-  //   const userId = '6480a98535fbc7221e4f2eb2';
+
+  // function deleteCategory(id) {
+  //   const catId = id;
+  //   const userId = user._id;
   //   const content = { userId, catId };
   //   delCat(content)
-  //     .then((response) => console.log('deleted', response))
-  //     // .then(setUserCatList((userCatList) => userCatList.filter((cat) => cat._id !== catId)))
-  //     // .then(setUserCatList((userCatList) => userCatList))
-  //     .then(console.log('catId', catId))
-  //     .then(setUserCatList((list) => list))
+  //     .then(
+  //       setUserCatList((userCatList) => {
+  //         return userCatList.filter((cat) => cat !== catId);
+  //       })
+  //     )
   //     .catch((error) => console.log(error));
   // }
 
@@ -56,10 +64,17 @@ function Category({ catId, deleteCategory }) {
       <div className="cat-content">
         {itemList}
         <div className="cat-content-buttons">
-          {/* <button className="btn-new">+ New Item</button> */}
-          {/* <button className="btn-edit" onClick={deleteCategory}>
-            Remove card
-          </button> */}
+          <form onSubmit={createItem}>
+            <input
+              type="text"
+              id="input-new-item"
+              name="new-item-name"
+              value={newItemTitle}
+              onChange={(e) => setNewItemTitle(e.target.value)}
+              placeholder="New item"
+            ></input>
+            <button className="btn-new">+ New Item</button>
+          </form>
         </div>
       </div>
     </div>
