@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router-dom';
+import { createUserApi } from '../services/userService';
 
 function SignUp() {
-  const [userData, setUserData] = useState({ name: '', email: '', pw: '' });
+  const [userData, setUserData] = useState({ name: '', email: '', password: '' });
 
   function handleInput(e) {
     const { name, value } = e.target;
@@ -15,9 +16,10 @@ function SignUp() {
     const userDataValues = {
       name: userData.name,
       email: userData.email,
-      password: userData.pw,
+      password: userData.password,
     };
-    setUserData({ name: '', email: '', pw: '' });
+    createUserApi(userDataValues)
+    setUserData({ name: '', email: '', password: '' });
   }
 
   return (
@@ -47,8 +49,8 @@ function SignUp() {
         <input
           type="password"
           id="form-pw"
-          name="pw"
-          value={userData.pw}
+          name="password"
+          value={userData.password}
           onChange={handleInput}
           placeholder="Enter password"
         ></input>

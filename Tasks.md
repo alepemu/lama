@@ -3,7 +3,7 @@
 - [ ] Progressive Web App
 - [ ] Improve / change design
 ## Log In / Create User
-- [ ] Create pages
+- [x] Create pages
 - [ ] Dashboard redirects here if no user logged in
 ## Dashboard
 - [ ] Jupiter
@@ -31,8 +31,8 @@ clear
 
 # Program
 - 08.06 (T) -> Connect BE/FE |
-Create pages for Log In / New User |
-Connect New User to BE |
+~~Create pages for Log In / New User~~ |
+~~Connect New User to BE~~ |
 Connect DB/BE to FE / Render elements |
 Connect New/Edit Category to BE |
 Connect New/Edit Item to BE |
