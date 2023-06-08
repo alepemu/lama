@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
-import { newCat, delCat } from '../services/ApiCategory';
+import { loadCat, newCat, delCat } from '../services/ApiCategory';
+import { delItem } from '../services/ApiItem';
 import Category from './Category';
 import './Dashboard.css';
 
@@ -44,7 +45,20 @@ function Dashboard() {
     const catId = id;
     const userId = user._id;
     const content = { userId, catId };
-    delCat(content)
+
+    // Delete items in category first
+    // Then delete category and update user cat list
+    loadCat(id)
+      .then((response) => response.items)
+      .then((list) => {
+        // console.log(list);
+        list.forEach((item) => {
+          console.log(item);
+          const content = { catId, itemId: item };
+          delItem(content);
+        });
+      })
+      .then(delCat(content))
       .then(
         setUserCatList((userCatList) => {
           return userCatList.filter((cat) => cat !== catId);
@@ -52,6 +66,19 @@ function Dashboard() {
       )
       .catch((error) => console.log(error));
   }
+
+  // function deleteCategory(id) {
+  //   const catId = id;
+  //   const userId = user._id;
+  //   const content = { userId, catId };
+  //   delCat(content)
+  //     .then(
+  //       setUserCatList((userCatList) => {
+  //         return userCatList.filter((cat) => cat !== catId);
+  //       })
+  //     )
+  //     .catch((error) => console.log(error));
+  // }
 
   return (
     <div className="Dashboard">
