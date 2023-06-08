@@ -19,13 +19,13 @@
 }
 
 a {
-  margin-left: 25px;
+  margin: 0px 15px;
   cursor: pointer;
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  /* color: black; */
 }
 
 a:hover {
@@ -33,7 +33,7 @@ a:hover {
   text-decoration: underline;
 }
 
-#nav-right > button {
+/* #nav-right > button {
   margin-right: 25px;
   padding: 5px 15px;
   background-color: rgb(170, 170, 170);
@@ -46,8 +46,4 @@ a:hover {
 
 #nav-right > button:hover {
   background-color: rgb(179, 144, 98);
-}
-
-footer {
-    margin: 20px 0px;
-}
+} */
