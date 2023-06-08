@@ -4,16 +4,19 @@
 - [ ] Improve / change design
 ## Log In / Create User
 - [x] Create pages
+- [x] Basic user creation
 - [ ] Dashboard redirects here if no user logged in
 ## Dashboard
 - [ ]
 - [ ]
 ### Categories
-- [ ] Category deletion
+- [x] Category creation
+- [x] Category deletion
 - [ ] Category name change
 - [ ] Category color change
 ### Items
-- [ ] Item deletion
+- [x] Item creation
+- [x] Item deletion
 - [ ] Item checked
 - [ ] Item title change
 - [ ] Item start date change
@@ -34,9 +37,14 @@ clear
 ~~Create pages for Log In / New User~~ |
 ~~Connect New User to BE~~ |
 ~~Connect DB/BE to FE / Render elements~~ |
-Connect New/Edit Category to BE |
-Connect New/Edit Item to BE |
-- 09.06 (F) -> MVP
+~~Connect New/Delete Category to BE~~ |
+~~Connect New/Delete Item to BE~~ |
+Delete category deletes all items
+- 09.06 (F) -> Category edition |
+Item add starting date |
+Item add frequency |
+Item check |
+Item edition |
 - 10.06 (S) -> User authentication
 - 11.06 (S) -> PWA
 - 12.06 (M) -> AI chat

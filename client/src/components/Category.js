@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 import { loadCat } from '../services/ApiCategory';
 import { newItem, delItem } from '../services/ApiItem';
-import Element from './Element';
+import Item from './Item';
 import './Category.css';
 
 function Category({ catId, deleteCategory }) {
   const [category, setCategory] = useState({});
-  const [catItems, setCatItems] = useState([]);
+  const [catItemsList, setCatItemsList] = useState([]);
   const [newItemTitle, setNewItemTitle] = useState('');
 
   useEffect(() => {
     loadCat(catId)
       .then((response) => {
         setCategory(response);
-        setCatItems(response.items);
+        setCatItemsList(response.items);
       })
       .catch((error) => console.log(error));
   }, []);
 
-  let itemList = catItems.map((itemId) => <Element key={itemId} itemId={itemId} deleteItem={deleteItem}/>);
+  let itemList = catItemsList.map((itemId) => <Item key={itemId} itemId={itemId} deleteItem={deleteItem}/>);
 
   function createItem(e) {
     e.preventDefault();
@@ -32,7 +32,7 @@ function Category({ catId, deleteCategory }) {
     };
     newItem(content)
       .then((item) => {
-        setCatItems([...catItems, item._id]);
+        setCatItemsList([...catItemsList, item._id]);
       })
       .catch((error) => console.log(error));
     setNewItemTitle('');
@@ -44,7 +44,7 @@ function Category({ catId, deleteCategory }) {
     const content = { catId, itemId };
     delItem(content)
       .then(
-        setCatItems((catItems) => {
+        setCatItemsList((catItems) => {
           return catItems.filter((item) => item !== itemId);
         })
       )

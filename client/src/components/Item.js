@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { loadItem } from '../services/ApiItem';
 
-import './Element.css';
+import './Item.css';
 
-function Element({ itemId, deleteItem }) {
+function Item({ itemId, deleteItem }) {
   const [item, setItem] = useState({});
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function Element({ itemId, deleteItem }) {
   }, []);
 
   return (
-    <div className="Element">
+    <div className="Item">
       <div className="el-title">
         <input className="el-checked" type="checkbox"></input>
         <button className="el-edit" onClick={() => deleteItem(item._id)}></button>
@@ -34,4 +34,4 @@ function Element({ itemId, deleteItem }) {
   );
 }
 
-export default Element;
+export default Item;

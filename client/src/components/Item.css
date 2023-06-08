@@ -1,11 +1,11 @@
-.Element {
+.Item {
   display: flex;
   justify-content: space-between;
   padding: 3px;
   border-bottom: 1px solid grey;
 }
 
-.Element:last-child {
+.Item:last-child {
   border-bottom: 1px solid red;
 }
 
