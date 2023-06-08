@@ -1,6 +1,19 @@
+import { useEffect, useState } from 'react';
+import { loadItem } from '../services/ApiItem';
+
 import './Element.css';
 
-function Element({item}) {
+function Element({ itemId }) {
+  const [item, setItem] = useState({});
+
+  useEffect(() => {
+    loadItem(itemId)
+      .then((response) => {
+        setItem(response);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div className="Element">
       <div className="el-title">
@@ -10,8 +23,12 @@ function Element({item}) {
       </div>
 
       <div className="el-details">
-        <p>every <strong>{item.frequency}</strong></p>
-        <p>next reminder <strong>{item.start_date}</strong></p>
+        <p>
+          every <strong>{item.frequency}</strong>
+        </p>
+        <p>
+          next reminder <strong>{item.start_date}</strong>
+        </p>
       </div>
     </div>
   );

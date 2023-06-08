@@ -20,6 +20,7 @@
 
 #dashboard-pool {
     display: flex;
+    justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
     padding: 25px;

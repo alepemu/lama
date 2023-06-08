@@ -12,26 +12,16 @@ function Dashboard() {
     loadUser(currentUserId)
       .then((response) => {
         setUser(response);
-        setUserCat(response.categories)
-        // console.log('client', response);
+        setUserCat(response.categories);
       })
-      // .then(setUserCat(user.categories))
-      // .then((catList = userCat.map((id) => <Category catId={id} />)))
-      // .then(console.log(userCat))
       .catch((error) => console.log(error));
   }, []);
 
-  // let list = [1, 2, 3, 4];
-  // let list = userCat.map((id) => <Category catId={id} />);
-  // console.log(userCat);
-   let catList = userCat.map((id) => <Category key={id} catId={id} />)
-  //  console.log('catlist', catList);
-
-
+  let catList = userCat.map((id) => <Category key={id} catId={id} />);
 
   return (
     <div className="Dashboard">
-      <h2 id="welcome-msg">Welcome back \username\</h2>
+      <h2 id="welcome-msg">Welcome back {user.name}</h2>
       <div id="dashboard-adjustments">
         <h3>Notification Settings</h3>
       </div>

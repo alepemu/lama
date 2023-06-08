@@ -15,6 +15,7 @@ router.post('/category', catController.createCat);
 router.delete('/category', catController.deleteCat);
 router.put('/category', catController.updateCat);
 
+router.post('/getitem', itemController.getItem)
 router.post('/item', itemController.createItem)
 router.delete('/item', itemController.deleteItem)
 router.put('/item', itemController.updateItem)
