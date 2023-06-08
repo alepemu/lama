@@ -2,6 +2,18 @@
 
 const { User, Category } = require('../models/models');
 
+exports.getCat = async (ctx) => {
+  try {
+    // {"_id": "6480b01df511c7b079b0cf75"}
+    const catId = ctx.request.body._id;
+    ctx.body = await Category.findById(catId);
+    ctx.status = 200;
+  } catch (error) {
+    ctx.body = error.message;
+    ctx.status = 500;
+  }
+};
+
 exports.createCat = async (ctx) => {
   try {
     // { "userId": "6480a98535fbc7221e4f2eb2",

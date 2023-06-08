@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router-dom';
-import { createUserApi } from '../services/userService';
+import { createUser } from '../services/ApiUser';
 
 function SignUp() {
   const [userData, setUserData] = useState({ name: '', email: '', password: '' });
@@ -18,7 +18,7 @@ function SignUp() {
       email: userData.email,
       password: userData.password,
     };
-    createUserApi(userDataValues)
+    createUser(userDataValues)
     setUserData({ name: '', email: '', password: '' });
   }
 

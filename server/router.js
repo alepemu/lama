@@ -7,8 +7,10 @@ const userController = require('./controllers/controller.user');
 const catController = require('./controllers/controller.cat');
 const itemController = require('./controllers/controller.item');
 
+router.post('/getuser', userController.getUser)
 router.post('/user', userController.createUser)
 
+router.post('/getcategory', catController.getCat);
 router.post('/category', catController.createCat);
 router.delete('/category', catController.deleteCat);
 router.put('/category', catController.updateCat);
