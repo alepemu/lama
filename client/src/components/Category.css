@@ -3,6 +3,7 @@
   border: 2px solid grey;
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 2px 2px 5px grey;
 }
 
 .cat-header {
@@ -18,17 +19,26 @@
   text-align: center;
 }
 
-.cat-color {
+/* .cat-color {
   background-color: lightgray;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   border: 1px solid grey;
   cursor: pointer;
+} */
+
+/* .cat-color:hover {
+  background-color: grey;
+} */
+
+.cat-buttons {
+  display: flex;
 }
 
-.cat-color:hover {
-  background-color: grey;
+.cat-edit-btn, .cat-remove-btn {
+  background-color: aqua;
+  margin: 0px 10px;
 }
 
 .cat-content {
@@ -57,4 +67,12 @@
 .btn-new:hover,
 .btn-edit:hover {
   background-color: grey;
+}
+
+
+
+
+.modal {
+  padding: 50px 100px;
+  background-color: aqua;
 }

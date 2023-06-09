@@ -19,7 +19,7 @@ function Dashboard() {
         setUserCatList(response.categories);
       })
       .catch((error) => console.log(error));
-    console.log('Dashboard rendered', userCatList);
+    // console.log('Dashboard rendered', userCatList);
   }, []);
 
   let catList = userCatList.map((catId) => (

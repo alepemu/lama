@@ -39,7 +39,7 @@ clear
 ~~Connect DB/BE to FE / Render elements~~ |
 ~~Connect New/Delete Category to BE~~ |
 ~~Connect New/Delete Item to BE~~ |
-Delete category deletes all items
+~~Delete category deletes all items~~
 - 09.06 (F) -> Category edition |
 Item add starting date |
 Item add frequency |

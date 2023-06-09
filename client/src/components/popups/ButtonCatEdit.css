@@ -1,0 +1,10 @@
+.cat-color-btn {
+    background-color: aqua;
+  }
+
+  .color-edit-window {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 15px;
+  }

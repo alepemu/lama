@@ -1,0 +1,17 @@
+.cat-color-btn {
+  background-color: aqua;
+}
+
+.color-picker-window {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.color-picker-window > button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
