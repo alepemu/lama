@@ -6,8 +6,24 @@
   box-shadow: 2px 2px 5px grey;
 }
 
+.cat-def {
+  background-color: rgb(255, 255, 255);
+}
+.cat-red {
+  background-color: rgb(255, 202, 202);
+}
+.cat-green {
+  background-color: rgb(200, 255, 200);
+}
+.cat-blue {
+  background-color: rgb(203, 203, 255);
+}
+.cat-yellow {
+  background-color: rgb(255, 255, 199);
+}
+
 .cat-header {
-  background-color: rgb(204, 204, 156);
+  background-color: rgb(224, 224, 224);
   display: flex;
   justify-content: space-between;
   align-items: center;

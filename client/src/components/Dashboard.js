@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
-import { loadCat, newCat, delCat } from '../services/ApiCategory';
+import { loadCat, newCat, delCat, updateCat } from '../services/ApiCategory';
 import { delItem } from '../services/ApiItem';
 import Category from './Category';
 import './Dashboard.css';
@@ -23,7 +23,11 @@ function Dashboard() {
   }, []);
 
   let catList = userCatList.map((catId) => (
-    <Category key={catId} catId={catId} deleteCategory={deleteCategory} />
+    <Category
+      key={catId}
+      catId={catId}
+      deleteCategory={deleteCategory}
+    />
   ));
 
   function newCategory(e) {
@@ -32,7 +36,7 @@ function Dashboard() {
       alert('Give a name!');
       return;
     }
-    const content = { userId: user._id, content: { name: newCatTitle, color: 'default' } };
+    const content = { userId: user._id, content: { name: newCatTitle, color: 'cat-def' } };
     newCat(content)
       .then((cat) => {
         setUserCatList([...userCatList, cat._id]);
@@ -66,19 +70,6 @@ function Dashboard() {
       )
       .catch((error) => console.log(error));
   }
-
-  // function deleteCategory(id) {
-  //   const catId = id;
-  //   const userId = user._id;
-  //   const content = { userId, catId };
-  //   delCat(content)
-  //     .then(
-  //       setUserCatList((userCatList) => {
-  //         return userCatList.filter((cat) => cat !== catId);
-  //       })
-  //     )
-  //     .catch((error) => console.log(error));
-  // }
 
   return (
     <div className="Dashboard">

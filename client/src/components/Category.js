@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loadCat } from '../services/ApiCategory';
+import { loadCat, updateCat } from '../services/ApiCategory';
 import { newItem, delItem } from '../services/ApiItem';
 import Item from './Item';
 import './Category.css';
@@ -59,13 +59,20 @@ function Category({ catId, deleteCategory }) {
       .catch((error) => console.log(error));
   }
 
+  function updateCategory(_id, name, color) {
+    const content = { _id, name, color };
+    updateCat(content)
+      .then((response) => setCategory(response))
+      .catch((error) => console.log(error));
+  }
+
   return (
-    <div className="Category">
+    <div className={`Category ${category.color}`}>
       <div className="cat-header">
         <h2 className="cat-title">{category.name}</h2>
         <div className="cat-buttons">
-          <ButtonCatEdit deleteCategory={deleteCategory} catId={category._id} />
-          <ButtonCatColor />
+          <ButtonCatEdit updateCategory={updateCategory} deleteCategory={deleteCategory} cat={category} />
+          <ButtonCatColor updateCategory={updateCategory} cat={category}/>
         </div>
       </div>
       <div className="cat-content">

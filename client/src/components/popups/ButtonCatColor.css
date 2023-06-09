@@ -1,5 +1,8 @@
 .cat-color-btn {
-  background-color: aqua;
+  background-color: white;
+  padding: 3px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .color-picker-window {
@@ -14,4 +17,20 @@
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.cp-r {
+  background-color: rgb(255, 198, 198);
+}
+
+.cp-g {
+  background-color: rgb(215, 255, 215);
+}
+
+.cp-b {
+  background-color: rgb(209, 209, 255);
+}
+
+.cp-y {
+  background-color: rgb(255, 255, 215);
 }

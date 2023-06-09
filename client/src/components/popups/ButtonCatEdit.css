@@ -1,10 +1,13 @@
-.cat-color-btn {
-    background-color: aqua;
-  }
+.cat-edit-btn {
+  background-color: white;
+  padding: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .color-edit-window {
-    display: flex;
-    gap: 5px;
-    padding: 10px;
-    border-radius: 15px;
-  }
+.color-edit-window {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 15px;
+}

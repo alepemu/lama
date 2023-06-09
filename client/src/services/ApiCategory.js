@@ -24,4 +24,15 @@ async function delCat(catData) {
   return deletedCategory;
 }
 
-module.exports = { loadCat, newCat, delCat };
+async function updateCat(catData) {
+  // console.log('data', catData);
+  return fetch('http://localhost:3100/category', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(catData),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+}
+
+module.exports = { loadCat, newCat, delCat, updateCat };

@@ -54,12 +54,13 @@ exports.deleteCat = async (ctx) => {
 
 exports.updateCat = async (ctx) => {
   try {
-    // { "_id": "6480b01df511c7b079b0cf75",
+    // { "_id": "6482e3a99d1f99e48569793d",
     //   "name": "Household v2",
     //   "color": "yellow" }
     const catChanges = ctx.request.body;
     const catId = catChanges._id;
-    ctx.body = await Category.findByIdAndUpdate(catId, { $set: catChanges });
+    const updatedCategory = await Category.findByIdAndUpdate(catId, { $set: catChanges }, {new: true});
+    ctx.body = updatedCategory
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;
