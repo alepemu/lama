@@ -1,19 +1,11 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import './ButtonCatColor.css';
-import { useState } from 'react';
 
-function ButtonCatColor({updateCategory, cat}) {
-  // const [newColor, setNewColor] = useState(cat.color);
-
+function ButtonCatColor({ updateCategory, cat }) {
   function changeColor(col) {
-    // console.log(col)
-    // console.log(cat);
-    // console.log(cat._id);
-    // console.log(cat.name);
     updateCategory(cat._id, cat.name, col);
-  } 
-
+  }
 
   return (
     <PopupState variant="popover" popupId="demo-popup-popover">
@@ -34,10 +26,18 @@ function ButtonCatColor({updateCategory, cat}) {
             }}
           >
             <div className="color-picker-window">
-              <button class="cp-r" onClick={() => changeColor('cat-red')}>R</button>
-              <button class="cp-g" onClick={() => changeColor('cat-green')}>G</button>
-              <button class="cp-b" onClick={() => changeColor('cat-blue')}>B</button>
-              <button class="cp-y" onClick={() => changeColor('cat-yellow')}>Y</button>
+              <button className="cp-r" onClick={() => changeColor('cat-red')}>
+                R
+              </button>
+              <button className="cp-g" onClick={() => changeColor('cat-green')}>
+                G
+              </button>
+              <button className="cp-b" onClick={() => changeColor('cat-blue')}>
+                B
+              </button>
+              <button className="cp-y" onClick={() => changeColor('cat-yellow')}>
+                Y
+              </button>
             </div>
           </Popover>
         </div>

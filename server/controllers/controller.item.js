@@ -64,7 +64,8 @@ exports.updateItem = async (ctx) => {
     // "checked": "false" }
     const itemChanges = ctx.request.body;
     const itemId = itemChanges._id;
-    ctx.body = await Item.findByIdAndUpdate(itemId, { $set: itemChanges });
+    const updatedItem = await Item.findByIdAndUpdate(itemId, { $set: itemChanges }, {new: true});
+    ctx.body = updatedItem;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;

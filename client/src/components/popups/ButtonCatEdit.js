@@ -4,7 +4,7 @@ import './ButtonCatEdit.css';
 import { useState } from 'react';
 
 function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
-  const [newName, setNewName] = useState('');
+  const [newName, setNewName] = useState(cat.name);
 
   function updateName(e) {
     e.preventDefault();
@@ -36,7 +36,6 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
                   type="text"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
-                  placeholder="New name"
                 ></input>
                 <input type="submit"></input>
               </form>

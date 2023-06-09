@@ -15,16 +15,26 @@
 }
 
 .el-checked {
-    margin-right: 5px;
+  margin-right: 5px;
+}
+
+.el-remove {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  background-color: red;
+  border: 1px solid grey;
+  cursor: pointer;
 }
 
 .el-edit {
-    width: 12px;
-    height: 12px;
-    margin-right: 5px;
-
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  background-color: purple;
+  border: 1px solid grey;
+  cursor: pointer;
 }
-
 
 .el-details {
   font-size: small;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { loadItem } from '../services/ApiItem';
+import { loadItem, updItem } from '../services/ApiItem';
 
 import './Item.css';
+import ButtonItemEdit from './popups/ButtonItemEdit';
 
 function Item({ itemId, deleteItem }) {
   const [item, setItem] = useState({});
@@ -14,11 +15,20 @@ function Item({ itemId, deleteItem }) {
       .catch((error) => console.log(error));
   }, []);
 
+  function updateItem(itemData) {
+    console.log('item-start', itemData);
+    updItem(itemData)
+      .then((response) => setItem(response))
+      .catch((error) => console.log(error));
+  }
+
   return (
     <div className="Item">
       <div className="el-title">
         <input className="el-checked" type="checkbox"></input>
-        <button className="el-edit" onClick={() => deleteItem(item._id)}></button>
+        <button className="el-remove" onClick={() => deleteItem(item._id)}></button>
+        {/* <button className="el-edit" onClick={() => deleteItem(item._id)}></button> */}
+        <ButtonItemEdit updateItem={updateItem} item={item} />
         <h4>{item.title}</h4>
       </div>
 

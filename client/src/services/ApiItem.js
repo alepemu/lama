@@ -24,4 +24,25 @@ async function delItem(itemData) {
   return deletedItem;
 }
 
-module.exports = { loadItem, newItem, delItem };
+// async function updItem(itemData) {
+//   return fetch('http://localhost:3100/item', {
+//     method: 'PUT',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(itemData),
+//   })
+//     .then((res) => res.json())
+//     .catch((err) => console.log(err));
+// }
+
+async function updItem(itemData) {
+  const response = await fetch('http://localhost:3100/item', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(itemData),
+  });
+  const parsedRes = await response.json()
+  // console.log('parsed', parsedRes);  
+  return parsedRes;
+}
+
+module.exports = { loadItem, newItem, delItem, updItem };

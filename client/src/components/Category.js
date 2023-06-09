@@ -4,9 +4,6 @@ import { newItem, delItem } from '../services/ApiItem';
 import Item from './Item';
 import './Category.css';
 
-import Button from '@mui/material/Button';
-import Popover from '@mui/material/Popover';
-import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import ButtonCatColor from './popups/ButtonCatColor';
 import ButtonCatEdit from './popups/ButtonCatEdit';
 
