@@ -5,7 +5,6 @@ import ButtonCatEdit from './popups/ButtonCatEdit';
 import ButtonCatColor from './popups/ButtonCatColor';
 import Item from './Item';
 import './Category.css';
-import Popover from '@mui/material/Popover';
 
 function Category({ catId, deleteCategory }) {
   const [category, setCategory] = useState({});
@@ -20,10 +19,6 @@ function Category({ catId, deleteCategory }) {
       })
       .catch((error) => console.log(error));
   }, []);
-
-  let itemList = catItemsList.map((itemId) => (
-    <Item key={itemId} itemId={itemId} deleteItem={deleteItem} />
-  ));
 
   function createItem(e) {
     e.preventDefault();
@@ -63,22 +58,20 @@ function Category({ catId, deleteCategory }) {
       .catch((error) => console.log(error));
   }
 
+  let itemList = catItemsList.map((itemId) => (
+    <Item key={itemId} itemId={itemId} deleteItem={deleteItem} />
+  ));
+
   return (
     <div className={`Category ${category.color}`}>
       <div className="cat-header">
         <h2>{category.name}</h2>
         <div className="cat-buttons">
-
-
-
-
           <ButtonCatEdit
             updateCategory={updateCategory}
             deleteCategory={deleteCategory}
             cat={category}
           />
-
-
           <ButtonCatColor updateCategory={updateCategory} cat={category} />
         </div>
       </div>
@@ -101,12 +94,5 @@ function Category({ catId, deleteCategory }) {
     </div>
   );
 }
-
-
-
-
-
-
-
 
 export default Category;

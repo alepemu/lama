@@ -22,14 +22,6 @@ function Dashboard() {
     // console.log('Dashboard rendered', userCatList);
   }, []);
 
-  let catList = userCatList.map((catId) => (
-    <Category
-      key={catId}
-      catId={catId}
-      deleteCategory={deleteCategory}
-    />
-  ));
-
   function newCategory(e) {
     e.preventDefault();
     if (newCatTitle === '') {
@@ -49,7 +41,6 @@ function Dashboard() {
     const catId = id;
     const userId = user._id;
     const content = { userId, catId };
-
     // Delete items in category first
     // Then delete category and update user cat list
     loadCat(id)
@@ -70,6 +61,10 @@ function Dashboard() {
       )
       .catch((error) => console.log(error));
   }
+
+  let catList = userCatList.map((catId) => (
+    <Category key={catId} catId={catId} deleteCategory={deleteCategory} />
+  ));
 
   return (
     <div className="Dashboard">
