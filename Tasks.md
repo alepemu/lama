@@ -40,11 +40,11 @@ clear
 ~~Connect New/Delete Category to BE~~ |
 ~~Connect New/Delete Item to BE~~ |
 ~~Delete category deletes all items~~
-- 09.06 (F) -> Category edition |
-Item add starting date |
+- 09.06 (F) -> ~~Category edition~~ |
+~~Item add starting date~~ |
 Item add frequency |
 Item check |
-Item edition |
+~~Item edition~~ |
 - 10.06 (S) -> User authentication
 - 11.06 (S) -> PWA
 - 12.06 (M) -> AI chat

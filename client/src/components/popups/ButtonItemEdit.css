@@ -1,16 +1,12 @@
 .item-edit-btn {
-    width: 12px;
-    height: 12px;
-    margin-right: 5px;
-    background-color: purple;
-    border: 1px solid grey;
-    cursor: pointer;
-  }
-  
-  .item-edit-window {
-    display: flex;
-    gap: 5px;
-    padding: 10px;
-    border-radius: 15px;
-  }
-  
+  opacity: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.item-edit-window {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 15px;
+}

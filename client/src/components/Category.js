@@ -4,8 +4,8 @@ import { newItem, delItem } from '../services/ApiItem';
 import Item from './Item';
 import './Category.css';
 
-import ButtonCatColor from './popups/ButtonCatColor';
 import ButtonCatEdit from './popups/ButtonCatEdit';
+import ButtonCatColor from './popups/ButtonCatColor';
 
 function Category({ catId, deleteCategory }) {
   const [category, setCategory] = useState({});

@@ -2,6 +2,7 @@ import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import { useState } from 'react';
 import './ButtonItemEdit.css';
+import BuildIcon from '@mui/icons-material/Build';
 
 function ButtonItemEdit({ updateItem, item }) {
   //   const [itemChange, setItemChange] = useState({
@@ -34,11 +35,16 @@ function ButtonItemEdit({ updateItem, item }) {
     <PopupState variant="popover" popupId="demo-popup-popover">
       {(popupState) => (
         <div>
-          <button
+          {/* <button
             className="item-edit-btn"
             variant="contained"
             {...bindTrigger(popupState)}
-          ></button>
+          ></button> */}
+
+          <BuildIcon 
+            className="item-edit-btn"
+            variant="contained"
+            {...bindTrigger(popupState)}/>
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{

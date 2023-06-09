@@ -27,6 +27,22 @@
     gap: 25px;
 }
 
+.new-cat-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#input-new-cat {
+    border: 0;
+    border-bottom: 1px solid grey;
+    border-radius: 10px;
+height: 40px;
+
+font-size: medium;
+padding-left: 10px;
+}
+
 .btn-new-cat {
     margin: 15px;
     align-self: center;

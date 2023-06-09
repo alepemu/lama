@@ -2,6 +2,8 @@ import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import './ButtonCatEdit.css';
 import { useState } from 'react';
+import BuildIcon from '@mui/icons-material/Build';
+import ClearIcon from '@mui/icons-material/Clear';
 
 function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
   const [newName, setNewName] = useState(cat.name);
@@ -16,9 +18,10 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
     <PopupState variant="popover" popupId="demo-popup-popover">
       {(popupState) => (
         <div>
-          <button className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)}>
+          {/* <button className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)}>
             Edit
-          </button>
+          </button> */}
+          <BuildIcon className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)} />
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{
@@ -39,7 +42,8 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
                 ></input>
                 <input type="submit"></input>
               </form>
-              <button onClick={() => deleteCategory(cat._id)}>Delete category</button>
+              <ClearIcon onClick={() => deleteCategory(cat._id)} />
+              {/* <button onClick={() => deleteCategory(cat._id)}>Delete category</button> */}
             </div>
           </Popover>
         </div>

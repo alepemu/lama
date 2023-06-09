@@ -1,8 +1,11 @@
 .cat-color-btn {
-  background-color: white;
-  padding: 3px;
-  border-radius: 5px;
   cursor: pointer;
+  opacity: 30%;
+  transition: 0.5s ease-in-out;
+}
+.cat-color-btn:hover {
+  transition: 0.2s ease-in-out;
+  opacity: 100%;
 }
 
 .color-picker-window {

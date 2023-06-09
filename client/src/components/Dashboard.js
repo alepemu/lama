@@ -78,17 +78,16 @@ function Dashboard() {
         <h3>Notification Settings</h3>
       </div>
       <div id="dashboard-pool">{catList}</div>
-      <form onSubmit={newCategory}>
-        <label htmlFor="input-new-cat">New Category</label>
+      <form className="new-cat-form" onSubmit={newCategory}>
         <input
           type="text"
           id="input-new-cat"
           name="new-cat-name"
           value={newCatTitle}
           onChange={(e) => setNewCatTitle(e.target.value)}
-          placeholder="Enter a new category name"
+          placeholder="New category"
         ></input>
-        <button className="btn-new-cat">Add New Category</button>
+        <button className="btn-new-cat">+</button>
       </form>
     </div>
   );
