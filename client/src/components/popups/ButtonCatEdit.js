@@ -1,12 +1,16 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import './ButtonCatEdit.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BuildIcon from '@mui/icons-material/Build';
-import ClearIcon from '@mui/icons-material/Clear';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
   const [newName, setNewName] = useState(cat.name);
+
+  useEffect(() => {
+    setNewName(cat.name);
+  }, [cat]);
 
   function updateName(e) {
     e.preventDefault();
@@ -15,12 +19,9 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
   }
 
   return (
-    <PopupState variant="popover" popupId="demo-popup-popover">
+    <PopupState variant="popover">
       {(popupState) => (
         <div>
-          {/* <button className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)}>
-            Edit
-          </button> */}
           <BuildIcon className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)} />
           <Popover
             {...bindPopover(popupState)}
@@ -42,8 +43,7 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
                 ></input>
                 <input type="submit"></input>
               </form>
-              <ClearIcon onClick={() => deleteCategory(cat._id)} />
-              {/* <button onClick={() => deleteCategory(cat._id)}>Delete category</button> */}
+              <DeleteIcon className="cat-del-btn" onClick={() => deleteCategory(cat._id)} />
             </div>
           </Popover>
         </div>

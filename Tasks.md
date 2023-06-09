@@ -12,14 +12,14 @@
 ### Categories
 - [x] Category creation
 - [x] Category deletion
-- [ ] Category name change
-- [ ] Category color change
+- [x] Category name change
+- [x] Category color change
 ### Items
 - [x] Item creation
 - [x] Item deletion
-- [ ] Item checked
-- [ ] Item title change
-- [ ] Item start date change
+- [x] Item checked
+- [x] Item title change
+- [x] Item start date change
 - [ ] Item frequency change
 ### Chat (?)
 - [ ] Integrate openai
@@ -43,7 +43,7 @@ clear
 - 09.06 (F) -> ~~Category edition~~ |
 ~~Item add starting date~~ |
 Item add frequency |
-Item check |
+~~Item check~~ |
 ~~Item edition~~ |
 - 10.06 (S) -> User authentication
 - 11.06 (S) -> PWA

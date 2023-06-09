@@ -9,12 +9,9 @@ function ButtonCatColor({ updateCategory, cat }) {
   }
 
   return (
-    <PopupState variant="popover" popupId="demo-popup-popover">
+    <PopupState variant="popover">
       {(popupState) => (
         <div>
-          {/* <button className="cat-color-btn" variant="contained" {...bindTrigger(popupState)}>
-            Color
-          </button> */}
           <ColorLensIcon className="cat-color-btn" variant="contained" {...bindTrigger(popupState)} />
           <Popover
             {...bindPopover(popupState)}

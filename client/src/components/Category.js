@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { loadCat, updateCat } from '../services/ApiCategory';
 import { newItem, delItem } from '../services/ApiItem';
-import Item from './Item';
-import './Category.css';
-
 import ButtonCatEdit from './popups/ButtonCatEdit';
 import ButtonCatColor from './popups/ButtonCatColor';
+import Item from './Item';
+import './Category.css';
+import Popover from '@mui/material/Popover';
 
 function Category({ catId, deleteCategory }) {
   const [category, setCategory] = useState({});
@@ -68,8 +68,18 @@ function Category({ catId, deleteCategory }) {
       <div className="cat-header">
         <h2>{category.name}</h2>
         <div className="cat-buttons">
-          <ButtonCatEdit updateCategory={updateCategory} deleteCategory={deleteCategory} cat={category} />
-          <ButtonCatColor updateCategory={updateCategory} cat={category}/>
+
+
+
+
+          <ButtonCatEdit
+            updateCategory={updateCategory}
+            deleteCategory={deleteCategory}
+            cat={category}
+          />
+
+
+          <ButtonCatColor updateCategory={updateCategory} cat={category} />
         </div>
       </div>
       <div className="cat-content">
@@ -84,12 +94,19 @@ function Category({ catId, deleteCategory }) {
               onChange={(e) => setNewItemTitle(e.target.value)}
               placeholder="New item"
             ></input>
-            <button type='submit'>+</button>
+            <button type="submit">+</button>
           </form>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
 
 export default Category;

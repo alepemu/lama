@@ -9,6 +9,9 @@ import ClearIcon from '@mui/icons-material/Clear';
 import './Item.css';
 import ButtonItemEdit from './popups/ButtonItemEdit';
 
+import { Checkbox } from '@mui/material';
+const label = {};
+
 function dateItem(date) {
   return dayjs(date).format('DD/MM/YYYY HH:mm A');
 }
@@ -43,15 +46,21 @@ function Item({ itemId, deleteItem }) {
 
   return (
     <div className="Item">
-      <div className="el-title">
-        <input className="el-checked" type="checkbox"></input>
-        {/* <button className="el-remove" onClick={() => deleteItem(item._id)}></button> */}
+      <div className={`el-title ${item.checked ? 'el-checked' : 'el-not-checked'}`}>
+        <Checkbox
+          onChange={() => updateItem({ ...item, checked: !item.checked })}
+          size="small"
+          color="default"
+        />
         <ClearIcon className="el-remove" onClick={() => deleteItem(item._id)} />
         <ButtonItemEdit updateItem={updateItem} item={item} />
-        <h4>{item.title}</h4>
+        <h4>
+          {item.checked ? 't-' : 'f-'}
+          {item.title}
+        </h4>
       </div>
 
-      <div className="el-details">
+      <div className={`el-details ${item.checked ? 'el-checked' : 'el-not-checked'}`}>
         <p>
           <strong>{item.frequency ? `every ${item.frequency}` : ''}</strong>
         </p>

@@ -1,6 +1,6 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ButtonItemEdit.css';
 import BuildIcon from '@mui/icons-material/Build';
 
@@ -13,26 +13,35 @@ function ButtonItemEdit({ updateItem, item }) {
   //     checked: item.checked,
   //   });
   // WHY IS THE BELOW NOT WORKING!!!!!!!!!!!!!!!!
-  //   const [itemName, setItemName] = useState(item.title);
-  const [itemTitle, setItemTitle] = useState('');
-  const [itemStartDate, setItemStartDate] = useState('');
-  const [itemFrequency, setItemFrequency] = useState('');
+    const [itemData, setItemData] = useState({});
+  // const [itemTitle, setItemTitle] = useState('');
+  // const [itemStartDate, setItemStartDate] = useState('');
+  // const [itemFrequency, setItemFrequency] = useState('');
+
+  useEffect(() => {
+    console.log('is this runnign too much');
+    // setItemTitle(item.title);
+    // setItemStartDate(item.start_date);
+    // setItemFrequency(item.frequency);
+    setItemData(item)
+  }, [item]);
+
 
   function updateContent(e) {
     e.preventDefault();
     const content = {
-      _id: item._id,
-      title: itemTitle,
-      start_date: itemStartDate,
-      frequency: itemFrequency,
-      checked: item.checked,
+      _id: itemData._id,
+      title: itemData.title,
+      start_date: itemData.start_date,
+      frequency: itemData.frequency,
+      checked: itemData.checked,
     };
     console.log('button', content);
     updateItem(content);
   }
 
   return (
-    <PopupState variant="popover" popupId="demo-popup-popover">
+    <PopupState variant="popover">
       {(popupState) => (
         <div>
           {/* <button
@@ -60,18 +69,18 @@ function ButtonItemEdit({ updateItem, item }) {
               <form onSubmit={updateContent}>
                 <input
                   type="text"
-                  value={itemTitle}
-                  onChange={(e) => setItemTitle(e.target.value)}
+                  value={itemData.title}
+                  onChange={(e) => setItemData({title: e.target.value})}
                 ></input>
                 <input
                   type="datetime-local"
-                  value={itemStartDate}
-                  onChange={(e) => setItemStartDate(e.target.value)}
+                  value={itemData.start_date}
+                  // onChange={(e) => setItemData({start_date: e.target.value})}
                 ></input>
                 <input
                   type="number"
-                  value={itemFrequency}
-                  onChange={(e) => setItemFrequency(e.target.value)}
+                  value={itemData.frequency}
+                  onChange={(e) => setItemData({frequency: e.target.value})}
                 ></input>
                 <input type="submit"></input>
               </form>

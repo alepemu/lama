@@ -16,6 +16,8 @@
 
 .el-checked {
   margin-right: 5px;
+  color: rgb(162, 162, 162);
+  text-decoration: line-through;
 }
 
 .el-remove {
