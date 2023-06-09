@@ -36,7 +36,7 @@ function Category({ catId, deleteCategory }) {
     }
     const content = {
       catId: category._id,
-      content: { title: newItemTitle, frequency: 123456, start_date: 987654321, checked: false },
+      content: { title: newItemTitle, frequency: '', start_date: '', checked: false },
     };
     newItem(content)
       .then((item) => {
@@ -69,7 +69,7 @@ function Category({ catId, deleteCategory }) {
   return (
     <div className={`Category ${category.color}`}>
       <div className="cat-header">
-        <h2 className="cat-title">{category.name}</h2>
+        <h2>{category.name}</h2>
         <div className="cat-buttons">
           <ButtonCatEdit updateCategory={updateCategory} deleteCategory={deleteCategory} cat={category} />
           <ButtonCatColor updateCategory={updateCategory} cat={category}/>
@@ -77,8 +77,8 @@ function Category({ catId, deleteCategory }) {
       </div>
       <div className="cat-content">
         {itemList}
-        <div className="cat-content-buttons">
-          <form onSubmit={createItem}>
+        <div className="cat-content-footer">
+          <form className="new-item-form" onSubmit={createItem}>
             <input
               type="text"
               id="input-new-item"
@@ -87,7 +87,7 @@ function Category({ catId, deleteCategory }) {
               onChange={(e) => setNewItemTitle(e.target.value)}
               placeholder="New item"
             ></input>
-            <button className="btn-new">+ New Item</button>
+            <button type='submit'>+</button>
           </form>
         </div>
       </div>

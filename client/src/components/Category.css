@@ -1,9 +1,8 @@
 .Category {
   width: 400px;
-  border: 2px solid grey;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 2px 2px 5px grey;
+  box-shadow: 1px 1px 5px grey;
 }
 
 .cat-def {
@@ -23,7 +22,7 @@
 }
 
 .cat-header {
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(224, 224, 224, 50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,30 +30,9 @@
   padding: 5px 15px;
 }
 
-.cat-title {
-  text-align: center;
-}
-
-/* .cat-color {
-  background-color: lightgray;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid grey;
-  cursor: pointer;
-} */
-
-/* .cat-color:hover {
-  background-color: grey;
-} */
-
 .cat-buttons {
   display: flex;
-}
-
-.cat-edit-btn, .cat-remove-btn {
-  background-color: aqua;
-  margin: 0px 10px;
+  gap: 10px;
 }
 
 .cat-content {
@@ -63,13 +41,38 @@
   flex-direction: column;
 }
 
-.cat-content-buttons {
-  margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
+.cat-content-footer {
+  margin: 15px;
+  margin-bottom: 10px;
 }
 
-.btn-new,
+.new-item-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.new-item-form > input {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid grey;
+}
+
+.new-item-form > button {
+  width: 40px;
+  border: 0;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+
+
+
+/* .item-item-form {
+  display: flex;
+  flex-direction: row;
+} */
+
+/* .btn-new,
 .btn-edit {
   margin: 5px;
   align-self: center;
@@ -83,12 +86,5 @@
 .btn-new:hover,
 .btn-edit:hover {
   background-color: grey;
-}
+} */
 
-
-
-
-.modal {
-  padding: 50px 100px;
-  background-color: aqua;
-}
