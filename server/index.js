@@ -7,6 +7,8 @@ const session = require('koa-session');
 const router = require('./router.js');
 const app = new Koa();
 
+const dispatcher = require('./services/service.dispatcher.js')
+
 const PORT = 3100;
 const CORSCONFIG = {
   origin: 'http://localhost:3000',

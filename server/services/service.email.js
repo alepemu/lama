@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const mailerSend = (userData) => {
+const mailAll = (userData) => {
   const userContent = [];
 
   userData.categories.forEach((cat) => {
@@ -21,7 +21,7 @@ const mailerSend = (userData) => {
   });
 
   const htmlContent = `
-<P>Hi ${userData.name}, this is your current list of reminders:</p>
+<p>Hi ${userData.name}, this is your current list of reminders:</p>
 ${userContent.join('')}
 `;
 
@@ -45,4 +45,26 @@ ${userContent.join('')}
   send();
 };
 
-module.exports = { mailerSend };
+const mailItem = (itemData) => {
+  const mailOptions = {
+    from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
+    to: itemData.email,
+    subject: `${itemData.name.toUpperCase()}! 🦙🦙🦙 ${itemData.title}`,
+    html: `<p>Hi ${userData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3>
+    `,
+  };
+
+  async function send() {
+    await transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  }
+
+  send();
+};
+
+module.exports = { mailAll, mailItem };

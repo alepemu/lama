@@ -1,6 +1,6 @@
 'use strict';
 
-const { mailerSend } = require('../services/service.email');
+const { mailAll } = require('../services/service.email');
 const { User, Category, Item } = require('../models/models');
 
 exports.sendEmail = async (ctx) => {
@@ -24,7 +24,7 @@ exports.sendEmail = async (ctx) => {
       userData.categories[i].items = catItems;
     }
 
-    mailerSend(userData);
+    mailAll(userData);
 
     ctx.status = 200;
   } catch (error) {
