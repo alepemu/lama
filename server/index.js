@@ -8,29 +8,28 @@ const router = require('./router.js');
 const app = new Koa();
 
 const PORT = 3100;
-// const CONFIG = {
-//   key: 'koa.sess',
-//   maxAge: 86400000,
-//   autoCommit: true,
-//   overwrite: true,
-//   httpOnly: true,
-//   signed: true,
-//   rolling: false,
-//   renew: false,
-//   secure: true,
-//   sameSite: null,
-// };
-// app.keys = ['some secret hurr'];
+const CORSCONFIG = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+};
+const CONFIG = {
+  key: 'koa.sess',
+  maxAge: 600000,
+  autoCommit: true,
+  overwrite: true,
+  httpOnly: false, //**
+  signed: true,
+  rolling: false,
+  renew: false,
+  secure: false, //**
+  sameSite: null,
+};
+app.keys = ['lamalamalama'];
 
-app.use(
-  cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  })
-);
+app.use(cors(CORSCONFIG));
 app.use(bodyParser());
-// app.use(session(CONFIG, app));
-// app.use(session(app))
+app.use(session(CONFIG, app))
+// app.use(session(app));
 app.use(router.routes());
 
 app.listen(PORT, () => {

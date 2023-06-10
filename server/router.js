@@ -9,7 +9,7 @@ const itemController = require('./controllers/controller.item');
 const emailController = require('./controllers/controller.email')
 
 router.get('/user/:id', userController.getUserById)
-router.post('/user', userController.createUser)
+router.post('/register', userController.registerUser)
 router.post('/login', userController.logIn)
 
 router.get('/category/:id', catController.getCatById);

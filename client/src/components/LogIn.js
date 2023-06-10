@@ -2,25 +2,38 @@ import { useState } from 'react';
 import './LogIn.css';
 import { Link } from 'react-router-dom';
 import { logUser } from '../services/ApiUser';
+import { useNavigate } from 'react-router-dom';
+
+const initialState = { email: '', pw: '' };
 
 function LogIn({ setCurrentUser }) {
-  const [userLogin, setUserLogin] = useState({ email: '', pw: '' });
+  const [userLogin, setUserLogin] = useState(initialState);
+
+  const navigate = useNavigate();
 
   function handleInput(e) {
     const { name, value } = e.target;
     setUserLogin({ ...userLogin, [name]: value });
   }
 
-  function logInUser(e) {
+  async function logInUser(e) {
     e.preventDefault();
-    const userLoginValues = {
+    const userLoginDetails = {
       email: userLogin.email,
       password: userLogin.pw,
     };
-    logUser(userLoginValues)
-      .then((res) => setCurrentUser(res))
-      .catch((error) => console.log(error));
-    setUserLogin({ email: '', pw: '' });
+
+    const res = await logUser(userLoginDetails);
+    if (res.error) {
+      alert(res.message);
+      setUserLogin(initialState);
+    } else {
+      setCurrentUser(res);
+      navigate('/dashboard');
+      // This sets isAuthenticated = true and redirects to profile
+      // props.setIsAuthenticated(true);
+      // auth.login(() => navigate('/profile'));
+    }
   }
 
   return (
