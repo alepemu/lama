@@ -9,16 +9,27 @@ const transporter = nodemailer.createTransport({
 });
 
 const mailerSend = (userData) => {
-  const user = {
-    name: userData.name,
-    email: userData.email,
-  };
+  const userContent = [];
+
+  userData.categories.forEach((cat) => {
+    let items = [];
+    cat.items.forEach((item) => {
+      items.push(`<li>${item.title}</li>`);
+    });
+
+    userContent.push(`<h3>Category: ${cat.name}</h3><ul>${items.join('')}</ul>`);
+  });
+
+  const htmlContent = `
+<P>Hi ${userData.name}, this is your current list of reminders:</p>
+${userContent.join('')}
+`;
 
   const mailOptions = {
-    from: '"LAMA Notifications" <lama.cw.solo@gmail.com>',
-    to: user.email,
-    subject: `Hey ${user.name.toUpperCase()}! Don't miss your reminders!`,
-    html: `<P>Hi ${user.name}, here is your current list of reminders</p><h2>Category</h2><p>Item reminder</p><p>Item reminder</p><p>Item reminder</p>`,
+    from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
+    to: userData.email,
+    subject: `Hey ${userData.name.toUpperCase()}! Don't miss your reminders! 🦙🦙🦙`,
+    html: htmlContent,
   };
 
   async function send() {
@@ -31,31 +42,7 @@ const mailerSend = (userData) => {
     });
   }
 
-  send();
+  // send();
 };
 
 module.exports = { mailerSend };
-
-// const user = {
-//   name: 'Mario',
-//   email: 'lama.cw.solo@gmail.com'
-// }
-
-// const mailOptions = {
-//   from: '"LAMA Notifications" <lama.cw.solo@gmail.com>',
-//   to: user.email,
-//   subject: `Hey ${user.name.toUpperCase()}! Don't miss your reminders!`,
-//   html: `<P>Hi ${user.name}, here is your current list of reminders</p><h2>Category</h2><p>Item reminder</p><p>Item reminder</p><p>Item reminder</p><h2>Category</h2><p>Item reminder</p><p>Item reminder</p><p>Item reminder</p><h2>Category</h2><p>Item reminder</p><p>Item reminder</p><p>Item reminder</p>`,
-// };
-
-// send();
-
-// async function send() {
-//   const result = await transporter.sendMail(mailOptions, function (error, info) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log('Email sent: ' + info.response);
-//     }
-//   });
-// }
