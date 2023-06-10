@@ -44,7 +44,10 @@
   border: 2px solid grey;
   backdrop-filter: blur(10px);
   padding: 15px;
-  overflow: hidden;
+}
+
+.chat-scroll {
+  overflow-y: scroll;
 }
 
 #chat-msgs {
@@ -71,7 +74,7 @@
   border-radius: 5px;
   margin: 3px 0px;
   max-width: 175px;
-  word-break: break-all;
+  word-break: keep-all;
 }
 
 .user {
@@ -111,4 +114,9 @@
 
 #chat-form > button:hover {
   background-color: rgb(100, 100, 100);
+}
+
+.isTyping {
+  font-size: small;
+  font-style: italic;
 }

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const initialState = { email: '', pw: '' };
 
-function LogIn({ setCurrentUser }) {
+function LogIn({ setIsLoggedIn, setCurrentUser }) {
   const [userLogin, setUserLogin] = useState(initialState);
 
   const navigate = useNavigate();
@@ -29,6 +29,7 @@ function LogIn({ setCurrentUser }) {
       setUserLogin(initialState);
     } else {
       setCurrentUser(res);
+      setIsLoggedIn(true);
       navigate('/dashboard');
       // This sets isAuthenticated = true and redirects to profile
       // props.setIsAuthenticated(true);

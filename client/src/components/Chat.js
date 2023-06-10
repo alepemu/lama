@@ -1,9 +1,35 @@
 import './Chat.css';
-import logo from '../img/icon-512x512.png'
+import logo from '../img/icon-512x512.png';
 import { useState } from 'react';
+import { AIchat } from '../services/ApiAI';
 
 function Chat() {
   const [chatOpen, setChatOpen] = useState(false);
+  const [message, setMessage] = useState('');
+  const [chats, setChats] = useState([]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  const chat = async (e, message) => {
+    e.preventDefault();
+
+    if (!message) return;
+    setIsTyping(true);
+
+    let msgs = chats;
+    msgs.push({ role: 'user', content: message });
+    setChats(msgs);
+
+    setMessage('');
+    AIchat(chats)
+      .then((data) => {
+        msgs.push(data);
+        setChats(msgs);
+        setIsTyping(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="Chat">
@@ -11,14 +37,30 @@ function Chat() {
         <img id="chat-logo" src={logo} alt="Lama logo"></img>
       </div>
       <div id="chat-container" className={chatOpen ? 'chatOpen' : 'chatClosed'}>
-        <div id="chat-msgs">
-          <div className="msg advisor">Hello, how can I assist you today?</div>
-          <div className="msg user">Hi, just testing the CSS</div>
-          <div className="msg advisor">blah blah blah</div>
-          <div className="msg user">Yes, wawawawawawawawawawawawwawa</div>
+        <div className="chat-scroll">
+          {chats && chats.length
+            ? chats.map((chat, index) => (
+                <div key={index} id="chat-msgs" className={chat.role === 'user' ? 'user_msg' : ''}>
+                  <span>
+                    <b>{chat.role.toUpperCase()}</b>
+                  </span>
+                  <div className={chat.role === 'user' ? 'msg user' : 'msg advisor'}>
+                    {chat.content}
+                  </div>
+                </div>
+              ))
+            : ''}
         </div>
-        <form id="chat-form">
-          <input id="chat-input" type="text"></input>
+        <div className={isTyping ? 'isTyping' : 'hide'}>
+          <p>{isTyping ? 'Thinking...' : ''}</p>
+        </div>
+        <form id="chat-form" onSubmit={(e) => chat(e, message)}>
+          <input
+            id="chat-input"
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></input>
           <button>▲</button>
         </form>
       </div>

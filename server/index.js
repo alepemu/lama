@@ -28,7 +28,7 @@ app.keys = ['lamalamalama'];
 
 app.use(cors(CORSCONFIG));
 app.use(bodyParser());
-app.use(session(CONFIG, app))
+app.use(session(CONFIG, app));
 // app.use(session(app));
 app.use(router.routes());
 

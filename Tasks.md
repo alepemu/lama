@@ -5,7 +5,7 @@
 ## Log In / Create User
 - [x] Create pages
 - [x] Basic user creation
-- [ ] Dashboard redirects here if no user logged in
+- [x] Dashboard redirects here if no user logged in
 ## Dashboard
 - [ ]
 ### Categories
@@ -28,7 +28,7 @@
 - [x] Create routes
 - [x] Create basic controllers
 - [ ] Refactor existing controllers
-- [ ] Add OpenAI 
+- [x] Add OpenAI 
 
 # Program
 - 08.06 (T) -> Connect BE/FE |
@@ -48,6 +48,6 @@ User session |
 Log In / Log Out correct behaviour |
 ~~Basic emails feature~~
 - 11.06 (S) -> PWA
-- 12.06 (M) -> AI chat
+- 12.06 (M) -> ~~AI chat~~
 - 13.06 (T) -> Refactor and style
 - 14.06 (W) -> To be done

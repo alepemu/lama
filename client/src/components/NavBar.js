@@ -1,25 +1,24 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 
-function NavBar({ user, setUser }) {
+function NavBar({ isLoggedIn, setIsLoggedIn, user, setUser }) {
   return (
     <div className="NavBar">
       <div id="nav-links">
         <div id="nav-left">
           <Link to="/">LAMA</Link>
-          <Link to="/dashboard">Dashboard</Link>
+          {isLoggedIn ? <Link to="/dashboard">Dashboard</Link> : <Link to="/login">Dashboard</Link>}
+
           <Link to="/about">About</Link>
         </div>
 
         <div id="nav-right">
-          <p>{user ? `Hello ${user.name}` : ''}</p>
-          {user ? '' : <Link to="/login" >Log In</Link>}
-          {user ? (
-            <Link to="/" onClick={() => setUser({})}>
+          {isLoggedIn ? (
+            <Link to="/login" onClick={() => setIsLoggedIn(false)}>
               Log Out
             </Link>
           ) : (
-            ''
+            <Link to="/login">Log In</Link>
           )}
         </div>
       </div>
