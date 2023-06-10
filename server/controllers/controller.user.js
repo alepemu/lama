@@ -24,3 +24,21 @@ exports.createUser = async (ctx) => {
     ctx.status = 500;
   }
 };
+
+exports.logIn = async (ctx) => {
+  try {
+    // {"email": "email@email.com", "password": "qwerty"}
+    const loginDetails = ctx.request.body;
+    const user = await User.findOne({ email: loginDetails.email });
+    if (loginDetails.password !== user.password) throw new Error();
+    ctx.body = user;
+    ctx.status = 200;
+
+    // const validatedPass = await bcrypt.compare(password, user.password);
+    // if (!validatedPass) throw new Error();
+    // req.session.uid = user._id;
+  } catch (error) {
+    ctx.body = error.message;
+    ctx.status = 401;
+  }
+};

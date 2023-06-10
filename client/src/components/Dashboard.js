@@ -6,15 +6,16 @@ import { sendEmail } from '../services/ApiEmail';
 import Category from './Category';
 import './Dashboard.css';
 
-function Dashboard() {
+function Dashboard({ userIdDb }) {
   const [user, setUser] = useState({});
   const [userCatList, setUserCatList] = useState([]);
   const [newCatTitle, setNewCatTitle] = useState('');
 
-  let currentUserId = '6480a98535fbc7221e4f2eb2';
+  // let currentUserId = '6480a98535fbc7221e4f2eb2';
+  // let currentUserId = currentUser;
 
   useEffect(() => {
-    loadUser(currentUserId)
+    loadUser(userIdDb)
       .then((response) => {
         setUser(response);
         setUserCatList(response.categories);
@@ -72,7 +73,7 @@ function Dashboard() {
       <h2 id="welcome-msg">Welcome back {user.name}</h2>
       <div id="dashboard-adjustments">
         <h3>Notification Settings</h3>
-        <button onClick={() => sendEmail(user._id)}>Send Email</button>
+        <button onClick={() => sendEmail(user._id)}>Send me an email with all these items</button>
       </div>
       <div id="dashboard-pool">{catList}</div>
       <form className="new-cat-form" onSubmit={newCategory}>

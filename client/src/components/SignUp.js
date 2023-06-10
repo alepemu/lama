@@ -29,7 +29,7 @@ function SignUp() {
     <div className="SignUp">
       <h3>New user</h3>
 
-      <Box
+      {/* <Box
         component="form"
         sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
@@ -66,7 +66,7 @@ function SignUp() {
         <Button variant="outlined" color="inherit" onClick={createNewUser}>
           Register
         </Button>
-      </Box>
+      </Box> */}
 
       <form onSubmit={createNewUser}>
         <label htmlFor="form-name">Name</label>

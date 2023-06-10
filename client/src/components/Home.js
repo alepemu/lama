@@ -16,12 +16,12 @@ function Home() {
           <h2><span className="first-letter">A</span>.dvisor</h2>
         </div>
       </div>
-      <div id="showcase">
+      {/* <div id="showcase">
         <section>What is this</section>
         <section>How to use</section>
         <section>Start using now</section>
       </div>
-      <footer>Footer footer footer footer footer footer footer footer footer</footer>
+      <footer>Footer footer footer footer footer footer footer footer footer</footer> */}
     </div>
   );
 }

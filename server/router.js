@@ -10,6 +10,7 @@ const emailController = require('./controllers/controller.email')
 
 router.get('/user/:id', userController.getUserById)
 router.post('/user', userController.createUser)
+router.post('/login', userController.logIn)
 
 router.get('/category/:id', catController.getCatById);
 router.post('/category', catController.createCat);

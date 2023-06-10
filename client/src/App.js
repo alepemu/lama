@@ -7,19 +7,22 @@ import About from './components/About';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import Chat from './components/Chat';
+import { useState } from 'react';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState('')
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={currentUser} setUser={setCurrentUser}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard userIdDb={currentUser._id}/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/login" element={<LogIn setCurrentUser={setCurrentUser}/>} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-      <Chat />
+      {/* <Chat /> */}
     </div>
   );
 }

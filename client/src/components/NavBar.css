@@ -33,6 +33,12 @@ a:hover {
   text-decoration: underline;
 }
 
+#nav-right {
+  display: flex;
+  color: gray;
+  font-style: italic;
+}
+
 /* #nav-right > button {
   margin-right: 25px;
   padding: 5px 15px;

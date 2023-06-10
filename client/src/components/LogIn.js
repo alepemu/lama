@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './LogIn.css';
 import { Link } from 'react-router-dom';
+import { logUser } from '../services/ApiUser';
 
-function LogIn() {
+function LogIn({ setCurrentUser }) {
   const [userLogin, setUserLogin] = useState({ email: '', pw: '' });
 
   function handleInput(e) {
@@ -16,6 +17,9 @@ function LogIn() {
       email: userLogin.email,
       password: userLogin.pw,
     };
+    logUser(userLoginValues)
+      .then((res) => setCurrentUser(res))
+      .catch((error) => console.log(error));
     setUserLogin({ email: '', pw: '' });
   }
 
@@ -26,7 +30,7 @@ function LogIn() {
       <form onSubmit={logInUser}>
         <label htmlFor="form-email">Email:</label>
         <input
-          type="email"
+          type="text"
           id="form-email"
           name="email"
           value={userLogin.email}

@@ -8,7 +8,6 @@
 - [ ] Dashboard redirects here if no user logged in
 ## Dashboard
 - [ ]
-- [ ]
 ### Categories
 - [x] Category creation
 - [x] Category deletion
@@ -23,7 +22,6 @@
 - [ ] Item frequency change
 ### Chat (?)
 - [ ] Integrate openai
-clear
 # LAMA Solo project tasks list (BE)
 - [x] Initiate Koa server
 - [x] Connect to database
@@ -45,7 +43,10 @@ clear
 Item add frequency |
 ~~Item check~~ |
 ~~Item edition~~ |
-- 10.06 (S) -> User authentication
+- 10.06 (S) -> User authentication |
+User session |
+Log In / Log Out correct behaviour |
+~~Basic emails feature~~
 - 11.06 (S) -> PWA
 - 12.06 (M) -> AI chat
 - 13.06 (T) -> Refactor and style
