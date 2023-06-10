@@ -18,7 +18,6 @@ function ButtonItemEdit({ updateItem, item }) {
   const [showFreqMenu, setShowFreqMenu] = useState(false);
 
   useEffect(() => {
-    console.log('use effect item edit running');
     setItemTitle(item.title);
     setItemStartDate(item.start_date ? dayjs(item.start_date).format('YYYY-MM-DDTHH:MM') : '');
     setItemFrequency(item.frequency || 0);

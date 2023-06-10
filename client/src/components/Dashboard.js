@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
 import { loadCat, newCat, delCat, updateCat } from '../services/ApiCategory';
 import { delItem } from '../services/ApiItem';
+import { sendEmail } from '../services/ApiEmail';
 import Category from './Category';
 import './Dashboard.css';
 
@@ -71,6 +72,7 @@ function Dashboard() {
       <h2 id="welcome-msg">Welcome back {user.name}</h2>
       <div id="dashboard-adjustments">
         <h3>Notification Settings</h3>
+        <button onClick={() => sendEmail(user._id)}>Send Email</button>
       </div>
       <div id="dashboard-pool">{catList}</div>
       <form className="new-cat-form" onSubmit={newCategory}>

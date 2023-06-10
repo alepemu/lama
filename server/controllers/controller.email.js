@@ -26,7 +26,6 @@ exports.sendEmail = async (ctx) => {
 
     mailerSend(userData);
 
-    // ctx.body = 'Success';
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;

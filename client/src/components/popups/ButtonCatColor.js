@@ -4,6 +4,7 @@ import './ButtonCatColor.css';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 
 function ButtonCatColor({ updateCategory, cat }) {
+  
   function changeColor(col) {
     updateCategory(cat._id, cat.name, col);
   }

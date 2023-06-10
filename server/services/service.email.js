@@ -42,7 +42,7 @@ ${userContent.join('')}
     });
   }
 
-  // send();
+  send();
 };
 
 module.exports = { mailerSend };
