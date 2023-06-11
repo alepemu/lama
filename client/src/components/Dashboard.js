@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
-import { loadCat, newCat, delCat, updateCat } from '../services/ApiCategory';
+import { loadCat, newCat, delCat } from '../services/ApiCategory';
 import { delItem } from '../services/ApiItem';
 import { sendEmail } from '../services/ApiEmail';
+import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import Category from './Category';
 import './Dashboard.css';
+import ButtonNotifications from './popups/ButtonNotifications';
 
 function Dashboard({ userIdDb }) {
   const [user, setUser] = useState({});
   const [userCatList, setUserCatList] = useState([]);
   const [newCatTitle, setNewCatTitle] = useState('');
-
-  // let currentUserId = '6480a98535fbc7221e4f2eb2';
-  // let currentUserId = currentUser;
 
   useEffect(() => {
     loadUser(userIdDb)
@@ -21,7 +21,6 @@ function Dashboard({ userIdDb }) {
         setUserCatList(response.categories);
       })
       .catch((error) => console.log(error));
-    // console.log('Dashboard rendered', userCatList);
   }, []);
 
   function newCategory(e) {
@@ -70,23 +69,24 @@ function Dashboard({ userIdDb }) {
 
   return (
     <div className="Dashboard">
-      <h2 id="welcome-msg">Hello there {user.name}</h2>
-      <div id="dashboard-adjustments">
-        <h3>Notification Settings</h3>
-        <button onClick={() => sendEmail(user._id)}>Send me an email with all these items</button>
+      <div id="dashboard-header">
+        <div id="dashboard-start">
+          <h2 id="welcome-msg">Hello {user.name}!</h2>
+          <form className="new-cat-form" onSubmit={newCategory}>
+            <input
+              type="text"
+              id="input-new-cat"
+              name="new-cat-name"
+              value={newCatTitle}
+              onChange={(e) => setNewCatTitle(e.target.value)}
+              placeholder="Add a new pool"
+            ></input>
+            <ArrowDropDownCircleIcon className="btn-new-cat" onClick={newCategory} />
+          </form>
+        </div>
+        <ButtonNotifications user={user}/>
       </div>
       <div id="dashboard-pool">{catList}</div>
-      <form className="new-cat-form" onSubmit={newCategory}>
-        <input
-          type="text"
-          id="input-new-cat"
-          name="new-cat-name"
-          value={newCatTitle}
-          onChange={(e) => setNewCatTitle(e.target.value)}
-          placeholder="New category"
-        ></input>
-        <button className="btn-new-cat">+</button>
-      </form>
     </div>
   );
 }

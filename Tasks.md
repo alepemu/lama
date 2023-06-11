@@ -14,17 +14,16 @@
 - [ ] Dark mode
 ## Dashboard
 - [ ] Revise layout
+- [ ] Empty page with llama
 - [ ] Notifications settings are hidden by default
 - [ ] Add option to send email weekly/monthly...
-- [x] Settings icon to wheel
-- [x] Item icons to the right, visible only when hovering
-- [x] Item date below title
-- [ ] Empty page with llama
 ### Categories
 - [x] Category creation
 - [x] Category deletion
 - [x] Category name change
 - [x] Category color change
+- [x] Settings icon to wheel
+- [ ] Add more colors
 ### Items
 - [x] Item creation
 - [x] Item deletion
@@ -32,6 +31,9 @@
 - [x] Item title change
 - [x] Item start date change
 - [ ] Item frequency change
+- [x] Settings icon to wheel
+- [x] Item icons to the right, visible only when hovering
+- [x] Item date below title
 ### Chat
 - [x] Add OpenAI 
 - [ ] Sort OpenAI API key leak

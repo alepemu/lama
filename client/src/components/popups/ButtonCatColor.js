@@ -38,6 +38,12 @@ function ButtonCatColor({ updateCategory, cat }) {
               <button className="cp-y" onClick={() => changeColor('cat-yellow')}>
                 Y
               </button>
+              <button className="cp-o" onClick={() => changeColor('cat-orange')}>
+                O
+              </button>
+              <button className="cp-p" onClick={() => changeColor('cat-purple')}>
+                P
+              </button>
             </div>
           </Popover>
         </div>

@@ -20,6 +20,12 @@
 .cat-yellow {
   background-color: rgb(255, 255, 199);
 }
+.cat-orange {
+  background-color: rgb(255, 227, 199);
+}
+.cat-purple {
+  background-color: rgb(255, 199, 252);
+}
 
 .cat-header {
   background-color: rgb(224, 224, 224, 50%);
