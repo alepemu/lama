@@ -9,7 +9,8 @@ const app = new Koa();
 
 const dispatcher = require('./services/service.dispatcher.js')
 
-const PORT = 3100;
+require('dotenv').config()
+const PORT = process.env.SERVER_PORT || 3100;
 const CORSCONFIG = {
   origin: 'http://localhost:3000',
   credentials: true,
@@ -26,7 +27,7 @@ const CONFIG = {
   secure: false, //**
   sameSite: null,
 };
-app.keys = ['lamalamalama'];
+app.keys = [process.env.SECRET || 'lamalamalama'];
 
 app.use(cors(CORSCONFIG));
 app.use(bodyParser());

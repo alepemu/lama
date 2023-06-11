@@ -1,13 +1,22 @@
 # LAMA Solo project tasks list (FE)
 - [ ] Web responsive, check small screens
 - [ ] Progressive Web App
-- [ ] Improve / change design
 ## Log In / Create User
 - [x] Create pages
 - [x] Basic user creation
 - [x] Dashboard redirects here if no user logged in
+- [ ] Notification window when registering / something wrong
+## Home
+- [ ] Catchy sentence
+- [ ] Add items and change layout
 ## Dashboard
-- [ ]
+- [ ] Revise layout
+- [ ] Notifcations settings are hidden by default
+- [ ] Add option to send email weekly/monthly...
+- [ ] Settings icon to wheel
+- [ ] Item icons to the right, visible only when hovering
+- [ ] Item date below title
+- [ ] Empty page with llama
 ### Categories
 - [x] Category creation
 - [x] Category deletion
@@ -20,18 +29,23 @@
 - [x] Item title change
 - [x] Item start date change
 - [ ] Item frequency change
-### Chat (?)
-- [ ] Integrate openai
+### Chat
+- [x] Add OpenAI 
+- [ ] Sort OpenAI API key leak
 # LAMA Solo project tasks list (BE)
 - [x] Initiate Koa server
 - [x] Connect to database
 - [x] Create routes
 - [x] Create basic controllers
-- [ ] Refactor existing controllers
-- [x] Add OpenAI 
+
+### Other
+- [ ] Refactor
+- [ ] Update database so nodes point both directions
+- [x] Add.env file 
+
 
 # Program
-- 08.06 (T) -> Connect BE/FE |
+- 08.06 (T) -> ~~Connect BE/FE~~ |
 ~~Create pages for Log In / New User~~ |
 ~~Connect New User to BE~~ |
 ~~Connect DB/BE to FE / Render elements~~ |
@@ -50,4 +64,4 @@ Log In / Log Out correct behaviour |
 - 11.06 (S) -> PWA
 - 12.06 (M) -> ~~AI chat~~
 - 13.06 (T) -> Refactor and style
-- 14.06 (W) -> To be done
+- 14.06 (W) -> Video
