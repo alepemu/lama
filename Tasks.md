@@ -10,13 +10,15 @@
 ## Home
 - [ ] Catchy sentence
 - [ ] Add items and change layout
+## Navbar
+- [ ] Dark mode
 ## Dashboard
 - [ ] Revise layout
-- [ ] Notifcations settings are hidden by default
+- [ ] Notifications settings are hidden by default
 - [ ] Add option to send email weekly/monthly...
-- [ ] Settings icon to wheel
-- [ ] Item icons to the right, visible only when hovering
-- [ ] Item date below title
+- [x] Settings icon to wheel
+- [x] Item icons to the right, visible only when hovering
+- [x] Item date below title
 - [ ] Empty page with llama
 ### Categories
 - [x] Category creation

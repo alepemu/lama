@@ -1,7 +1,11 @@
 .item-edit-btn {
-  opacity: 50%;
+  opacity: 5%;
   cursor: pointer;
-  margin-right: 10px;
+}
+
+.item-edit-btn:hover {
+  transition: 0.2s ease-in-out;
+  opacity: 60%;
 }
 
 .item-edit-window {
@@ -20,7 +24,7 @@
 
 .item-freq-window {
   display: flex;
-justify-content: space-around;
+  justify-content: space-around;
 }
 
 .item-freq-window > input {

@@ -30,24 +30,24 @@ function Item({ itemId, deleteItem }) {
 
   return (
     <div className="Item">
-      <div className={`el-title ${item.checked ? 'el-checked' : 'el-not-checked'}`}>
+      <div className={`el-title`}>
         <Checkbox
           checked={item.checked ? true : false}
           onChange={() => updateItem({ ...item, checked: !item.checked })}
           size="small"
           color="default"
         />
-        <ClearIcon className="el-remove" onClick={() => deleteItem(item._id)} />
-        <ButtonItemEdit updateItem={updateItem} item={item} />
-        <h4>{item.title}</h4>
-      </div>
-      <div className={`el-details ${item.checked ? 'el-checked' : 'el-not-checked'}`}>
-        <p>
+        <div className="el-content">
+          <h4 className={item.checked ? 'el-checked' : 'el-not-checked'}>{item.title}</h4>
+          {/* <p>
           <strong>{item.frequency ? `every ${item.frequency}` : ''}</strong>
-        </p>
-        <p>
-          <strong>{item.start_date ? dateItem(item.start_date) : ''}</strong>
-        </p>
+        </p> */}
+          <p  className="el-date">{item.start_date ? dateItem(item.start_date) : ''}</p>
+        </div>
+      </div>
+      <div className='el-details'>
+        <ButtonItemEdit className='el-edit' updateItem={updateItem} item={item} />
+        <ClearIcon className="el-remove" onClick={() => deleteItem(item._id)} />
       </div>
     </div>
   );

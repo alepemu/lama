@@ -2,7 +2,7 @@ import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import './ButtonCatEdit.css';
 import { useEffect, useState } from 'react';
-import BuildIcon from '@mui/icons-material/Build';
+import SettingsIcon from '@mui/icons-material/Settings';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
@@ -22,7 +22,7 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
     <PopupState variant="popover">
       {(popupState) => (
         <div>
-          <BuildIcon className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)} />
+          <SettingsIcon className="cat-edit-btn" variant="contained" {...bindTrigger(popupState)} />
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{

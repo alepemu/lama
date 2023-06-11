@@ -70,7 +70,7 @@ function Dashboard({ userIdDb }) {
 
   return (
     <div className="Dashboard">
-      <h2 id="welcome-msg">Welcome back {user.name}</h2>
+      <h2 id="welcome-msg">Hello there {user.name}</h2>
       <div id="dashboard-adjustments">
         <h3>Notification Settings</h3>
         <button onClick={() => sendEmail(user._id)}>Send me an email with all these items</button>
