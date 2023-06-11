@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import './SignUp.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createUser } from '../services/ApiUser';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-function SignUp() {
+function SignUp({ setIsLoggedIn, setCurrentUser }) {
   const [userData, setUserData] = useState({ name: '', email: '', password: '' });
+
+  const navigate = useNavigate();
 
   function handleInput(e) {
     const { name, value } = e.target;
@@ -21,8 +23,12 @@ function SignUp() {
       email: userData.email,
       password: userData.password,
     };
-    createUser(userDataValues);
-    setUserData({ name: '', email: '', password: '' });
+    createUser(userDataValues).then((user) => {
+      setCurrentUser(user);
+      setIsLoggedIn(true);
+    });
+    alert('User created!');
+    navigate('/dashboard');
   }
 
   return (

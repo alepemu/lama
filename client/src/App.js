@@ -15,7 +15,12 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={currentUser} setUser={setCurrentUser} />
+      <NavBar
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        user={currentUser}
+        setUser={setCurrentUser}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard userIdDb={currentUser._id} />} />
@@ -24,7 +29,10 @@ function App() {
           path="/login"
           element={<LogIn setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}
         />
-        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/signup"
+          element={<SignUp setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />}
+        />
       </Routes>
       <Chat />
     </div>

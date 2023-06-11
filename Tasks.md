@@ -5,7 +5,8 @@
 - [x] Create pages
 - [x] Basic user creation
 - [x] Dashboard redirects here if no user logged in
-- [ ] Notification window when registering / something wrong
+- [x] Notification / behaviour when registering / login
+- [ ] Add conditions for the input fields
 ## Home
 - [ ] Catchy sentence
 - [ ] Add items and change layout

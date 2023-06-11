@@ -14,7 +14,13 @@ function NavBar({ isLoggedIn, setIsLoggedIn, user, setUser }) {
 
         <div id="nav-right">
           {isLoggedIn ? (
-            <Link to="/login" onClick={() => setIsLoggedIn(false)}>
+            <Link
+              to="/login"
+              onClick={() => {
+                setIsLoggedIn(false);
+                alert('You have been logged out');
+              }}
+            >
               Log Out
             </Link>
           ) : (

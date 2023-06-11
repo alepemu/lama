@@ -12,8 +12,8 @@ async function createUser(userData) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData),
   });
-  // const user = await response.json();
-  // console.log(user);
+  const user = await response.json();
+  return user;
 }
 
 async function logUser(userData) {
