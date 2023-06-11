@@ -22,7 +22,6 @@ function Item({ itemId, deleteItem }) {
   }
 
   function updateItem(itemData) {
-    console.log('item-start', itemData);
     updItem(itemData)
       .then((response) => setItem(response))
       .catch((error) => console.log(error));

@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
 import { loadCat, newCat, delCat } from '../services/ApiCategory';
 import { delItem } from '../services/ApiItem';
-import { sendEmail } from '../services/ApiEmail';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import ButtonNotifications from './popups/ButtonNotifications';
 import Category from './Category';
 import './Dashboard.css';
-import ButtonNotifications from './popups/ButtonNotifications';
+import logo from '../img/icon-512x512.png'
 
 function Dashboard({ userIdDb }) {
   const [user, setUser] = useState({});
@@ -47,9 +46,7 @@ function Dashboard({ userIdDb }) {
     loadCat(id)
       .then((response) => response.items)
       .then((list) => {
-        // console.log(list);
         list.forEach((item) => {
-          console.log(item);
           const content = { catId, itemId: item };
           delItem(content);
         });
@@ -84,8 +81,19 @@ function Dashboard({ userIdDb }) {
             <ArrowDropDownCircleIcon className="btn-new-cat" onClick={newCategory} />
           </form>
         </div>
-        <ButtonNotifications user={user}/>
+        <ButtonNotifications user={user} />
       </div>
+      {userCatList.length ? (
+        ''
+      ) : (
+        <div id='dashboard-empty'>
+          <h1>Your board is empty!</h1>
+          <h1>Try adding some new pools</h1>
+          <img id='lama1' className='lama-shake' src={logo} alt="Lama logo"></img>
+          {/* <img id='lama2' className='rotate' src={logo} alt="Lama logo"></img> */}
+          {/* <img id='lama3' className='displacement' src={logo} alt="Lama logo"></img> */}
+        </div>
+      )}
       <div id="dashboard-pool">{catList}</div>
     </div>
   );

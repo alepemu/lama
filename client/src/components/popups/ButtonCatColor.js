@@ -26,24 +26,15 @@ function ButtonCatColor({ updateCategory, cat }) {
             }}
           >
             <div className="color-picker-window">
-              <button className="cp-r" onClick={() => changeColor('cat-red')}>
-                R
-              </button>
-              <button className="cp-g" onClick={() => changeColor('cat-green')}>
-                G
-              </button>
-              <button className="cp-b" onClick={() => changeColor('cat-blue')}>
-                B
-              </button>
-              <button className="cp-y" onClick={() => changeColor('cat-yellow')}>
-                Y
-              </button>
-              <button className="cp-o" onClick={() => changeColor('cat-orange')}>
-                O
-              </button>
-              <button className="cp-p" onClick={() => changeColor('cat-purple')}>
-                P
-              </button>
+              <button className="cp-def" onClick={() => changeColor('cat-def')}></button>
+              <button className="cp-grey" onClick={() => changeColor('cat-grey')}></button>
+              <button className="cp-r" onClick={() => changeColor('cat-red')}></button>
+              <button className="cp-o" onClick={() => changeColor('cat-orange')}></button>
+              <button className="cp-y" onClick={() => changeColor('cat-yellow')}></button>
+              <button className="cp-g" onClick={() => changeColor('cat-green')}></button>
+              <button className="cp-c" onClick={() => changeColor('cat-cyan')}></button>
+              <button className="cp-b" onClick={() => changeColor('cat-blue')}></button>
+              <button className="cp-p" onClick={() => changeColor('cat-purple')}></button>
             </div>
           </Popover>
         </div>

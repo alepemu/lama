@@ -3,6 +3,7 @@ import { loadCat, updateCat } from '../services/ApiCategory';
 import { newItem, delItem } from '../services/ApiItem';
 import ButtonCatEdit from './popups/ButtonCatEdit';
 import ButtonCatColor from './popups/ButtonCatColor';
+import ArrowDropDownCircleOutlinedIcon from '@mui/icons-material/ArrowDropDownCircleOutlined';
 import Item from './Item';
 import './Category.css';
 
@@ -79,6 +80,7 @@ function Category({ catId, deleteCategory }) {
         {itemList}
         <div className="cat-content-footer">
           <form className="new-item-form" onSubmit={createItem}>
+            <ArrowDropDownCircleOutlinedIcon className="btn-new-item" onClick={createItem} />
             <input
               type="text"
               id="input-new-item"
@@ -87,7 +89,7 @@ function Category({ catId, deleteCategory }) {
               onChange={(e) => setNewItemTitle(e.target.value)}
               placeholder="New item"
             ></input>
-            <button type="submit">+</button>
+            {/* <button type="submit">+</button> */}
           </form>
         </div>
       </div>

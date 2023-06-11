@@ -8,6 +8,9 @@
 .cat-def {
   background-color: rgb(255, 255, 255);
 }
+.cat-grey {
+  background-color: rgb(206, 206, 206);
+}
 .cat-red {
   background-color: rgb(255, 202, 202);
 }
@@ -25,6 +28,9 @@
 }
 .cat-purple {
   background-color: rgb(255, 199, 252);
+}
+.cat-cyan {
+  background-color: rgb(199, 248, 255);
 }
 
 .cat-header {
@@ -48,19 +54,21 @@
 }
 
 .cat-content-footer {
-  margin: 15px;
-  margin-bottom: 10px;
+  margin: 15px 10px 10px;
 }
 
 .new-item-form {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 
-.new-item-form > input {
+#input-new-item {
+  width: 50%;
+  background-color: rgb(255, 255, 255, 0%);
   border: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgb(183, 183, 183);
+  padding: 0px 5px;
 }
 
 .new-item-form > button {
@@ -71,26 +79,13 @@
 }
 
 
-
-
-/* .item-item-form {
-  display: flex;
-  flex-direction: row;
-} */
-
-/* .btn-new,
-.btn-edit {
-  margin: 5px;
-  align-self: center;
-  padding: 5px;
-  border: 1px solid grey;
-  background-color: lightgray;
-  border-radius: 10px;
+.btn-new-item {
+  opacity: 30%;
+  transform: rotate(180deg);
   cursor: pointer;
 }
 
-.btn-new:hover,
-.btn-edit:hover {
-  background-color: grey;
-} */
-
+.btn-new-item:hover {
+  transition: 0.2s ease-in-out;
+  opacity: 60%;
+}

@@ -1,5 +1,5 @@
 # LAMA Solo project tasks list (FE)
-- [ ] Web responsive, check small screens
+- [ ] Web responsive
 - [ ] Progressive Web App
 ## Log In / Create User
 - [x] Create pages
@@ -13,17 +13,17 @@
 ## Navbar
 - [ ] Dark mode
 ## Dashboard
-- [ ] Revise layout
-- [ ] Empty page with llama
-- [ ] Notifications settings are hidden by default
-- [ ] Add option to send email weekly/monthly...
+- [x] Revise layout
+- [x] Empty page with llama
+- [x] Notifications settings are hidden by default
+- [x] Add option to send email weekly
 ### Categories
 - [x] Category creation
 - [x] Category deletion
 - [x] Category name change
 - [x] Category color change
 - [x] Settings icon to wheel
-- [ ] Add more colors
+- [x] Add more colors
 ### Items
 - [x] Item creation
 - [x] Item deletion
@@ -36,7 +36,7 @@
 - [x] Item date below title
 ### Chat
 - [x] Add OpenAI 
-- [ ] Sort OpenAI API key leak
+- [x] Sort OpenAI API key leak
 # LAMA Solo project tasks list (BE)
 - [x] Initiate Koa server
 - [x] Connect to database
@@ -45,7 +45,9 @@
 
 ### Other
 - [ ] Refactor
-- [ ] Update database so nodes point both directions
+- [ ] Fix errors
+- [ ] Update db users for notifications settings
+- [ ] Update db cat and items to point both ways
 - [x] Add.env file 
 
 

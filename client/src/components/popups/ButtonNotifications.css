@@ -18,6 +18,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-right: 15px;
 }
 
 #all-notes-p {

@@ -33,7 +33,6 @@ function ButtonItemEdit({ updateItem, item }) {
       frequency: itemFrequency,
       checked: item.checked,
     };
-    console.log('button', content);
     updateItem(content);
   }
 
@@ -41,7 +40,11 @@ function ButtonItemEdit({ updateItem, item }) {
     <PopupState variant="popover">
       {(popupState) => (
         <div>
-          <SettingsIcon className="item-edit-btn" variant="contained" {...bindTrigger(popupState)} />
+          <SettingsIcon
+            className="item-edit-btn"
+            variant="contained"
+            {...bindTrigger(popupState)}
+          />
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{
@@ -68,7 +71,7 @@ function ButtonItemEdit({ updateItem, item }) {
                   onChange={(e) => setItemStartDate(e.target.value)}
                 ></input>
 
-                <FormControl>
+                {/* <FormControl>
                   <RadioGroup
                     defaultValue="no-freq"
                     onChange={() => setShowFreqMenu(!showFreqMenu)}
@@ -95,7 +98,7 @@ function ButtonItemEdit({ updateItem, item }) {
                       <option value="month">month(s)</option>
                     </select>
                   </div>
-                )}
+                )} */}
                 <input type="submit" value="Update"></input>
               </form>
             </div>

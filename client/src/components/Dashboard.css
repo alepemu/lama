@@ -66,3 +66,83 @@
   opacity: 60%;
   transition: 0.2s ease-in-out;
 }
+
+#dashboard-empty {
+  margin-top: 100px;
+  opacity: 25%;
+  /* background-color: aqua; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lama1 {
+  position: absolute;
+  width: 300px;
+  filter: grayscale(100%);
+  right: -300px;
+  top: -50px;
+  opacity: 50%;
+}
+
+.lama-shake {
+  animation: shaking 2s infinite ease-in-out;
+}
+
+@keyframes shaking {
+  0% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  0% {
+    transform: rotate(0deg);
+  }
+}
+
+#lama2 {
+  position: absolute;
+  width: 150px;
+  filter: grayscale(100%);
+  left: -200px;
+  top: -50px;
+}
+
+.rotate {
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  to {
+    transform: scaleX(-1) rotate(359deg);
+  }
+}
+
+#lama3 {
+  position: absolute;
+  width: 50px;
+  filter: grayscale(100%);
+  top: -50px;
+  right: 50px;
+}
+
+.displacement {
+  animation: displacement 3s infinite ease-in-out;
+}
+
+@keyframes displacement {
+  0% {
+    transform: scaleX(-1) translateX(0);
+  }
+  50% {
+    transform: scaleX(-1) translateX(250px);
+  }
+  100% {
+    transform: scaleX(-1);
+  }
+}

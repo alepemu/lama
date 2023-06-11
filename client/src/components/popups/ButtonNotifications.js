@@ -1,11 +1,11 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import './ButtonNotifications.css';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Checkbox } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { Checkbox } from '@mui/material';
 import { useState } from 'react';
 import { sendEmail } from '../../services/ApiEmail';
+import './ButtonNotifications.css';
 
 function ButtonNotifications({ user }) {
   const [emailWhenDue, setEmailWhenDue] = useState(false);

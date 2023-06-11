@@ -37,3 +37,12 @@ a:hover {
   display: flex;
   color: gray;
 }
+
+#darklight-btn{
+  opacity: 50%;
+  cursor: pointer;
+}
+
+#darklight-btn:hover{
+  opacity: 100%;
+}

@@ -8,12 +8,14 @@ const UserSchema = new Schema({
   email: String,
   password: String,
   categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
+  // notifications: { due: Boolean, periodic: Number}
 });
 
 const CategorySchema = new Schema({
   name: String,
   color: String,
   items: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
+  // owner: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 const ItemSchema = new Schema({
@@ -21,6 +23,8 @@ const ItemSchema = new Schema({
   start_date: Date,
   frequency: Number,
   checked: Boolean,
+  // freq_weeks: Number,
+  // parent: { type: Schema.Types.ObjectId, ref: 'Category' }
 });
 
 const User = mongoose.model('User', UserSchema);
