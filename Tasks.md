@@ -1,17 +1,17 @@
 # LAMA Solo project tasks list (FE)
-- [ ] Web responsive
+- [x] Web responsive
 - [ ] Progressive Web App
 ## Log In / Create User
 - [x] Create pages
 - [x] Basic user creation
 - [x] Dashboard redirects here if no user logged in
 - [x] Notification / behaviour when registering / login
-- [ ] Add conditions for the input fields
+- ~~[ ] Add conditions for the input fields~~
 ## Home
 - [ ] Catchy sentence
 - [ ] Add items and change layout
 ## Navbar
-- [ ] Dark mode
+- ~~[ ] Dark mode~~
 ## Dashboard
 - [x] Revise layout
 - [x] Empty page with llama
@@ -30,7 +30,7 @@
 - [x] Item checked
 - [x] Item title change
 - [x] Item start date change
-- [ ] Item frequency change
+- ~~[ ] Item frequency change~~
 - [x] Settings icon to wheel
 - [x] Item icons to the right, visible only when hovering
 - [x] Item date below title
@@ -46,7 +46,7 @@
 ### Other
 - [ ] Refactor
 - [ ] Fix errors
-- [ ] Update db users for notifications settings
+- [x] Update db users for notifications settings
 - [x] Update db cat and items to point both ways
 - [x] Add.env file 
 
@@ -61,18 +61,15 @@
 ~~Delete category deletes all items~~
 - 09.06 (F) -> ~~Category edition~~ |
 ~~Item add starting date~~ |
-Item add frequency |
 ~~Item check~~ |
 ~~Item edition~~ |
 - 10.06 (S) -> User authentication |
 User session |
 ~~Log In / Log Out correct behaviour~~ |
 ~~Basic emails feature~~
-- 11.06 (S) -> PWA
 - 12.06 (M) -> ~~AI chat~~  |
 ~~Encrypt passwords~~ |
 ~~Fix AI communication~~ |
-Add PWA |
+~~Add PWA~~ |
 ~~Update db~~ |
-- 13.06 (T) -> Home, style and refactor
-- 14.06 (W) -> Video
+- 13.06 (T) -> Home, style and refactor & Video

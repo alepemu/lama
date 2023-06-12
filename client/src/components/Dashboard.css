@@ -25,7 +25,6 @@
   padding: 0px 10px;
   border-radius: 10px;
   box-shadow: 1px 1px 5px grey;
-  background-color: rgb(198, 198, 198);
 }
 
 #dashboard-pool {
@@ -144,5 +143,33 @@
   }
   100% {
     transform: scaleX(-1);
+  }
+}
+
+@media only screen and (max-width: 875px) {
+
+  #dashboard-header {
+    display: flex;
+    width: 450px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #dashboard-adjustments {
+    margin: 0;
+    position: absolute;
+    width: 150px;
+    top: 48px;
+    transform: translateX(158px);
+  }
+
+  #dashboard-adjustments > h4 {
+  display: none;
+  }
+
+
+  #dashboard-adjustments {
+    height: 30px;
+    width: 40px;
   }
 }

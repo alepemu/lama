@@ -39,7 +39,7 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
 
   return (
     <div className="LogIn">
-      <h3>Log in</h3>
+      <h3>Welcome back, please login to your account</h3>
 
       <form onSubmit={logInUser}>
         <label htmlFor="form-email">Email:</label>
@@ -49,7 +49,7 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
           name="email"
           value={userLogin.email}
           onChange={handleInput}
-          placeholder="Enter your email"
+          placeholder="✉ Email"
         ></input>
         <label htmlFor="form-pw">Password:</label>
         <input
@@ -58,13 +58,20 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
           name="pw"
           value={userLogin.pw}
           onChange={handleInput}
-          placeholder="Enter your password"
+          placeholder="🗝 Password"
         ></input>
-        <button type="submit">Log In</button>
+        <button className="log-page-btn" type="submit">
+          Log In
+        </button>
         <div className="form-footer">
           <p>If you still don't have an account,</p>
-          <Link to="/signup">register</Link>
+          <Link className="log-link" to="/signup">
+            register
+          </Link>
           <p>now.</p>
+        </div>
+        <div className="form-footer">
+          <p>Forgot your password? Bad luck! =)</p>
         </div>
       </form>
     </div>

@@ -47,7 +47,6 @@ exports.logIn = async (ctx) => {
     // to string??
     const userObject = user.toObject();
     delete userObject.password;
-    console.log(userObject);
     ctx.body = userObject;
     ctx.status = 200;
   } catch (error) {

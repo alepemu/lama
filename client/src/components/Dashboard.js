@@ -81,7 +81,7 @@ function Dashboard({ userIdDb }) {
             <ArrowDropDownCircleIcon className="btn-new-cat" onClick={newCategory} />
           </form>
         </div>
-        <ButtonNotifications user={user} setUser={setUser}/>
+        <ButtonNotifications id='dash-notif-set' user={user} setUser={setUser}/>
       </div>
       {userCatList.length ? (
         ''

@@ -16,13 +16,13 @@ function Chat() {
     setIsTyping(true);
 
     let msgs = chats;
-    msgs.push({ role: 'user', content: message });
+    msgs.unshift({ role: 'user', content: message });
     setChats(msgs);
 
     setMessage('');
     AIchat(chats)
       .then((data) => {
-        msgs.push(data);
+        msgs.unshift(data);
         setChats(msgs);
         setIsTyping(false);
       })
@@ -41,8 +41,8 @@ function Chat() {
           {chats && chats.length
             ? chats.map((chat, index) => (
                 <div key={index} id="chat-msgs" className={chat.role === 'user' ? 'user_msg' : ''}>
-                  <span>
-                    <b>{chat.role.toUpperCase()}</b>
+                  <span className={chat.role === 'user' ? 'from-user' : 'from-advisor'}>
+                    <p>{chat.role.charAt(0).toUpperCase() + chat.role.slice(1)}</p>
                   </span>
                   <div className={chat.role === 'user' ? 'msg user' : 'msg advisor'}>
                     {chat.content}

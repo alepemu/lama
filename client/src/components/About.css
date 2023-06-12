@@ -1,0 +1,9 @@
+#about-container {
+  /* background-color: aqua; */
+  width: 500px;
+  margin: auto;
+}
+
+#about-container > ol > li {
+  margin: 10px 0px;
+}

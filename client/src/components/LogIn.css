@@ -1,15 +1,51 @@
-.SignUp {
+.SignUp, .LogIn {
   padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+
+.LogIn > h3, .SignUp > h3 {
+  margin-bottom: 20px;
+}
+
 form {
     display: flex;
+    width: 400px;
     flex-direction: column;
 }
 
+.LogIn > form > input, .SignUp > form > input {
+  padding: 10px;
+  margin: 5px 15px 15px;
+  border: 0;
+  border-bottom: 1px solid grey;
+}
+
+.log-page-btn {
+  font-weight: 800;
+  padding: 5px 0px;
+  width: 200px;
+  margin: 10px auto;
+  background-color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.log-page-btn:hover {
+  background-color: rgb(193, 180, 162);
+  transition: background-color 0.2s linear;
+
+}
+
 .form-footer {
+  margin: auto;
+  font-size: small;
   display: flex;
+}
+
+.log-link {
+  margin: 0px 5px;
 }

@@ -1,48 +1,87 @@
 .NavBar {
   position: fixed;
   width: 100%;
-  height: 40px;
+  height: 38px;
   background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   user-select: none;
+  z-index: 100;
+}
+
+#nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#nav-home {
+  display: flex;
+  align-items: center;
+}
+
+#nav-lama {
+  height: 25px;
+  /* cursor: pointer; */
+  margin-right: 5px;
+}
+
+#nav-title {
+  font-size: 30px;
 }
 
 #nav-links {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  width: 1200px;
+  margin: 0px 10px;
+  flex-shrink: 1;
 }
 
 a {
-  margin: 0px 15px;
+  font-weight: 800;
   cursor: pointer;
   text-decoration: none;
 }
 
 a:visited {
-  /* color: black; */
+  color: black;
 }
 
 a:hover {
-  color: rgb(153, 112, 58);
-  text-decoration: underline;
+  /* color: rgb(153, 137, 115); */
+  /* transition: color 0.1s linear; */
 }
 
 #nav-right {
   display: flex;
-  color: gray;
+  align-items: center;
 }
 
-#darklight-btn{
+/* #darklight-btn{
   opacity: 50%;
   cursor: pointer;
 }
 
 #darklight-btn:hover{
   opacity: 100%;
+} */
+
+.log-btn {
+  background-color: rgb(202, 232, 198);
+  padding: 4px 15px;
+  border-radius: 10px;
+}
+
+.log-btn:hover {
+  background-color: rgb(195, 219, 160);
+  transition: background-color 0.2s linear;
+}
+
+.out-btn {
+  background-color: rgb(233, 192, 192);
+}
+
+.out-btn:hover {
+  background-color: rgb(201, 159, 159);
+  transition: background-color 0.2s linear;
 }

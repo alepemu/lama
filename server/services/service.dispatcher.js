@@ -3,14 +3,12 @@
 const nodeCron = require('node-cron');
 
 const { User, Category, Item } = require('../models/models');
-const { mailItem } = require('./service.email');
+const { mailAll, mailItem } = require('./service.email');
 
 async function itemsWithDate() {
   const items = await Item.find();
   return items.filter((el) => el.start_date !== null);
 }
-
-console.log(Date.now());
 
 async function programItems() {
   const msgs = await itemsWithDate();
@@ -36,7 +34,6 @@ async function programItems() {
       start_date: msgs[i].start_date,
     };
 
-    console.log('Email to be sent', itemData.title, 'on', itemData.start_date);
     nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData)).start();
   }
 }
@@ -52,9 +49,10 @@ async function programAll() {
   const users = await usersWithOpt();
 
   for (let i = 0; i < users.length; i++) {
-    console.log('every 1 min email order sent');
-    nodeCron.schedule(`0 */1 * * * *`, () => mailAll(users[i])).start();
-    // nodeCron.schedule(`00 00 09 ${users[i].notif_freq || 1 * 7} * *`, () => mailAll(users[i])).start();
+    // Every minute
+    // nodeCron.schedule(`* * * * *`, () => mailAll(users[i])).start();
+    // Every (notif_few) week(s) on Monday at 0900
+    nodeCron.schedule(`0 9 * * 1 */${users[i].notif_freq}`, () => mailAll(users[i])).start();
   }
 }
 

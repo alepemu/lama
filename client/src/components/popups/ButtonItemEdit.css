@@ -15,18 +15,7 @@
   border-radius: 15px;
 }
 
-.item-edit-repeat {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: small;
-}
-
-.item-freq-window {
-  display: flex;
-  justify-content: space-around;
-}
-
-.item-freq-window > input {
-  width: 40px;
+.item-edit-window > form {
+  gap: 5px;
+  width: 150px;
 }

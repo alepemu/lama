@@ -22,7 +22,7 @@ function ButtonCatColor({ updateCategory, cat }) {
             }}
             transformOrigin={{
               vertical: 'center',
-              horizontal: 'center',
+              horizontal: 'right',
             }}
           >
             <div className="color-picker-window">

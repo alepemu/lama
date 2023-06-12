@@ -8,11 +8,16 @@
   opacity: 100%;
 }
 
-.color-edit-window {
+.name-edit-window {
   display: flex;
+  align-items: center;
   gap: 5px;
   padding: 10px;
-  border-radius: 15px;
+}
+
+.name-edit-window > form {
+  gap: 5px;
+  width: 150px;
 }
 
 .cat-del-btn {

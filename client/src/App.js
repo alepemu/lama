@@ -10,7 +10,7 @@ import Chat from './components/Chat';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (

@@ -26,22 +26,22 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{
-              vertical: 'bottom',
+              vertical: 'center',
               horizontal: 'center',
             }}
             transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
+              vertical: 'center',
+              horizontal: 'right',
             }}
           >
-            <div className="color-edit-window">
+            <div className="name-edit-window">
               <form onSubmit={updateName}>
                 <input
                   type="text"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                 ></input>
-                <input type="submit"></input>
+                <input type="submit" value='Update title'></input>
               </form>
               <DeleteIcon className="cat-del-btn" onClick={() => deleteCategory(cat._id)} />
             </div>
