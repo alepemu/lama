@@ -1,7 +1,13 @@
 {
   "short_name": "LAMA",
-  "name": "LAMA: Life Admin Management Advisor",
+  "name": "LAMA",
   "icons": [
+    {
+      "src": "icon-llama.svg",
+      "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "favicon-16x16.png",
       "sizes": "16x16",
@@ -15,22 +21,24 @@
     {
       "src": "icon-192x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
+  "start_url": "/",
   "background_color": "#3367D6",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#3367D6",
   "shortcuts": [],
-  "description": "Task lists and reminders",
+  "description": "LAMA: Life Admin Management Advisor: Task lists and reminders",
   "screenshots": [
     {
       "src": "/img/screenshot1.png",

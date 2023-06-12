@@ -1,11 +1,14 @@
+const BASE_URL = 'http://localhost:3100';
+// const BASE_URL = 'http://192.168.0.241:3100';
+
 async function loadCat(catId) {
-  const response = await fetch('http://localhost:3100/category/' + catId);
+  const response = await fetch(BASE_URL + '/category/' + catId);
   const category = await response.json();
   return category;
 }
 
 async function newCat(catData) {
-  const response = await fetch('http://localhost:3100/category', {
+  const response = await fetch(BASE_URL + '/category', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(catData),
@@ -15,7 +18,7 @@ async function newCat(catData) {
 }
 
 async function delCat(catData) {
-  const response = await fetch('http://localhost:3100/category', {
+  const response = await fetch(BASE_URL + '/category', {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(catData),
@@ -26,7 +29,7 @@ async function delCat(catData) {
 
 async function updateCat(catData) {
   // console.log('data', catData);
-  return fetch('http://localhost:3100/category', {
+  return fetch(BASE_URL + '/category', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(catData),

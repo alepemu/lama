@@ -17,11 +17,11 @@ function ButtonCatColor({ updateCategory, cat }) {
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{
-              vertical: 'bottom',
+              vertical: 'center',
               horizontal: 'center',
             }}
             transformOrigin={{
-              vertical: 'top',
+              vertical: 'center',
               horizontal: 'center',
             }}
           >

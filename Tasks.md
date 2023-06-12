@@ -71,7 +71,7 @@ Log In / Log Out correct behaviour |
 - 11.06 (S) -> PWA
 - 12.06 (M) -> ~~AI chat~~  |
 ~~Encrypt passwords~~ |
-Fix AI communication |
+~~Fix AI communication~~ |
 Add PWA |
 Update db |
 - 13.06 (T) -> Home, style and refactor

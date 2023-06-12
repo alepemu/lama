@@ -47,13 +47,12 @@
 }
 
 .chat-scroll {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #chat-msgs {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-start;
 }
 

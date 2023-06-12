@@ -7,12 +7,13 @@ const session = require('koa-session');
 const router = require('./router.js');
 const app = new Koa();
 
-const dispatcher = require('./services/service.dispatcher.js')
+const dispatcher = require('./services/service.dispatcher.js');
 
-require('dotenv').config()
+require('dotenv').config();
 const PORT = process.env.SERVER_PORT || 3100;
 const CORSCONFIG = {
   origin: 'http://localhost:3000',
+  // origin: 'http://192.168.0.241:3000',
   credentials: true,
 };
 const CONFIG = {
