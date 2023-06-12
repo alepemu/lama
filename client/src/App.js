@@ -7,7 +7,7 @@ import About from './components/About';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import Chat from './components/Chat';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');

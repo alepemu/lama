@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 function SignUp({ setIsLoggedIn, setCurrentUser }) {
   const [userData, setUserData] = useState({ name: '', email: '', password: '' });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleInput(e) {
     const { name, value } = e.target;
@@ -23,12 +23,13 @@ function SignUp({ setIsLoggedIn, setCurrentUser }) {
       email: userData.email,
       password: userData.password,
     };
-    createUser(userDataValues).then((user) => {
-      setCurrentUser(user);
-      setIsLoggedIn(true);
-    });
-    alert('User created!');
-    navigate('/dashboard');
+    createUser(userDataValues)
+      .then((user) => {
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+      })
+      .then(alert('User created!'));
+    // .then(navigate('/dashboard'));
   }
 
   return (

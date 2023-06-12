@@ -24,7 +24,10 @@ exports.registerUser = async (ctx) => {
     // {"name": "Test", "email": "email@email.com", "password": "qwerty"}
     const { name, email, password } = ctx.request.body;
     const hash = await bcrypt.hash(password, 10);
-    ctx.body = await User.create({ name, email, password: hash });
+    const user = await User.create({ name, email, password: hash });
+    const userObject = user.toObject();
+    delete userObject.password;
+    ctx.body = userObject;
     ctx.status = 200;
   } catch (error) {
     ctx.body = { error, message: 'Could not create user' };

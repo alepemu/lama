@@ -7,24 +7,25 @@ const UserSchema = new Schema({
   name: String,
   email: String,
   password: String,
+  notif_due: { type: Boolean, default: false },
+  notif_opt: { type: Boolean, default: false },
+  notif_freq: { type: Number, default: '1' },
   categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
-  // notifications: { due: Boolean, periodic: Number}
 });
 
 const CategorySchema = new Schema({
   name: String,
-  color: String,
+  color: { type: String, default: 'cat-def' },
   items: [{ type: Schema.Types.ObjectId, ref: 'Item' }],
-  // owner: { type: Schema.Types.ObjectId, ref: 'User' }
+  owner: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
 const ItemSchema = new Schema({
   title: String,
-  start_date: Date,
-  frequency: Number,
-  checked: Boolean,
-  // freq_weeks: Number,
-  // parent: { type: Schema.Types.ObjectId, ref: 'Category' }
+  start_date: { type: Date, default: '' },
+  checked: { type: Boolean, default: false },
+  freq_weeks: { type: Number, default: '0' },
+  parent: { type: Schema.Types.ObjectId, ref: 'Category' },
 });
 
 const User = mongoose.model('User', UserSchema);

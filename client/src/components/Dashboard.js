@@ -6,7 +6,7 @@ import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import ButtonNotifications from './popups/ButtonNotifications';
 import Category from './Category';
 import './Dashboard.css';
-import logo from '../img/icon-512x512.png'
+import logo from '../img/icon-512x512.png';
 
 function Dashboard({ userIdDb }) {
   const [user, setUser] = useState({});
@@ -28,7 +28,7 @@ function Dashboard({ userIdDb }) {
       alert('Give a name!');
       return;
     }
-    const content = { userId: user._id, content: { name: newCatTitle, color: 'cat-def' } };
+    const content = { userId: user._id, content: { name: newCatTitle } };
     newCat(content)
       .then((cat) => {
         setUserCatList([...userCatList, cat._id]);
@@ -86,10 +86,10 @@ function Dashboard({ userIdDb }) {
       {userCatList.length ? (
         ''
       ) : (
-        <div id='dashboard-empty'>
+        <div id="dashboard-empty">
           <h1>Your board is empty!</h1>
           <h1>Try adding some new pools</h1>
-          <img id='lama1' className='lama-shake' src={logo} alt="Lama logo"></img>
+          <img id="lama1" className="lama-shake" src={logo} alt="Lama logo"></img>
           {/* <img id='lama2' className='rotate' src={logo} alt="Lama logo"></img> */}
           {/* <img id='lama3' className='displacement' src={logo} alt="Lama logo"></img> */}
         </div>
