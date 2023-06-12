@@ -42,18 +42,15 @@ ${userContent.join('')}
     });
   }
 
-  console.log('ready to send');
-  // send();
+  send();
 };
 
 const mailItem = (itemData) => {
-  console.log('itemData', itemData);
-
   const mailOptions = {
     from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
     to: itemData.email,
-    subject: `${itemData.name.toUpperCase()}! 🦙🦙🦙 ${itemData.title}`,
-    html: `<p>Hi ${itemData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3><p>"${itemData.start_date}"</p>`,
+    subject: `🦙🦙🦙!!! ${itemData.title}`,
+    html: `<p>Hi ${itemData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3><p>on ${itemData.start_date}</p>`,
   };
 
   async function send() {
@@ -70,7 +67,6 @@ const mailItem = (itemData) => {
     }
   }
 
-  console.log('ready to send');
   send();
 };
 

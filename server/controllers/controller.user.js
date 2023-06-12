@@ -55,3 +55,16 @@ exports.logIn = async (ctx) => {
     ctx.status = 401;
   }
 };
+
+exports.updateUser = async (ctx) => {
+  try {
+    const userChanges = ctx.request.body;
+    const userId = userChanges._id;
+    const updatedUser = await User.findByIdAndUpdate(userId, { $set: userChanges }, { new: true });
+    ctx.body = updatedUser;
+    ctx.status = 200;
+  } catch (error) {
+    ctx.body = { error, message: 'Failed to update user' };
+    ctx.status = 500;
+  }
+};

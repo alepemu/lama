@@ -12,6 +12,7 @@ const aiController = require('./controllers/controller.ai');
 router.get('/user/:id', userController.getUserById);
 router.post('/register', userController.registerUser);
 router.post('/login', userController.logIn);
+router.put('/user', userController.updateUser);
 
 router.get('/category/:id', catController.getCatById);
 router.post('/category', catController.createCat);

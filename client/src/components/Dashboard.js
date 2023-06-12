@@ -81,7 +81,7 @@ function Dashboard({ userIdDb }) {
             <ArrowDropDownCircleIcon className="btn-new-cat" onClick={newCategory} />
           </form>
         </div>
-        <ButtonNotifications user={user} />
+        <ButtonNotifications user={user} setUser={setUser}/>
       </div>
       {userCatList.length ? (
         ''
@@ -90,8 +90,6 @@ function Dashboard({ userIdDb }) {
           <h1>Your board is empty!</h1>
           <h1>Try adding some new pools</h1>
           <img id="lama1" className="lama-shake" src={logo} alt="Lama logo"></img>
-          {/* <img id='lama2' className='rotate' src={logo} alt="Lama logo"></img> */}
-          {/* <img id='lama3' className='displacement' src={logo} alt="Lama logo"></img> */}
         </div>
       )}
       <div id="dashboard-pool">{catList}</div>

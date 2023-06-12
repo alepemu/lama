@@ -30,4 +30,14 @@ async function logUser(userData) {
   return user;
 }
 
-module.exports = { loadUser, createUser, logUser };
+async function updateUser(userData) {
+  return fetch(BASE_URL + '/user', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+}
+
+module.exports = { loadUser, createUser, logUser, updateUser };

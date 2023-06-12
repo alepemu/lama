@@ -28,7 +28,6 @@ async function delCat(catData) {
 }
 
 async function updateCat(catData) {
-  // console.log('data', catData);
   return fetch(BASE_URL + '/category', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },

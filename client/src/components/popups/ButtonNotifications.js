@@ -3,14 +3,21 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SendIcon from '@mui/icons-material/Send';
 import { Checkbox } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { sendEmail } from '../../services/ApiEmail';
 import './ButtonNotifications.css';
+import { updateUser } from '../../services/ApiUser';
 
-function ButtonNotifications({ user }) {
+function ButtonNotifications({ user, setUser }) {
   const [emailWhenDue, setEmailWhenDue] = useState(false);
   const [emailWhenFreq, setEmailWhenFreq] = useState(false);
   const [emailFreq, setEmailFreq] = useState('1');
+
+  useEffect(() => {
+    setEmailWhenDue(user.notif_due);
+    setEmailWhenFreq(user.notif_opt);
+    setEmailFreq(user.notif_freq);
+  }, [user]);
 
   return (
     <PopupState variant="popover">
@@ -35,7 +42,12 @@ function ButtonNotifications({ user }) {
               <div className="notif-line">
                 <Checkbox
                   checked={emailWhenDue ? true : false}
-                  onChange={() => setEmailWhenDue(!emailWhenDue)}
+                  // onChange={() => setEmailWhenDue(!emailWhenDue)}
+                  onChange={() => {
+                    setEmailWhenDue(!emailWhenDue);
+                    setUser({ ...user, notif_due: !emailWhenDue });
+                    updateUser({ ...user, notif_due: !emailWhenDue });
+                  }}
                   size="small"
                   color="default"
                 />
@@ -46,14 +58,25 @@ function ButtonNotifications({ user }) {
               <div className="notif-line">
                 <Checkbox
                   checked={emailWhenFreq ? true : false}
-                  onChange={() => setEmailWhenFreq(!emailWhenFreq)}
+                  onChange={() => {
+                    setEmailWhenFreq(!emailWhenFreq);
+                    setUser({ ...user, notif_opt: !emailWhenFreq });
+                    updateUser({ ...user, notif_opt: !emailWhenFreq });
+                  }}
                   size="small"
                   color="default"
                 />
                 <p>every</p>
-                <input type="number" value={emailFreq} 
-                onChange={(e) => setEmailFreq(e.target.value)}
-                id="notif-freq-n"></input>
+                <input
+                  type="number"
+                  value={emailFreq}
+                  onChange={(e) => {
+                    setEmailFreq(e.target.value);
+                    setUser({ ...user, notif_freq: e.target.value });
+                    updateUser({ ...user, notif_freq: e.target.value });
+                  }}
+                  id="notif-freq-n"
+                ></input>
                 <p>week(s) //</p>
                 <div
                   id="notif-now-btn"
