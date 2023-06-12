@@ -42,28 +42,35 @@ ${userContent.join('')}
     });
   }
 
-  send();
+  console.log('ready to send');
+  // send();
 };
 
 const mailItem = (itemData) => {
+  console.log('itemData', itemData);
+
   const mailOptions = {
     from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
     to: itemData.email,
     subject: `${itemData.name.toUpperCase()}! 🦙🦙🦙 ${itemData.title}`,
-    html: `<p>Hi ${userData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3>
-    `,
+    html: `<p>Hi ${itemData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3><p>"${itemData.start_date}"</p>`,
   };
 
   async function send() {
-    await transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
+    try {
+      await transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  console.log('ready to send');
   send();
 };
 

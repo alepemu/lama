@@ -2,34 +2,38 @@
 
 const nodeCron = require('node-cron');
 
-const { Item } = require('../models/models');
+const { User, Category, Item } = require('../models/models');
 const { mailItem } = require('./service.email');
 
-// Fetch all the items and filter those who have a start_date property
-// [{ title: "content", date: date}]
-// Item.find()
-//   .then((response) => response.filter((el) => el.start_date !== null))
-//   .then((res) => console.log(res));
+async function itemsWithDate() {
+  const items = await Item.find();
+  //   console.log(items);
+  return items.filter((el) => el.start_date !== null);
+}
 
-// async function sth() {
-//   const items = await Item.find();
-//   console.log(items);
-//   return items.filter((el) => el.start_date !== null);
-// }
+async function programItems() {
+  const msgs = await itemsWithDate();
+  //   console.log(msgs);
 
-// const list = sth();
-// console.log(list);
-// console.log('hello');
+  for (let i = 0; i < msgs.length; i++) {
+    const cat = await Category.findOne(msgs[i].parent);
+    const user = await User.findOne(cat.owner);
 
-// Add the owners
-// [{ date: date, content :{ name: "Paco", email: "email@email", title: "content"}}]
-// const msgs = [];
+    const dt = new Date(msgs[i]);
+    const min = dt.getMinutes();
+    const hour = dt.getHours();
+    const day = dt.getDate();
+    const month = dt.getMonth();
 
-// loop through the array and trigger a nodeCron function for each one of them
-// for (let i = 0; i < msgs.length; i++) {
-//   const min = getMinutes(msgs[i].date);
-//   const hour = getHours(msgs[i].date);
-//   const day = getDate(msgs[i].date);
-//   const month = getmonth(msgs[i].date);
-//   nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, mailItem(msgs[i].content)).start();
-// }
+    const itemData = {
+      name: user.name,
+      email: user.email,
+      title: msgs[i].title,
+      start_date: msgs[i].start_date,
+    };
+
+    // nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, mailItem(itemData)).start();
+  }
+}
+
+programItems();

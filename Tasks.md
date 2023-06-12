@@ -47,7 +47,7 @@
 - [ ] Refactor
 - [ ] Fix errors
 - [ ] Update db users for notifications settings
-- [ ] Update db cat and items to point both ways
+- [x] Update db cat and items to point both ways
 - [x] Add.env file 
 
 
@@ -66,13 +66,13 @@ Item add frequency |
 ~~Item edition~~ |
 - 10.06 (S) -> User authentication |
 User session |
-Log In / Log Out correct behaviour |
+~~Log In / Log Out correct behaviour~~ |
 ~~Basic emails feature~~
 - 11.06 (S) -> PWA
 - 12.06 (M) -> ~~AI chat~~  |
 ~~Encrypt passwords~~ |
 ~~Fix AI communication~~ |
 Add PWA |
-Update db |
+~~Update db~~ |
 - 13.06 (T) -> Home, style and refactor
 - 14.06 (W) -> Video
