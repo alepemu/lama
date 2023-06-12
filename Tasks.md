@@ -69,6 +69,10 @@ User session |
 Log In / Log Out correct behaviour |
 ~~Basic emails feature~~
 - 11.06 (S) -> PWA
-- 12.06 (M) -> ~~AI chat~~
-- 13.06 (T) -> Refactor and style
+- 12.06 (M) -> ~~AI chat~~  |
+~~Encrypt passwords~~ |
+Fix AI communication |
+Add PWA |
+Update db |
+- 13.06 (T) -> Home, style and refactor
 - 14.06 (W) -> Video

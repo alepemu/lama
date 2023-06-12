@@ -1,11 +1,17 @@
 'use strict';
 
+const bcrypt = require('bcrypt');
+// const SECRET_KEY = process.env.SECRET_KEY || 'not secure!';
+
 const { User } = require('../models/models');
 
 exports.getUserById = async (ctx) => {
   try {
     const userId = ctx.params.id;
-    ctx.body = await User.findById(userId);
+    const user = await User.findById(userId);
+    const userObject = user.toObject();
+    delete userObject.password;
+    ctx.body = userObject;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;
@@ -16,8 +22,9 @@ exports.getUserById = async (ctx) => {
 exports.registerUser = async (ctx) => {
   try {
     // {"name": "Test", "email": "email@email.com", "password": "qwerty"}
-    const userData = ctx.request.body;
-    ctx.body = await User.create(userData);
+    const { name, email, password } = ctx.request.body;
+    const hash = await bcrypt.hash(password, 10);
+    ctx.body = await User.create({ name, email, password: hash });
     ctx.status = 200;
   } catch (error) {
     ctx.body = { error, message: 'Could not create user' };
@@ -28,17 +35,18 @@ exports.registerUser = async (ctx) => {
 exports.logIn = async (ctx) => {
   try {
     // {"email": "email@email.com", "password": "qwerty"}
-    const loginDetails = ctx.request.body;
-    const user = await User.findOne({ email: loginDetails.email });
-    if (loginDetails.password !== user.password) throw new Error();
-    ctx.session.uid = user._id.toString();
+    const { email, password } = ctx.request.body;
+    const user = await User.findOne({ email });
+    const validatedPass = await bcrypt.compare(password, user.password);
+    if (!validatedPass) throw new Error();
+    // if (password !== user.password) throw new Error();
+    // ctx.session.uid = user._id.toString();
     // to string??
-    // console.log(ctx.session);
-    ctx.body = user;
+    const userObject = user.toObject();
+    delete userObject.password;
+    console.log(userObject);
+    ctx.body = userObject;
     ctx.status = 200;
-
-    // const validatedPass = await bcrypt.compare(password, user.password);
-    // if (!validatedPass) throw new Error();
   } catch (error) {
     ctx.body = { error, message: 'Username or/and password is incorrect' };
     ctx.status = 401;
