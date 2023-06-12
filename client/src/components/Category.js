@@ -29,7 +29,7 @@ function Category({ catId, deleteCategory }) {
     }
     const content = {
       catId: category._id,
-      content: { title: newItemTitle },
+      title: newItemTitle ,
     };
     newItem(content)
       .then((item) => {

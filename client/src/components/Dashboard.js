@@ -28,7 +28,7 @@ function Dashboard({ userIdDb }) {
       alert('Give a name!');
       return;
     }
-    const content = { userId: user._id, content: { name: newCatTitle } };
+    const content = { userId: user._id, name: newCatTitle };
     newCat(content)
       .then((cat) => {
         setUserCatList([...userCatList, cat._id]);

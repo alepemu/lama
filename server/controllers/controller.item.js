@@ -21,11 +21,11 @@ exports.createItem = async (ctx) => {
     // "start_date": "98765432100",
     // "checked": "false"}}
     const catId = ctx.request.body.catId;
-    const content = ctx.request.body.content;
-    const newItem = await Item.create(content);
+    const title = ctx.request.body.title;
     const cat = await Category.findById(catId);
+    const newItem = await Item.create({ parent: catId, title });
     const newItemList = [...cat.items, newItem._id];
-    const updatedCat = await Category.findByIdAndUpdate(catId, { $set: { items: newItemList } });
+    await Category.findByIdAndUpdate(catId, { $set: { items: newItemList } });
     ctx.body = newItem;
     ctx.status = 200;
   } catch (error) {
@@ -64,7 +64,7 @@ exports.updateItem = async (ctx) => {
     // "checked": "false" }
     const itemChanges = ctx.request.body;
     const itemId = itemChanges._id;
-    const updatedItem = await Item.findByIdAndUpdate(itemId, { $set: itemChanges }, {new: true});
+    const updatedItem = await Item.findByIdAndUpdate(itemId, { $set: itemChanges }, { new: true });
     ctx.body = updatedItem;
     ctx.status = 200;
   } catch (error) {

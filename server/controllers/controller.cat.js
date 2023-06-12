@@ -15,22 +15,20 @@ exports.getCatById = async (ctx) => {
 
 exports.createCat = async (ctx) => {
   try {
-    // { "userId": "6480a98535fbc7221e4f2eb2",
-    // "content": { "name":"test2", "color":"default" } }
+    // const [userId, name] = ctx.request.body;
     const userId = ctx.request.body.userId;
-    const content = ctx.request.body.content;
-    const newCat = await Category.create(content);
+    const name = ctx.request.body.name;
     const user = await User.findById(userId);
+    const newCat = await Category.create({ owner: userId, name });
     const newCatList = [...user.categories, newCat._id];
-    const updatedUser = await User.findByIdAndUpdate(userId, { $set: { categories: newCatList } });
+    await User.findByIdAndUpdate(userId, { $set: { categories: newCatList } });
     ctx.body = newCat;
     ctx.status = 200;
   } catch (error) {
-    ctx.body = error.message;
+    ctx.body = { error, message: 'Could not create category' };
     ctx.status = 500;
   }
 };
-
 
 exports.deleteCat = async (ctx) => {
   try {
@@ -59,8 +57,12 @@ exports.updateCat = async (ctx) => {
     //   "color": "yellow" }
     const catChanges = ctx.request.body;
     const catId = catChanges._id;
-    const updatedCategory = await Category.findByIdAndUpdate(catId, { $set: catChanges }, {new: true});
-    ctx.body = updatedCategory
+    const updatedCategory = await Category.findByIdAndUpdate(
+      catId,
+      { $set: catChanges },
+      { new: true }
+    );
+    ctx.body = updatedCategory;
     ctx.status = 200;
   } catch (error) {
     ctx.body = error.message;

@@ -22,7 +22,7 @@ const CategorySchema = new Schema({
 
 const ItemSchema = new Schema({
   title: String,
-  start_date: { type: Date, default: '' },
+  start_date: { type: Date, default: null },
   checked: { type: Boolean, default: false },
   freq_weeks: { type: Number, default: '0' },
   parent: { type: Schema.Types.ObjectId, ref: 'Category' },
