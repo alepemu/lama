@@ -1,4 +1,7 @@
+'use strict';
+
 const nodemailer = require('nodemailer');
+const dayjs =require('dayjs');
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -18,11 +21,11 @@ const mailAll = (userData) => {
       items.push(`<li>${item.title}</li>`);
     });
 
-    userContent.push(`<h3>Category: ${cat.name}</h3><ul>${items.join('')}</ul>`);
+    userContent.push(`<h3>Category: ${cat.name}</h3><ul>${items.join('') + ' ' + dayjs(items.start_date).format('DD/MM/YYYY H:mm a')}</ul>`);
   });
 
   const htmlContent = `
-<p>Hi ${userData.name}, this is your current list of reminders:</p>
+<p>Hi ${userData.name}, this is all the content you have in LAMA:</p>
 ${userContent.join('')}
 `;
 
@@ -53,7 +56,7 @@ const mailItem = (itemData) => {
     from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
     to: itemData.email,
     subject: `🦙🦙🦙 !! ${itemData.title}`,
-    html: `<p>Hi ${itemData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3><p>on ${itemData.start_date}</p>`,
+    html: `<p>Hi ${itemData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3><p>on ${dayjs(itemData.start_date).format('DD/MM/YYYY H:mm A')}</p>`,
   };
 
   async function send() {
