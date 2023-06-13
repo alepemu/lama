@@ -1,9 +1,9 @@
 import './NavBar.css';
 import { Link } from 'react-router-dom';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+// import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import iconbw from '../img/icon-lama-bw.png';
 
-function NavBar({ isLoggedIn, setIsLoggedIn, user, setUser }) {
+function NavBar({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="NavBar">
       <div id="nav-links">

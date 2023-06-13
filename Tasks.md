@@ -1,6 +1,6 @@
 # LAMA Solo project tasks list (FE)
 - [x] Web responsive
-- [ ] Progressive Web App
+- [ ] Make it PWA
 ## Log In / Create User
 - [x] Create pages
 - [x] Basic user creation
@@ -8,8 +8,8 @@
 - [x] Notification / behaviour when registering / login
 - ~~[ ] Add conditions for the input fields~~
 ## Home
-- [ ] Catchy sentence
-- [ ] Add items and change layout
+- [x] Catchy sentence
+- [x] Add items and change layout
 ## Navbar
 - ~~[ ] Dark mode~~
 ## Dashboard
@@ -45,31 +45,7 @@
 
 ### Other
 - [ ] Refactor
-- [ ] Fix errors
+- [x] Fix errors
 - [x] Update db users for notifications settings
 - [x] Update db cat and items to point both ways
 - [x] Add.env file 
-
-
-# Program
-- 08.06 (T) -> ~~Connect BE/FE~~ |
-~~Create pages for Log In / New User~~ |
-~~Connect New User to BE~~ |
-~~Connect DB/BE to FE / Render elements~~ |
-~~Connect New/Delete Category to BE~~ |
-~~Connect New/Delete Item to BE~~ |
-~~Delete category deletes all items~~
-- 09.06 (F) -> ~~Category edition~~ |
-~~Item add starting date~~ |
-~~Item check~~ |
-~~Item edition~~ |
-- 10.06 (S) -> User authentication |
-User session |
-~~Log In / Log Out correct behaviour~~ |
-~~Basic emails feature~~
-- 12.06 (M) -> ~~AI chat~~  |
-~~Encrypt passwords~~ |
-~~Fix AI communication~~ |
-~~Add PWA~~ |
-~~Update db~~ |
-- 13.06 (T) -> Home, style and refactor & Video
