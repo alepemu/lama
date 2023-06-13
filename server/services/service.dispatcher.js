@@ -34,6 +34,8 @@ async function programItems() {
       start_date: msgs[i].start_date,
     };
 
+      console.log('now', new Date(Date.now()));
+    console.log('Email programmed', msgs[i]);
     nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData)).start();
   }
 }

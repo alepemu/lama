@@ -38,13 +38,14 @@
 }
 
 a {
+  color: rgb(100, 100, 100);
   font-weight: 800;
   cursor: pointer;
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: rgb(100, 100, 100);
 }
 
 a:hover {

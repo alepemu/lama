@@ -5,33 +5,41 @@ import { createUser } from '../services/ApiUser';
 
 function SignUp({ setIsLoggedIn, setCurrentUser }) {
   const [userData, setUserData] = useState({ name: '', email: '', password: '' });
+const [pwCheck, setPwCheck] = useState('')
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  function handlePwCheck(e) {
+    const pw = e.target.value;
+    setPwCheck(pw);
+  }
   function handleInput(e) {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   }
 
-  function createNewUser(e) {
+  async function createNewUser(e) {
     e.preventDefault();
-    // if (userData.password !== userData.password2) {
-    //   alert('Passwords do not match!');
-    //   return;
-    // }
+    if (userData.password !== pwCheck) {
+      alert('Passwords do not match!');
+      return;
+    }
 
     const userDataValues = {
       name: userData.name,
       email: userData.email,
       password: userData.password,
     };
-    createUser(userDataValues)
-      .then((user) => {
-        setCurrentUser(user);
-        setIsLoggedIn(true);
-      })
-      .then(alert('User created!'));
-    // .then(navigate('/dashboard'));
+
+    const res = await createUser(userDataValues);
+    if (res.error) {
+      alert(res.message);
+    } else {
+      setCurrentUser(res);
+      setIsLoggedIn(true);
+      navigate('/dashboard');
+    }
+
   }
 
   return (
@@ -71,8 +79,8 @@ function SignUp({ setIsLoggedIn, setCurrentUser }) {
           type="password"
           id="form-pw-2"
           name="password-2"
-          value={userData.password2}
-          onChange={handleInput}
+          value={pwCheck}
+          onChange={handlePwCheck}
           placeholder="Confirm password"
         ></input>
         <button className="log-page-btn" type="submit">
@@ -81,7 +89,7 @@ function SignUp({ setIsLoggedIn, setCurrentUser }) {
         <div className="form-footer">
           <p>If you already have an account,</p>
           <Link className="log-link" to="/login">
-            Log In
+            log In
           </Link>
           <p>now.</p>
         </div>

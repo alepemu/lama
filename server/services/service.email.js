@@ -9,6 +9,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const mailAll = (userData) => {
+  console.log('Emailing ALL');
   const userContent = [];
 
   userData.categories.forEach((cat) => {
@@ -28,7 +29,7 @@ ${userContent.join('')}
   const mailOptions = {
     from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
     to: userData.email,
-    subject: `Hey ${userData.name.toUpperCase()}! Don't miss your reminders! 🦙🦙🦙`,
+    subject: `Hey! Don't miss your reminders! 🦙🦙🦙`,
     html: htmlContent,
   };
 
@@ -46,10 +47,12 @@ ${userContent.join('')}
 };
 
 const mailItem = (itemData) => {
+  console.log('Emailing item');
+
   const mailOptions = {
     from: '"LAMA🦙 Notifications" <lama.cw.solo@gmail.com>',
     to: itemData.email,
-    subject: `🦙🦙🦙!!! ${itemData.title}`,
+    subject: `🦙🦙🦙 !! ${itemData.title}`,
     html: `<p>Hi ${itemData.name}, you programmed a reminder for:</p><h3>${itemData.title}</h3><p>on ${itemData.start_date}</p>`,
   };
 

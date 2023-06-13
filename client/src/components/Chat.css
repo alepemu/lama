@@ -51,7 +51,8 @@
 
 .chat-scroll {
   display: flex;
-  flex-direction: column-reverse;
+  /* flex-direction: column-reverse; */
+  flex-direction: column;
   overflow-y: auto;
   padding-right: 5px;
 }

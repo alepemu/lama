@@ -16,13 +16,13 @@ function Chat() {
     setIsTyping(true);
 
     let msgs = chats;
-    msgs.unshift({ role: 'user', content: message });
+    msgs.push({ role: 'user', content: message });
     setChats(msgs);
 
     setMessage('');
     AIchat(chats)
       .then((data) => {
-        msgs.unshift(data);
+        msgs.push(data);
         setChats(msgs);
         setIsTyping(false);
       })
@@ -38,6 +38,14 @@ function Chat() {
       </div>
       <div id="chat-container" className={chatOpen ? 'chatOpen' : 'chatClosed'}>
         <div className="chat-scroll">
+        <div id="chat-msgs">
+            <span className="from-advisor">
+              <p>Assistant</p>
+            </span>
+            <div className="msg advisor">
+              Hi! This is Lama, what mundane questions can I help you with?
+            </div>
+          </div>
           {chats && chats.length
             ? chats.map((chat, index) => (
                 <div key={index} id="chat-msgs" className={chat.role === 'user' ? 'user_msg' : ''}>
@@ -50,6 +58,7 @@ function Chat() {
                 </div>
               ))
             : ''}
+          
         </div>
         <div className={isTyping ? 'isTyping' : 'hide'}>
           <p>{isTyping ? 'Thinking...' : ''}</p>
