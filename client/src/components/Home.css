@@ -1,28 +1,59 @@
 .Home {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   user-select: none;
 }
 
-#lama-title {
-  margin-top: 25px;
-  font-size: 5rem;
-  /* color: rgb(185, 179, 169); */
-  /* text-shadow: 2px 2px rgb(0, 0, 0); */
-  background: -webkit-linear-gradient(30deg, #9b9b9b, rgb(185, 179, 169));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+#home-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  gap: 100px;
+}
+
+#home-left {
+  margin-top: 100px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-left > h1 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+#home-left > h3 {
+  font-weight: 300;
+  /* margin: 20px 0px; */
+  align-self: flex-start;
+}
+#home-left > .register {
+  margin-top: 15px;
+  font-weight: 300;
+  color: white;
+  background-color: rgb(222, 159, 14);
+  border: 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#home-right {
+  margin-top: 100px;
+  /* background-color: blueviolet; */
 }
 
 #lama-logo {
-  margin-bottom: 25px;
-
   display: flex;
 }
 
 #logo {
-  height: 125px;
+  height: 175px;
   transition: 1s ease-in-out;
 }
 
@@ -32,29 +63,61 @@
 }
 
 #logo-text {
+  font-size: 25px;
   color: rgb(134, 129, 119);
 }
 
+#logo-text > h2 {
+  font-weight: 300;
+}
+
 .first-letter {
+  font-weight: 800;
   color: rgb(0, 0, 0);
 }
 
-#showcase {
+#home-down {
+  margin: 70px 0px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-shrink: 1;
-  gap: 25px;
+  gap: 50px;
 }
 
-section {
-  border: 2px solid grey;
-  border-radius: 25px;
-  width: 600px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(202, 204, 206);
+.showcase > img {
+  width: 400px;
+  height: 220px;
+  background-color: brown;
+  box-shadow: 1px 1px 5px grey;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.showcase {
+  transition: transform 1s ease-in-out;
+}
+
+.showcase:hover {
+  transform: scale(1.1);
+  transition: transform 1s ease-in-out;
+}
+
+@media only screen and (max-width: 875px) {
+  #home-header {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  #home-left {
+    margin-top: 60px;
+    text-align: center;
+    width: 450px;
+  }
+
+  .text-center {
+    margin: auto;
+  }
+
+  #home-down {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
