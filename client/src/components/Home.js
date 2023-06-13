@@ -1,8 +1,8 @@
 import './Home.css';
 import { Link } from 'react-router-dom';
 import logo from '../img/icon-512x512.png';
-import image01 from '../img/Screenshot01.jpg';
-import image02 from '../img/Screenshot02.jpg';
+import image01 from '../img/Screenshot01xs.jpg';
+import image02 from '../img/Screenshot02xs.jpg';
 
 function Home() {
   return (
@@ -40,11 +40,11 @@ function Home() {
       <div id="home-down">
         <div className="showcase">
           <img src={image01} alt="Showcase 1"></img>
-          <p>Bla bla bla bla bla bla bla bla</p>
+          <p>Generate your pools and store the information you need</p>
         </div>
         <div className="showcase">
           <img src={image02} alt="Showcase 2"></img>
-          <p>Bla bla bla bla bla bla bla bla</p>
+          <p>Customize the appearance and schedule notifications</p>
         </div>
       </div>
     </div>

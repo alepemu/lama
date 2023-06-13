@@ -20,7 +20,7 @@
   width: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 #home-left > h1 {
@@ -34,13 +34,19 @@
 }
 #home-left > .register {
   margin-top: 15px;
-  font-weight: 300;
-  color: white;
-  background-color: rgb(222, 159, 14);
+  font-weight: 800;
+  color: black;
+  background-color: rgb(227, 178, 135);
   border: 0;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+#home-left > .register:hover {
+  background-color: rgb(176, 138, 119);
+  transition: 0.2s ease-in-out;
 }
 
 #home-right {
@@ -85,14 +91,19 @@
 .showcase > img {
   width: 400px;
   height: 220px;
-  background-color: brown;
-  box-shadow: 1px 1px 5px grey;
+  box-shadow: 0px 2px 10px grey;
   border-radius: 10px;
   overflow: hidden;
+  object-fit: cover;
+  filter: grayscale(50%);
 }
 
 .showcase {
   transition: transform 1s ease-in-out;
+}
+
+.showcase > p {
+  margin-top: 10px;
 }
 
 .showcase:hover {
@@ -118,6 +129,14 @@
 
   #home-down {
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
+  }
+
+  .showcase {
+    text-align: center;
+  }
+
+  #home-left > .register {
+    align-self: center;
   }
 }

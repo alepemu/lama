@@ -49,8 +49,7 @@ a:visited {
 }
 
 a:hover {
-  /* color: rgb(153, 137, 115); */
-  /* transition: color 0.1s linear; */
+  color: rgb(95, 79, 56);
 }
 
 #nav-right {
