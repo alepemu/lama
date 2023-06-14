@@ -12,7 +12,13 @@ In the next updates of LAMA you will have:
 - Dark mode
 - and much more...
 
-~~## Getting started~~
-~~## Contributing~~
-~~## Comments and support~~
-~~## Screenshots~~
+## Getting started
+
+To install the required dependencies run `$ npm install` in both /client and /server folders.
+
+In order to run the server you will require an `.env` file in /client containing an OpeanAI ORG, OpenAI KEY, email address and password with the right third party apps permission.
+
+## Comments and support
+
+This is a WIP project.
+Please reach out for a better understanding of the current status and feel free to contribute or suggest changes and improvements.
