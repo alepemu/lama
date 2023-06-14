@@ -5,13 +5,14 @@ import { delItem } from '../services/ApiItem';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import ButtonNotifications from './popups/ButtonNotifications';
 import Category from './Category';
-import './Dashboard.css';
 import logo from '../img/icon-512x512.png';
+import './Dashboard.css';
 
 function Dashboard({ userIdDb }) {
   const [user, setUser] = useState({});
   const [userCatList, setUserCatList] = useState([]);
   const [newCatTitle, setNewCatTitle] = useState('');
+  const [isGapo, setIsGapo] = useState(false);
 
   useEffect(() => {
     loadUser(userIdDb)
@@ -28,6 +29,7 @@ function Dashboard({ userIdDb }) {
       alert('Give a name!');
       return;
     }
+    setIsGapo(!isGapo);
     const content = { userId: user._id, name: newCatTitle };
     newCat(content)
       .then((cat) => {
@@ -43,6 +45,7 @@ function Dashboard({ userIdDb }) {
     const content = { userId, catId };
     // Delete items in category first
     // Then delete category and update user cat list
+    // VERY LONG, CAN THIS BE REFACTORED
     loadCat(id)
       .then((response) => response.items)
       .then((list) => {
@@ -77,11 +80,12 @@ function Dashboard({ userIdDb }) {
               value={newCatTitle}
               onChange={(e) => setNewCatTitle(e.target.value)}
               placeholder="Add a new pool"
+              autoComplete="off"
             ></input>
             <ArrowDropDownCircleIcon className="btn-new-cat" onClick={newCategory} />
           </form>
         </div>
-        <ButtonNotifications id='dash-notif-set' user={user} setUser={setUser}/>
+        <ButtonNotifications id="dash-notif-set" user={user} setUser={setUser} />
       </div>
       {userCatList.length ? (
         ''
@@ -93,6 +97,7 @@ function Dashboard({ userIdDb }) {
         </div>
       )}
       <div id="dashboard-pool">{catList}</div>
+      <div id="gapo" className={isGapo ? 'shoot' : 'no-shoot'}></div>
     </div>
   );
 }

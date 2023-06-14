@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  user-select: none
 }
 
 #dashboard-header {
@@ -11,7 +12,7 @@
 }
 
 #welcome-msg {
-  margin: 50px 0px 0px;
+  margin: 70px 0px 0px;
 }
 
 #dashboard-adjustments {
@@ -19,7 +20,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  margin-top: 60px;
+  margin-top: 80px;
   border: 2px solid grey;
   border: 0;
   padding: 0px 10px;
@@ -69,7 +70,6 @@
 #dashboard-empty {
   margin-top: 400px;
   opacity: 25%;
-  /* background-color: aqua; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -160,7 +160,7 @@
     margin: 0;
     position: absolute;
     width: 150px;
-    top: 48px;
+    top: 68px;
     transform: translateX(158px);
   }
 
@@ -172,5 +172,35 @@
   #dashboard-adjustments {
     height: 30px;
     width: 40px;
+  }
+}
+
+
+#gapo {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  background-color: rgb(206, 206, 206);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  /* transition: all linear 0.4s; */
+}
+
+.shoot {
+  animation: gapo-shooting 0.5s linear;
+  /* transform: translateX(-200vh);
+  transition: all linear 0.4s; */
+}
+
+@keyframes gapo-shooting {
+  0% {
+    transform: translateX(0);
+  }
+  99% {
+    transform: translateX(-200vh);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

@@ -20,7 +20,7 @@ exports.sendMessage = async (ctx) => {
     ctx.body = {
       output: result.data.choices[0].message,
     };
-    ctx.status = 200;
+    ctx.status = 202;
   } catch (error) {
     ctx.body = { output: { role: 'Error', content: 'AI response went wrong' } };
     ctx.status = 500;

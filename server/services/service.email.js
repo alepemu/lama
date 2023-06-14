@@ -18,10 +18,10 @@ const mailAll = (userData) => {
   userData.categories.forEach((cat) => {
     let items = [];
     cat.items.forEach((item) => {
-      items.push(`<li>${item.title}</li>`);
+      items.push(`<li>${item.title}${item.start_date ? ' ' + dayjs(item.start_date).format('DD/MM/YYYY H:mm a') : ''}</li>`);
     });
 
-    userContent.push(`<h3>Category: ${cat.name}</h3><ul>${items.join('') + ' ' + dayjs(items.start_date).format('DD/MM/YYYY H:mm a')}</ul>`);
+    userContent.push(`<h3>Category: ${cat.name}</h3><ul>${items.join('')}</ul>`);
   });
 
   const htmlContent = `

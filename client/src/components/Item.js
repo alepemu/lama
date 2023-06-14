@@ -38,14 +38,11 @@ function Item({ itemId, deleteItem }) {
         />
         <div className="el-content">
           <h4 className={item.checked ? 'el-checked' : 'el-not-checked'}>{item.title}</h4>
-          {/* <p>
-          <strong>{item.frequency ? `every ${item.frequency}` : ''}</strong>
-        </p> */}
-          <p  className="el-date">{item.start_date ? dateItem(item.start_date) : ''}</p>
+          <p className="el-date">{item.start_date ? dateItem(item.start_date) : ''}</p>
         </div>
       </div>
-      <div className='el-details'>
-        <ButtonItemEdit className='el-edit' updateItem={updateItem} item={item} />
+      <div className="el-details">
+        <ButtonItemEdit className="el-edit" updateItem={updateItem} item={item} />
         <ClearIcon className="el-remove" onClick={() => deleteItem(item._id)} />
       </div>
     </div>

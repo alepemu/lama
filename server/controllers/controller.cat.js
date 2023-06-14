@@ -15,7 +15,7 @@ exports.getCatById = async (ctx) => {
 
 exports.createCat = async (ctx) => {
   try {
-    // const [userId, name] = ctx.request.body;
+    // { "userId", "name" }
     const userId = ctx.request.body.userId;
     const name = ctx.request.body.name;
     const user = await User.findById(userId);
@@ -23,17 +23,16 @@ exports.createCat = async (ctx) => {
     const newCatList = [...user.categories, newCat._id];
     await User.findByIdAndUpdate(userId, { $set: { categories: newCatList } });
     ctx.body = newCat;
-    ctx.status = 200;
+    ctx.status = 201;
   } catch (error) {
     ctx.body = { error, message: 'Could not create category' };
-    ctx.status = 500;
+    ctx.status = 400;
   }
 };
 
 exports.deleteCat = async (ctx) => {
   try {
-    // { "userId": "6480a98535fbc7221e4f2eb2",
-    //   "catId": "..." }
+    // { "userId", "catId" }
     const userId = ctx.request.body.userId;
     const catId = ctx.request.body.catId;
     const user = await User.findById(userId);
@@ -43,7 +42,7 @@ exports.deleteCat = async (ctx) => {
       $set: { categories: user.categories.filter((cat) => cat.toString() !== catId) },
     });
     ctx.body = deletedCategory;
-    ctx.status = 200;
+    ctx.status = 202;
   } catch (error) {
     ctx.body = error.message;
     ctx.status = 500;
@@ -52,9 +51,7 @@ exports.deleteCat = async (ctx) => {
 
 exports.updateCat = async (ctx) => {
   try {
-    // { "_id": "6482e3a99d1f99e48569793d",
-    //   "name": "Household v2",
-    //   "color": "yellow" }
+    // { CATEGORY }
     const catChanges = ctx.request.body;
     const catId = catChanges._id;
     const updatedCategory = await Category.findByIdAndUpdate(
@@ -63,7 +60,7 @@ exports.updateCat = async (ctx) => {
       { new: true }
     );
     ctx.body = updatedCategory;
-    ctx.status = 200;
+    ctx.status = 202;
   } catch (error) {
     ctx.body = error.message;
     ctx.status = 500;

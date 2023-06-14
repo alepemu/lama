@@ -2,19 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-  /* font-family: 'Open Sans', sans-serif; */
   font-family: 'Roboto', sans-serif;
 }
 
 body {
-  /* background-color: rgb(255, 255, 255); */
-  background: rgb(255, 255, 255);
   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgb(245, 233, 221) 100%);
-  height: 100%;
 }
 
-/* @media (prefers-color-scheme: dark) {
+/* Dark mode to be implemented and set by default
+
+@media (prefers-color-scheme: dark) {
   body {
     color: white;
     background: rgb(255, 255, 255);
@@ -24,6 +21,8 @@ body {
     background-color: rgb(65, 65, 65);
   }
 } */
+
+/* Modified Scrollbar */
 
 *::-webkit-scrollbar {
   width: 5px;

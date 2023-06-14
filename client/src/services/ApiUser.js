@@ -1,5 +1,4 @@
 const BASE_URL = 'http://localhost:3100';
-// const BASE_URL = 'http://192.168.0.241:3100';
 
 async function loadUser(userId) {
   const response = await fetch(BASE_URL + '/user/' + userId);
@@ -40,4 +39,4 @@ async function updateUser(userData) {
     .catch((err) => console.log(err));
 }
 
-module.exports = { loadUser, createUser, logUser, updateUser };
+export { loadUser, createUser, logUser, updateUser };

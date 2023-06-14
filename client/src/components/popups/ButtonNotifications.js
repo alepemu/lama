@@ -2,11 +2,11 @@ import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SendIcon from '@mui/icons-material/Send';
-import { Checkbox } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { Checkbox } from '@mui/material';
 import { sendEmail } from '../../services/ApiEmail';
-import './ButtonNotifications.css';
 import { updateUser } from '../../services/ApiUser';
+import './ButtonNotifications.css';
 
 function ButtonNotifications({ user, setUser }) {
   const [emailWhenDue, setEmailWhenDue] = useState(false);
@@ -42,7 +42,6 @@ function ButtonNotifications({ user, setUser }) {
               <div className="notif-line">
                 <Checkbox
                   checked={emailWhenDue ? true : false}
-                  // onChange={() => setEmailWhenDue(!emailWhenDue)}
                   onChange={() => {
                     setEmailWhenDue(!emailWhenDue);
                     setUser({ ...user, notif_due: !emailWhenDue });

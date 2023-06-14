@@ -29,7 +29,7 @@ function Category({ catId, deleteCategory }) {
     }
     const content = {
       catId: category._id,
-      title: newItemTitle ,
+      title: newItemTitle,
     };
     newItem(content)
       .then((item) => {
@@ -88,8 +88,8 @@ function Category({ catId, deleteCategory }) {
               value={newItemTitle}
               onChange={(e) => setNewItemTitle(e.target.value)}
               placeholder="New item"
+              autoComplete="off"
             ></input>
-            {/* <button type="submit">+</button> */}
           </form>
         </div>
       </div>

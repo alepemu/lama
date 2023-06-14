@@ -10,7 +10,7 @@ In the next updates of LAMA you will have:
 - PWA with push notifications
 - Optional frequency in items for periodic reminders
 - Dark mode
-- and much more
+- and much more...
 
 ~~## Getting started~~
 ~~## Contributing~~

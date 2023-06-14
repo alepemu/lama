@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUser } from '../services/ApiUser';
+import { useState } from 'react';
+import './SignUp.css';
 
 function SignUp({ setIsLoggedIn, setCurrentUser }) {
   const [userData, setUserData] = useState({ name: '', email: '', password: '' });
-const [pwCheck, setPwCheck] = useState('')
+  const [pwCheck, setPwCheck] = useState('');
 
   const navigate = useNavigate();
 
@@ -39,13 +39,11 @@ const [pwCheck, setPwCheck] = useState('')
       setIsLoggedIn(true);
       navigate('/dashboard');
     }
-
   }
 
   return (
     <div className="SignUp">
       <h3>Create account</h3>
-
       <form onSubmit={createNewUser}>
         <label htmlFor="form-name">Username:</label>
         <input
@@ -55,6 +53,7 @@ const [pwCheck, setPwCheck] = useState('')
           value={userData.name}
           onChange={handleInput}
           placeholder="Username"
+          autoComplete="off"
         ></input>
         <label htmlFor="form-email">Email:</label>
         <input
@@ -64,6 +63,7 @@ const [pwCheck, setPwCheck] = useState('')
           value={userData.email}
           onChange={handleInput}
           placeholder="✉ Email"
+          autoComplete="off"
         ></input>
         <label htmlFor="form-pw">Password:</label>
         <input

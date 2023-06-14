@@ -4,6 +4,7 @@
   justify-content: flex-start;
   align-items: center;
   margin: auto;
+  user-select: none;
   /* overflow: hidden; */
 }
 
@@ -15,8 +16,14 @@
   z-index: -10;
 }
 
+#about-title {
+  /* background-color: aqua; */
+  /* backdrop-filter: blur(20px); */
+  margin-bottom: 20px;
+}
+
 #about-title > h3 {
-  margin-top: 60px;
+  margin-top: 80px;
   text-shadow: 1px 1px white;
 }
 
@@ -56,7 +63,9 @@
 
 #about-container > ul > li:hover {
   color: rgba(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+
   transition: all 0.5s ease-in-out;
 }
 

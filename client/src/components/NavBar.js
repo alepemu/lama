@@ -1,7 +1,7 @@
-import './NavBar.css';
-import { Link } from 'react-router-dom';
 // import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import { Link } from 'react-router-dom';
 import iconbw from '../img/icon-lama-bw.png';
+import './NavBar.css';
 
 function NavBar({ isLoggedIn, setIsLoggedIn }) {
   return (

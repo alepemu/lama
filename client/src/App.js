@@ -1,4 +1,4 @@
-import './App.css';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
@@ -7,7 +7,7 @@ import About from './components/About';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import Chat from './components/Chat';
-import { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});

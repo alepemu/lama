@@ -1,10 +1,9 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import './ButtonCatColor.css';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
+import './ButtonCatColor.css';
 
 function ButtonCatColor({ updateCategory, cat }) {
-  
   function changeColor(col) {
     updateCategory(cat._id, cat.name, col);
   }
@@ -13,7 +12,11 @@ function ButtonCatColor({ updateCategory, cat }) {
     <PopupState variant="popover">
       {(popupState) => (
         <div>
-          <ColorLensIcon className="cat-color-btn" variant="contained" {...bindTrigger(popupState)} />
+          <ColorLensIcon
+            className="cat-color-btn"
+            variant="contained"
+            {...bindTrigger(popupState)}
+          />
           <Popover
             {...bindPopover(popupState)}
             anchorOrigin={{

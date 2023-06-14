@@ -1,9 +1,9 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import './ButtonCatEdit.css';
 import { useEffect, useState } from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import DeleteIcon from '@mui/icons-material/Delete';
+import './ButtonCatEdit.css';
 
 function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
   const [newName, setNewName] = useState(cat.name);
@@ -41,7 +41,7 @@ function ButtonCatEdit({ updateCategory, deleteCategory, cat }) {
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                 ></input>
-                <input type="submit" value='Update title'></input>
+                <input type="submit" value="Update title"></input>
               </form>
               <DeleteIcon className="cat-del-btn" onClick={() => deleteCategory(cat._id)} />
             </div>

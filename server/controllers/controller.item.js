@@ -15,11 +15,7 @@ exports.getItemById = async (ctx) => {
 
 exports.createItem = async (ctx) => {
   try {
-    // {"catId": "6480b01df511c7b079b0cf75",
-    // "content":{"title": "Test",
-    // "frequency": "123456789",
-    // "start_date": "98765432100",
-    // "checked": "false"}}
+    // { "catId", "content" : { ITEM OBJECT } }
     const catId = ctx.request.body.catId;
     const title = ctx.request.body.title;
     const cat = await Category.findById(catId);
@@ -27,17 +23,16 @@ exports.createItem = async (ctx) => {
     const newItemList = [...cat.items, newItem._id];
     await Category.findByIdAndUpdate(catId, { $set: { items: newItemList } });
     ctx.body = newItem;
-    ctx.status = 200;
+    ctx.status = 201;
   } catch (error) {
     ctx.body = error.message;
-    ctx.status = 500;
+    ctx.status = 400;
   }
 };
 
 exports.deleteItem = async (ctx) => {
   try {
-    // { "catId": "6480b01df511c7b079b0cf75",
-    //   "itemId": "..." }
+    // { "catId", "itemId" }
     const catId = ctx.request.body.catId;
     const itemId = ctx.request.body.itemId;
     const category = await Category.findById(catId);
@@ -48,7 +43,7 @@ exports.deleteItem = async (ctx) => {
     });
 
     ctx.body = deletedItem;
-    ctx.status = 200;
+    ctx.status = 202;
   } catch (error) {
     ctx.body = error.message;
     ctx.status = 500;
@@ -57,16 +52,12 @@ exports.deleteItem = async (ctx) => {
 
 exports.updateItem = async (ctx) => {
   try {
-    // { "_id": "6480b443c49e7e82d60e7140",
-    // "title": "Flip matress v2",
-    // "start_date": "999999999999",
-    // "frequency": "123456789",
-    // "checked": "false" }
+    // { ITEM OBJECT }
     const itemChanges = ctx.request.body;
     const itemId = itemChanges._id;
     const updatedItem = await Item.findByIdAndUpdate(itemId, { $set: itemChanges }, { new: true });
     ctx.body = updatedItem;
-    ctx.status = 200;
+    ctx.status = 202;
   } catch (error) {
     ctx.body = error.message;
     ctx.status = 500;

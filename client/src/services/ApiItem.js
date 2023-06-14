@@ -1,5 +1,4 @@
 const BASE_URL = 'http://localhost:3100';
-// const BASE_URL = 'http://192.168.0.241:3100';
 
 async function loadItem(itemId) {
   const response = await fetch(BASE_URL + '/item/' + itemId);
@@ -34,8 +33,7 @@ async function updItem(itemData) {
     body: JSON.stringify(itemData),
   });
   const parsedRes = await response.json();
-  // console.log('parsed', parsedRes);
   return parsedRes;
 }
 
-module.exports = { loadItem, newItem, delItem, updItem };
+export { loadItem, newItem, delItem, updItem };

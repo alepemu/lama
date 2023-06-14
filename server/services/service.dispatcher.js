@@ -34,7 +34,7 @@ async function programItems() {
       start_date: msgs[i].start_date,
     };
 
-    console.log('Email programmed');
+    console.log('One email programmed');
     nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData)).start();
   }
 }
@@ -50,11 +50,12 @@ async function programAll() {
   const users = await usersWithOpt();
 
   for (let i = 0; i < users.length; i++) {
-    // Every minute
+    // Every minute:
     // nodeCron.schedule(`* * * * *`, () => mailAll(users[i])).start();
-    // Every (notif_few) week(s) on Monday at 0900
+    // Every (notif_few) week(s) on Monday at 0900:
     nodeCron.schedule(`0 9 * * 1 */${users[i].notif_freq}`, () => mailAll(users[i])).start();
   }
 }
 
-programAll();
+// It needs some testing before
+// programAll();

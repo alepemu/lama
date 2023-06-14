@@ -31,6 +31,10 @@ function Chat() {
       });
   };
 
+// CHAT NEEDS TO SHOW BOTTOM MESSAGES ALWAYS
+// flex-direction column-reverse... does not work well
+// TO BE REFACTORED
+
   return (
     <div className="Chat">
       <div id="chat-btn" onClick={() => setChatOpen(!chatOpen)}>
@@ -43,7 +47,7 @@ function Chat() {
               <p>Assistant</p>
             </span>
             <div className="msg advisor">
-              Hi! This is Lama, what mundane questions can I help you with?
+              Hi! This is Lama, how can I help you?
             </div>
           </div>
           {chats && chats.length
@@ -58,7 +62,6 @@ function Chat() {
                 </div>
               ))
             : ''}
-          
         </div>
         <div className={isTyping ? 'isTyping' : 'hide'}>
           <p>{isTyping ? 'Thinking...' : ''}</p>
@@ -69,6 +72,7 @@ function Chat() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            autocomplete="off"
           ></input>
           <button>▲</button>
         </form>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './LogIn.css';
 import { Link } from 'react-router-dom';
 import { logUser } from '../services/ApiUser';
 import { useNavigate } from 'react-router-dom';
+import './LogIn.css';
 
 const initialState = { email: '', pw: '' };
 
@@ -31,9 +31,6 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
       setCurrentUser(res);
       setIsLoggedIn(true);
       navigate('/dashboard');
-      // This sets isAuthenticated = true and redirects to profile
-      // props.setIsAuthenticated(true);
-      // auth.login(() => navigate('/profile'));
     }
   }
 
@@ -50,6 +47,7 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
           value={userLogin.email}
           onChange={handleInput}
           placeholder="✉ Email"
+          autoComplete="off"
         ></input>
         <label htmlFor="form-pw">Password:</label>
         <input

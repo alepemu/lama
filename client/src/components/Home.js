@@ -1,8 +1,8 @@
-import './Home.css';
-import { Link } from 'react-router-dom';
-import logo from '../img/icon-512x512.png';
 import image01 from '../img/Screenshot01xs.jpg';
 import image02 from '../img/Screenshot02xs.jpg';
+import logo from '../img/icon-512x512.png';
+import { Link } from 'react-router-dom';
+import './Home.css';
 
 function Home() {
   return (

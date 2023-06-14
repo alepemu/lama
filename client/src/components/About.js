@@ -1,5 +1,5 @@
-import './About.css';
 import lama_hi_img from './../img/img-lama-hi.jpg';
+import './About.css';
 
 function About() {
   return (
@@ -7,8 +7,7 @@ function About() {
       <div id="about-container">
         <img id="about-llama-pic" src={lama_hi_img} alter="Pretty llama"></img>
         <div id="about-title">
-          <h3>Some facts about llamas</h3>
-          <p>...hover below to discover!</p>
+          <h3>Hover below to know facts about llamas!</h3>
         </div>
         <ul>
           <li>

@@ -1,5 +1,4 @@
 const BASE_URL = 'http://localhost:3100';
-// const BASE_URL = 'http://192.168.0.241:3100';
 
 async function loadCat(catId) {
   const response = await fetch(BASE_URL + '/category/' + catId);
@@ -37,4 +36,4 @@ async function updateCat(catData) {
     .catch((err) => console.log(err));
 }
 
-module.exports = { loadCat, newCat, delCat, updateCat };
+export { loadCat, newCat, delCat, updateCat };

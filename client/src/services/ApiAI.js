@@ -1,5 +1,4 @@
 const BASE_URL = 'http://localhost:3100';
-// const BASE_URL = 'http://192.168.0.241:3100';
 
 async function AIchat(chats) {
   const response = await fetch(BASE_URL + '/chat', {
@@ -11,4 +10,4 @@ async function AIchat(chats) {
   return data.output;
 }
 
-module.exports = { AIchat };
+export { AIchat };
