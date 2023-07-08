@@ -1,24 +1,41 @@
 # LAMA (Life Admin Management Advisor)
 
-Lama is your personal reminder app (or llama) that notifies you with the important (or not important) stuff that you need to be reminded of. You will not forget again your yearly dentist visit, finish your household obligations or cancel your subscriptions service before they renew again!
+Lama is your personal reminder app (or llama) that notifies you with the important stuff that you need to be reminded of. You will not miss again your yearly dentist visit, finish your household obligations or cancel your subscriptions services before they charge you an unnecessary extra month!
 
-You can add items inside of pools and set a date if you want to be notified. A notification will arrive by email when it's time. You can also receive all the content you have in the platform directly by email by clicking a button or setting it up to do it every X weeks.
+You can add items inside of pools and optionally set a date if you want to be notified. A notification will arrive by email when it's due. If you want, you can also receive all your current lists full of items in a single email by clicking a button or set this up to happen every a certain amount of weeks.
 
-![Llama staring at you](https://t4.ftcdn.net/jpg/02/61/45/73/360_F_261457312_FyzKrOJ26Ie3O41RinOuueOPskwztYay.jpg)
+As an extra feature a lama chatbot has been included to help answering any day to day life admin question users might have.
 
-In the next updates of LAMA you will have:
-- PWA with push notifications
-- Optional frequency in items for periodic reminders
-- Dark mode
-- and much more...
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688746437/Screenshot_2023-07-07_at_18.13.46_ease3i.png" alt="Llama staring at you" width="500"/>
 
 ## Getting started
 
-To install the required dependencies run `$ npm install` in both /client and /server folders.
+In order to run successfully the app, you will need to:
+  - Have MongoDB installed on your machine.
+  - Run `$ npm install` from both /server and /client folders to install the required dependencies.
 
-In order to run the server you will require an `.env` file in /client containing an OpeanAI ORG, OpenAI KEY, email address and password with the right third party apps permission.
+Optionally, include an `.env` file in /server with:
+- Alternative `SERVER_PORT` and database `DB_PORT` and `DB_NAME`.
+- To make the OpenAI chat to work, include an `PENAI_ORG` and `OPENAI_KEY`.
+- To enable emails, add a sender `LAMA_EMAIL` and `LAMA_PW`.  
+*(Make sure it has the right third party apps permission enabled)*
+
+Once everything is set up, you can start the app by running  `$ npm run server` in /server and `$ npm start` in /client.
+
+## Tech stack
+
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688745965/Screenshot_2023-07-07_at_18.05.32_ifrcpy.png" alt="LAMA Stack" width="600"/>
+
+<u>Back End:</u> NodeJS, Koa, MongoDB and Mongoose  
+<u>Front End:</u> ReactJS with Material UI  
+<u>Libraries:</u> OpenAI, DayJS, Nodemailer and node-cron
+
+## Screenshots
+
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688746437/Screenshot_2023-07-07_at_18.13.46_ease3i.png" alt="LAMA screenshot 1" width="600"/>
+
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688746437/Screenshot_2023-07-07_at_18.13.46_ease3i.png" alt="LAMA screenshot 2" width="600"/>
 
 ## Comments and support
 
-This is a WIP project.
-Please reach out for a better understanding of the current status and feel free to contribute or suggest changes and improvements.
+Please feel free to reach out if you would like to contribute or suggest any changes or improvements.
