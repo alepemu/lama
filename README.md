@@ -10,13 +10,13 @@ As an extra feature a lama chatbot has been included to help answering any day t
 
 ## Getting started
 
-In order to run successfully the app, you will need to:
+In order to successfully run the app, you will need to:
   - Have MongoDB installed on your machine.
-  - Run `$ npm install` from both /server and /client folders to install the required dependencies.
+  - Run `$ npm install` from both /server and /client folders in order to install the required dependencies.
 
 Optionally, include an `.env` file in /server with:
-- Alternative `SERVER_PORT` and database `DB_PORT` and `DB_NAME`.
-- To make the OpenAI chat to work, include an `PENAI_ORG` and `OPENAI_KEY`.
+- An alternative `SERVER_PORT` and database `DB_PORT` / `DB_NAME`.
+- For the OpenAI chat to work, include an `OPENAI_ORG` and `OPENAI_KEY`.
 - To enable emails, add a sender `LAMA_EMAIL` and `LAMA_PW`.  
 *(Make sure it has the right third party apps permission enabled)*
 
@@ -32,10 +32,14 @@ Once everything is set up, you can start the app by running  `$ npm run server` 
 
 ## Screenshots
 
-<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688746437/Screenshot_2023-07-07_at_18.13.46_ease3i.png" alt="LAMA screenshot 1" width="600"/>
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688923705/Screenshot_2023-07-09_191741_rtq7o0.jpg" alt="LAMA screenshot 1" width="600"/>
 
-<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688746437/Screenshot_2023-07-07_at_18.13.46_ease3i.png" alt="LAMA screenshot 2" width="600"/>
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688923705/Screenshot_2023-07-09_191811_ylqujd.jpg" alt="LAMA screenshot 2" width="600"/>
+
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688923705/Screenshot_2023-07-09_192051_esyca2.jpg" alt="LAMA screenshot 2" width="600"/>
+
+<img src="https://res.cloudinary.com/dpzz6vn2w/image/upload/v1688923705/Screenshot_2023-07-09_192600_f0edg0.jpg" alt="LAMA screenshot 2" width="600"/>
 
 ## Comments and support
 
-Please feel free to reach out if you would like to contribute or suggest any changes or improvements.
+Please feel free to reach out if you would like to contribute or suggest changes or improvements.
