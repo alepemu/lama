@@ -72,7 +72,7 @@ function Chat() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            autocomplete="off"
+            autoComplete="off"
           ></input>
           <button>▲</button>
         </form>

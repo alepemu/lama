@@ -11,7 +11,8 @@ const app = new Koa();
 
 const PORT = process.env.SERVER_PORT || 3100;
 const CORSCONFIG = {
-  origin: true,
+  //   origin: '*',
+  origin: 'https://lama-reminder.netlify.app/',
   credentials: true,
 };
 
