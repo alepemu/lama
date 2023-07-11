@@ -31,10 +31,6 @@ function Chat() {
       });
   };
 
-// CHAT NEEDS TO SHOW BOTTOM MESSAGES ALWAYS
-// flex-direction column-reverse... does not work well
-// TO BE REFACTORED
-
   return (
     <div className="Chat">
       <div id="chat-btn" onClick={() => setChatOpen(!chatOpen)}>
@@ -43,12 +39,6 @@ function Chat() {
       <div id="chat-container" className={chatOpen ? 'chatOpen' : 'chatClosed'}>
         <div className="chat-scroll">
         <div id="chat-msgs">
-            <span className="from-advisor">
-              <p>Assistant</p>
-            </span>
-            <div className="msg advisor">
-              Hi! This is Lama, how can I help you?
-            </div>
           </div>
           {chats && chats.length
             ? chats.map((chat, index) => (
@@ -60,8 +50,14 @@ function Chat() {
                     {chat.content}
                   </div>
                 </div>
-              ))
+              )).reverse()
             : ''}
+            <span className="from-advisor">
+              <p>Assistant</p>
+            </span>
+            <div className="msg advisor">
+              Hi! This is Lama, how can I help you?
+            </div>
         </div>
         <div className={isTyping ? 'isTyping' : 'hide'}>
           <p>{isTyping ? 'Thinking...' : ''}</p>
