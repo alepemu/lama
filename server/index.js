@@ -11,7 +11,7 @@ const app = new Koa();
 
 const PORT = process.env.SERVER_PORT || 3100;
 const CORSCONFIG = {
-  origin: 'http://localhost:3000',
+  origin: true,
   credentials: true,
 };
 
@@ -19,6 +19,7 @@ require('./services/service.dispatcher.js');
 
 app.use(cors(CORSCONFIG));
 app.use(bodyParser());
+
 app.use(router.routes());
 
 app.listen(PORT, () => {

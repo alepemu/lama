@@ -2,17 +2,21 @@
 
 const mongoose = require('mongoose');
 
-main().catch((err) => console.log(err));
+const { FLY_IO } = process.env;
+
+const uri = FLY_IO ?
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@lama-web.sniwull.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority` :
+    `mongodb://127.0.0.1:${process.env.DB_PORT || '27017'}/${process.env.DB_NAME || 'lama_beta'}`;
 
 async function main() {
-  try {
-    await mongoose.connect(
-      `mongodb://127.0.0.1:${process.env.DB_PORT || '27017'}/${process.env.DB_NAME || 'lama_beta'}`
-    );
-    console.log('Connected to the database');
-  } catch {
-    console.log('Something went wrong when connecting to the database');
-  }
+    try {
+        await mongoose.connect(uri);
+        console.log('Connected to the MongoDB ' + (FLY_IO ? 'Atlas' : 'local') + ' database');
+    } catch (err) {
+        console.log('Something went wrong when connecting to the database : ', err);
+    }
 }
+
+main();
 
 module.exports = mongoose;
