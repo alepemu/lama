@@ -5,6 +5,7 @@ const { openai } = require('../services/service.ai');
 exports.sendMessage = async (ctx) => {
   try {
     const { chats } = ctx.request.body;
+    console.log('chats', chats);
     const result = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: [
@@ -22,7 +23,8 @@ exports.sendMessage = async (ctx) => {
     };
     ctx.status = 202;
   } catch (error) {
-    ctx.body = { output: { role: 'Error', content: 'AI response went wrong' } };
+    console.log(error.message);
+    ctx.body = { output: { role: 'Error', content: 'Sorry, Lama AI-Bot has been temporary disabled' } };
     ctx.status = 500;
   }
 };

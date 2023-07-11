@@ -115,16 +115,31 @@
   #home-header {
     flex-direction: column-reverse;
     gap: 0;
+    scale: 0.9;
   }
 
   #home-left {
     margin-top: 60px;
     text-align: center;
-    width: 450px;
+    width: 100%;
+  }
+
+  #home-right {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #logo-text {
+    font-size: x-large;
   }
 
   .text-center {
     margin: auto;
+  }
+
+  .showcase > img {
+    width: 350px;
   }
 
   #home-down {

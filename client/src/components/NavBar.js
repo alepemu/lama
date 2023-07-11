@@ -14,8 +14,8 @@ function NavBar({ isLoggedIn, setIsLoggedIn }) {
               LAMA
             </Link>
           </div>
-          {isLoggedIn ? <Link to="/dashboard">Dashboard</Link> : <Link to="/login">Dashboard</Link>}
-          <Link to="/about">About</Link>
+          {isLoggedIn ? <Link to="/dashboard">Dashboard</Link> : <Link to="/login">Board</Link>}
+          <Link to="/about">+</Link>
         </div>
 
         <div id="nav-right">
