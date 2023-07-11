@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3100';
+const BASE_URL = 'https://lama.fly.dev';
 
 async function loadCat(catId) {
   const response = await fetch(BASE_URL + '/category/' + catId);

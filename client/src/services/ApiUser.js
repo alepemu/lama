@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3100';
+const BASE_URL = 'https://lama.fly.dev';
 
 async function loadUser(userId) {
   const response = await fetch(BASE_URL + '/user/' + userId);
