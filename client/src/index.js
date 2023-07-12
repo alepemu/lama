@@ -4,7 +4,7 @@ import React from 'react';
 import App from './App';
 import './index.css';
 
-const BASE_URL = process.env.isdeployed ? 'https://lama.fly.dev' : 'http://localhost:3100';
+const BASE_URL = process.env.REACT_APP_NETLIFY ? 'https://lama.fly.dev' : 'http://localhost:3100';
 console.log(BASE_URL);
     
 console.log(`isdeployed value is ${process.env.isdeployed}`);
@@ -14,6 +14,8 @@ console.log(`CUSTOM_ENV_VAR value is ${process.env.CUSTOM_ENV_VAR}`);
 console.log(`REACT_APP_CUSTOM_ENV_VAR value is ${process.env.REACT_APP_CUSTOM_ENV_VAR}`);
 console.log(`TOML_ENV_VAR value is ${process.env.TOML_ENV_VAR}`);
 console.log(`REACT_APP_TOML_ENV_VAR value is ${process.env.REACT_APP_TOML_ENV_VAR}`);
+
+console.log(`REACT_APP_NETLIFY value is ${process.env.REACT_APP_NETLIFY}`);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
