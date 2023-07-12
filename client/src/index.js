@@ -4,7 +4,7 @@ import React from 'react';
 import App from './App';
 import './index.css';
 
-const BASE_URL = process.env.NETLIFY ? 'https://lama.fly.dev' : 'http://localhost:3100';
+const BASE_URL = process.env.isdeployed ? 'https://lama.fly.dev' : 'http://localhost:3100';
 console.log(BASE_URL);
     
 const root = ReactDOM.createRoot(document.getElementById('root'));
