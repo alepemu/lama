@@ -43,9 +43,7 @@ function Dashboard({ userIdDb }) {
     const catId = id;
     const userId = user._id;
     const content = { userId, catId };
-    // Delete items in category first
-    // Then delete category and update user cat list
-    // VERY LONG, CAN THIS BE REFACTORED
+
     loadCat(id)
       .then((response) => response.items)
       .then((list) => {
@@ -97,7 +95,7 @@ function Dashboard({ userIdDb }) {
         </div>
       )}
       <div id="dashboard-pool">{catList}</div>
-      <div id="gapo" className={isGapo ? 'shoot' : 'no-shoot'}></div>
+      {/* <div id="gapo" className={isGapo ? 'shoot' : 'no-shoot'}></div> */}
     </div>
   );
 }

@@ -1,213 +1,217 @@
 .Dashboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  user-select: none
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none
 }
 
 #dashboard-header {
-  width: 825px;
-  display: flex;
-  justify-content: space-between;
+    width: 825px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #welcome-msg {
-  margin: 70px 0px 0px;
+    margin: 70px 0px 0px;
 }
 
 #dashboard-adjustments {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  margin-top: 80px;
-  border: 2px solid grey;
-  border: 0;
-  padding: 0px 10px;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin-top: 80px;
+    border: 2px solid grey;
+    border: 0;
+    padding: 0px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px grey;
 }
 
 #dashboard-pool {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding: 25px;
-  gap: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 25px;
+    gap: 25px;
 }
 
 .new-cat-form {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
 }
 
 #input-new-cat {
-  border: 0;
-  height: 40px;
-  font-size: medium;
-  padding-left: 10px;
-  width: 400px;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px grey;
+    border: 0;
+    height: 40px;
+    font-size: medium;
+    padding-left: 10px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px grey;
 }
 
 .btn-new-cat {
-  position: absolute;
-  right: 10px;
-  opacity: 20%;
-  cursor: pointer;
+    position: absolute;
+    right: 10px;
+    opacity: 20%;
+    cursor: pointer;
 }
 
 .btn-new-cat:hover {
-  opacity: 60%;
-  transition: 0.2s ease-in-out;
+    opacity: 60%;
+    transition: 0.2s ease-in-out;
 }
 
 #dashboard-empty {
-  margin-top: 400px;
-  opacity: 25%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    margin-top: 400px;
+    opacity: 25%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 #lama1 {
-  z-index: -1;
-  position: absolute;
-  width: 300px;
-  filter: grayscale(100%);
-  right: 50px;
-  top: -350px;
-  opacity: 50%;
+    z-index: -1;
+    position: absolute;
+    width: 300px;
+    filter: grayscale(100%);
+    right: 50px;
+    top: -350px;
+    opacity: 50%;
 }
 
 .lama-shake {
-  animation: shaking 2s infinite ease-in-out;
+    animation: shaking 2s infinite ease-in-out;
 }
 
 @keyframes shaking {
-  0% {
-    transform: scaleX(-1) rotate(0deg);
-  }
-  50% {
-    transform: rotate(15deg);
-  }
-  0% {
-    transform: rotate(0deg);
-  }
+    0% {
+        transform: scaleX(-1) rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+
+    0% {
+        transform: rotate(0deg);
+    }
 }
 
 #lama2 {
-  position: absolute;
-  width: 150px;
-  filter: grayscale(100%);
-  left: -200px;
-  top: -50px;
+    position: absolute;
+    width: 150px;
+    filter: grayscale(100%);
+    left: -200px;
+    top: -50px;
 }
 
 .rotate {
-  animation: rotation 4s infinite linear;
+    animation: rotation 4s infinite linear;
 }
 
 @keyframes rotation {
-  from {
-    transform: scaleX(-1) rotate(0deg);
-  }
-  to {
-    transform: scaleX(-1) rotate(359deg);
-  }
+    from {
+        transform: scaleX(-1) rotate(0deg);
+    }
+
+    to {
+        transform: scaleX(-1) rotate(359deg);
+    }
 }
 
 #lama3 {
-  position: absolute;
-  width: 50px;
-  filter: grayscale(100%);
-  top: -50px;
-  right: 50px;
+    position: absolute;
+    width: 50px;
+    filter: grayscale(100%);
+    top: -50px;
+    right: 50px;
 }
 
 .displacement {
-  animation: displacement 3s infinite ease-in-out;
+    animation: displacement 3s infinite ease-in-out;
 }
 
 @keyframes displacement {
-  0% {
-    transform: scaleX(-1) translateX(0);
-  }
-  50% {
-    transform: scaleX(-1) translateX(250px);
-  }
-  100% {
-    transform: scaleX(-1);
-  }
+    0% {
+        transform: scaleX(-1) translateX(0);
+    }
+
+    50% {
+        transform: scaleX(-1) translateX(250px);
+    }
+
+    100% {
+        transform: scaleX(-1);
+    }
 }
 
 @media only screen and (max-width: 875px) {
 
-  #dashboard-header {
-    display: flex;
-    width: 400px;
-    flex-direction: column;
-    align-items: center;
-  }
+    #dashboard-header {
+        display: flex;
+        width: 375px;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  #dashboard-adjustments {
-    margin: 0;
-    position: absolute;
-    width: 150px;
-    top: 68px;
-    transform: translateX(158px);
-  }
+    #dashboard-adjustments {
+        margin: 0;
+        position: absolute;
+        width: 150px;
+        top: 68px;
+        transform: translateX(158px);
+    }
 
-  #dashboard-adjustments > h4 {
-  display: none;
-  }
+    #dashboard-adjustments>h4 {
+        display: none;
+    }
 
 
-  #dashboard-adjustments {
-    height: 30px;
-    width: 40px;
-  }
+    #dashboard-adjustments {
+        height: 30px;
+        width: 40px;
+    }
 }
 
 
 #gapo {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  background-color: rgb(206, 206, 206);
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  /* transition: all linear 0.4s; */
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    background-color: rgb(206, 206, 206);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
 }
 
 .shoot {
-  animation: gapo-shooting 0.5s linear;
-  /* transform: translateX(-200vh);
-  transition: all linear 0.4s; */
+    animation: gapo-shooting 0.5s linear;
 }
 
 @keyframes gapo-shooting {
-  0% {
-    transform: translateX(0);
-  }
-  99% {
-    transform: translateX(-200vh);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(0);
+    }
+
+    99% {
+        transform: translateX(-200vh);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 
-  
+
 @media only screen and (max-width: 500px) {
 
     #dashboard-adjustments {
@@ -215,5 +219,10 @@
         position: absolute;
         top: 68px;
         transform: translateX(133px);
-      }
-  }
+    }
+
+    #dashboard-pool {
+        width: 375px;
+    }
+
+}

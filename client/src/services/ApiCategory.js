@@ -1,8 +1,5 @@
 import BASE_URL from '../index'
 
-// const BASE_URL = 'https://lama.fly.dev';
-// const BASE_URL = 'http://localhost:3100';
-
 async function loadCat(catId) {
   const response = await fetch(BASE_URL + '/category/' + catId);
   const category = await response.json();
