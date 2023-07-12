@@ -1,4 +1,3 @@
-// import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { Link } from 'react-router-dom';
 import iconbw from '../img/icon-lama-bw.png';
 import './NavBar.css';
@@ -19,7 +18,6 @@ function NavBar({ isLoggedIn, setIsLoggedIn }) {
         </div>
 
         <div id="nav-right">
-          {/* <LightModeOutlinedIcon id="darklight-btn" onClick={() => console.log('hey')} /> */}
           {isLoggedIn ? (
             <Link
               className="log-btn out-btn"
