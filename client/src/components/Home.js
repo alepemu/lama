@@ -4,17 +4,6 @@ import logo from '../img/icon-512x512.png';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-const BASE_URL = process.env.isdeployed ? 'https://lama.fly.dev' : 'http://localhost:3100';
-console.log(BASE_URL);
-    
-console.log(`isdeployed value is ${process.env.isdeployed}`);
-console.log(`NETLIFY value is ${process.env.NETLIFY}`);
-console.log(`NODE_ENV value is ${process.env.NODE_ENV}`);
-console.log(`CUSTOM_ENV_VAR value is ${process.env.CUSTOM_ENV_VAR}`);
-console.log(`REACT_APP_CUSTOM_ENV_VAR value is ${process.env.REACT_APP_CUSTOM_ENV_VAR}`);
-console.log(`TOML_ENV_VAR value is ${process.env.TOML_ENV_VAR}`);
-console.log(`REACT_APP_TOML_ENV_VAR value is ${process.env.REACT_APP_TOML_ENV_VAR}`);
-
 function Home() {
   return (
     <div className="Home">
