@@ -1,6 +1,6 @@
 'use strict';
 
-const { User, Category } = require('../models/models');
+const { User, Category, Item } = require('../models/models');
 
 exports.getCatById = async (ctx) => {
   try {
@@ -38,6 +38,15 @@ exports.deleteCat = async (ctx) => {
     const user = await User.findById(userId);
     const deletedCategory = await Category.findByIdAndDelete(catId);
 
+    // Delete items from category
+    const itemsArray = deletedCategory.items
+    if (itemsArray.length) {
+      for (let i = 0; i < itemsArray.length; i++) {
+        await Item.findByIdAndDelete(itemsArray[i].toString());
+      }
+    }
+
+    // Update user categories list
     await User.findByIdAndUpdate(userId, {
       $set: { categories: user.categories.filter((cat) => cat.toString() !== catId) },
     });

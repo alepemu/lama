@@ -44,15 +44,7 @@ function Dashboard({ userIdDb }) {
     const userId = user._id;
     const content = { userId, catId };
 
-    loadCat(id)
-      .then((response) => response.items)
-      .then((list) => {
-        list.forEach((item) => {
-          const content = { catId, itemId: item };
-          delItem(content);
-        });
-      })
-      .then(delCat(content))
+    delCat(content)
       .then(
         setUserCatList((userCatList) => {
           return userCatList.filter((cat) => cat !== catId);

@@ -3,6 +3,7 @@
 const Koa = require('koa');
 const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
+const session = require('koa-session');
 
 require('dotenv').config();
 
@@ -17,6 +18,9 @@ const CORSCONFIG = {
 
 require('./services/service.dispatcher.js');
 
+app.keys = ['not a secret'];
+
+app.use(session(app))
 app.use(cors(CORSCONFIG));
 app.use(bodyParser());
 

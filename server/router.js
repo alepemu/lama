@@ -14,6 +14,7 @@ router.get('/health', (ctx) => { ctx.body = 'Hello LAMA'})
 router.get('/user/:id', userController.getUserById);
 router.post('/register', userController.registerUser);
 router.post('/login', userController.logIn);
+router.get('/logout', userController.logOut);
 router.put('/user', userController.updateUser);
 
 router.get('/category/:id', catController.getCatById);

@@ -42,10 +42,20 @@ exports.logIn = async (ctx) => {
     if (!validatedPass) throw new Error();
     const userObject = user.toObject();
     delete userObject.password;
+    ctx.session.uid = user._id;
     ctx.body = userObject;
     ctx.status = 202;
   } catch (error) {
     ctx.body = { error, message: 'Username or/and password is incorrect' };
+    ctx.status = 401;
+  }
+};
+
+exports.logOut = async (ctx) => {
+  try {
+    ctx.session.uid = null;
+  } catch (error) {
+    ctx.body = { error, message: 'Error when logging out' };
     ctx.status = 401;
   }
 };
