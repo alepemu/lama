@@ -1,9 +1,11 @@
 import BASE_URL from '../index'
 
 async function loadUser(userId) {
+  // console.log('aqui');
   const response = await fetch(BASE_URL + '/user/' + userId);
   const user = await response.json();
   const res = user === {} ? 'No data' : user;
+  // console.log(user);
   return res;
 }
 

@@ -55,17 +55,17 @@ function ButtonNotifications({ user, setUser }) {
               <hr />
               <p id="all-notes-p">Send email with all my notes...</p>
               <div className="notif-line">
-                <Checkbox
-                  checked={emailWhenFreq ? true : false}
-                  onChange={() => {
-                    setEmailWhenFreq(!emailWhenFreq);
-                    setUser({ ...user, notif_opt: !emailWhenFreq });
-                    updateUser({ ...user, notif_opt: !emailWhenFreq });
-                  }}
-                  size="small"
-                  color="default"
+                <Checkbox disabled
+                // checked={emailWhenFreq ? true : false}
+                // onChange={() => {
+                //   setEmailWhenFreq(!emailWhenFreq);
+                //   setUser({ ...user, notif_opt: !emailWhenFreq });
+                //   updateUser({ ...user, notif_opt: !emailWhenFreq });
+                // }}
+                // size="small"
+                // color="default"
                 />
-                <p>every</p>
+                <p className='strike'>every</p>
                 <input
                   type="number"
                   value={emailFreq}
@@ -76,7 +76,7 @@ function ButtonNotifications({ user, setUser }) {
                   }}
                   id="notif-freq-n"
                 ></input>
-                <p>week(s) //</p>
+                <p className='strike' >week(s)</p><p> //</p>
                 <div
                   id="notif-now-btn"
                   onClick={() => {
@@ -90,9 +90,10 @@ function ButtonNotifications({ user, setUser }) {
               </div>
             </div>
           </Popover>
-        </div>
-      )}
-    </PopupState>
+        </div >
+      )
+      }
+    </PopupState >
   );
 }
 

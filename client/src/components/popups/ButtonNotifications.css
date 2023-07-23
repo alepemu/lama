@@ -29,6 +29,8 @@
 #notif-freq-n {
   width: 30px;
   margin: 0px 5px;
+  pointer-events: none;
+  border: 2px solid lightgray;
 }
 
 #notif-now-btn {
@@ -54,4 +56,8 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.strike {
+  text-decoration: line-through;
 }

@@ -2,6 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const { User } = require('../models/models');
+const { programUser } = require('../services/service.dispatcher')
 
 exports.getUserById = async (ctx) => {
   try {
@@ -66,6 +67,21 @@ exports.updateUser = async (ctx) => {
     const userChanges = ctx.request.body;
     const userId = userChanges._id;
     const updatedUser = await User.findByIdAndUpdate(userId, { $set: userChanges }, { new: true });
+
+    // If notif_due on --> Turn them ON
+    if (updatedUser.notif_due) {
+      console.log('programa!');
+      programUser(updatedUser)
+    }
+
+    // If notif_due ff --> Turn them OFF
+    if (!updatedUser.notif_due) {
+      console.log('quita!');
+    }
+
+    // If notif_opt on --> Turn them ON
+    // If notif_opt ff --> Turn them OFF
+
     ctx.body = updatedUser;
     ctx.status = 202;
   } catch (error) {

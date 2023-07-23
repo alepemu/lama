@@ -56,6 +56,9 @@ exports.updateItem = async (ctx) => {
     const itemChanges = ctx.request.body;
     const itemId = itemChanges._id;
     const updatedItem = await Item.findByIdAndUpdate(itemId, { $set: itemChanges }, { new: true });
+
+    // If item has a date and notifications are on, program email
+
     ctx.body = updatedItem;
     ctx.status = 202;
   } catch (error) {

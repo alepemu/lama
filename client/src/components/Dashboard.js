@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { loadUser } from '../services/ApiUser';
-import { loadCat, newCat, delCat } from '../services/ApiCategory';
-import { delItem } from '../services/ApiItem';
+import { newCat, delCat } from '../services/ApiCategory';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import ButtonNotifications from './popups/ButtonNotifications';
 import Category from './Category';
@@ -12,7 +11,6 @@ function Dashboard({ userIdDb }) {
   const [user, setUser] = useState({});
   const [userCatList, setUserCatList] = useState([]);
   const [newCatTitle, setNewCatTitle] = useState('');
-  const [isGapo, setIsGapo] = useState(false);
 
   useEffect(() => {
     loadUser(userIdDb)
@@ -29,7 +27,6 @@ function Dashboard({ userIdDb }) {
       alert('Give a name!');
       return;
     }
-    setIsGapo(!isGapo);
     const content = { userId: user._id, name: newCatTitle };
     newCat(content)
       .then((cat) => {
@@ -87,7 +84,6 @@ function Dashboard({ userIdDb }) {
         </div>
       )}
       <div id="dashboard-pool">{catList}</div>
-      {/* <div id="gapo" className={isGapo ? 'shoot' : 'no-shoot'}></div> */}
     </div>
   );
 }
