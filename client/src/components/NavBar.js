@@ -3,7 +3,7 @@ import iconbw from '../img/icon-lama-bw.png';
 import './NavBar.css';
 import { logOutUser } from '../services/ApiUser';
 
-function NavBar({ isLoggedIn, setIsLoggedIn, setUser, setCookie }) {
+function NavBar({ isLoggedIn, setIsLoggedIn, setUser }) {
   return (
     <div className="NavBar">
       <div id="nav-links">
@@ -26,7 +26,7 @@ function NavBar({ isLoggedIn, setIsLoggedIn, setUser, setCookie }) {
               onClick={() => {
                 setIsLoggedIn(false);
                 setUser({});
-                setCookie('koa.sess', '', { expires: new Date(0) })
+                localStorage.removeItem('token');
                 logOutUser()
                 alert('You have been logged out');
               }}

@@ -10,15 +10,16 @@ import SignUp from './components/SignUp';
 import Chat from './components/Chat';
 import './App.css';
 import { useCookies } from 'react-cookie';
+import jwt from 'jwt-decode'
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [cookies, setCookie] = useCookies([]);
 
   useEffect(() => {
-    if (cookies['koa.sess']) {
-      const userId = JSON.parse(atob(cookies['koa.sess'])).id
+    if (localStorage.getItem("token")) {
+      const token = localStorage.getItem("token");
+      const userId = jwt(token).id
       if (userId) {
         loadUser(userId)
           .then((response) => {
@@ -36,7 +37,6 @@ function App() {
         setIsLoggedIn={setIsLoggedIn}
         user={currentUser}
         setUser={setCurrentUser}
-        setCookie={setCookie}
       />
       <Routes>
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />

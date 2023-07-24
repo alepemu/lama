@@ -3,6 +3,7 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../models/models');
 const { programUser } = require('../services/service.dispatcher')
+const jwt = require('jsonwebtoken');
 
 exports.getUserById = async (ctx) => {
   try {
@@ -48,8 +49,8 @@ exports.logIn = async (ctx) => {
       } else {
         const userObject = user.toObject();
         delete userObject.password;
-        ctx.session.id = user._id;
-        ctx.body = userObject;
+        const token = jwt.sign({ id: userObject._id }, 'shared-secret');
+        ctx.body = { ...userObject, token };
         ctx.status = 202;
       }
     }
@@ -61,14 +62,14 @@ exports.logIn = async (ctx) => {
 
 exports.logOut = async (ctx) => {
   try {
-    if (ctx.session.id) {
-      ctx.session = null;
-      ctx.body = 'Logged out succesfully';
-      ctx.status = 200;
-    } else {
-      ctx.body = 'No user currently logged';
-      ctx.status = 200;
-    }
+    // if (ctx.session.id) {
+
+    ctx.body = 'Logged out succesfully';
+    ctx.status = 200;
+    // } else {
+    // ctx.body = 'No user currently logged';
+    // ctx.status = 200;
+    // }
   } catch (error) {
     ctx.body = { error, message: 'Error when logging out' };
     ctx.status = 401;

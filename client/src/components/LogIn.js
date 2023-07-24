@@ -30,6 +30,7 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
     } else {
       setCurrentUser(res);
       setIsLoggedIn(true);
+      localStorage.setItem("token", res.token);
       navigate('/dashboard');
     }
   }
