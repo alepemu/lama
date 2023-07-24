@@ -19,7 +19,7 @@ function Dashboard({ userIdDb }) {
         setUserCatList(response.categories);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [userIdDb]);
 
   function newCategory(e) {
     e.preventDefault();

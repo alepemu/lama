@@ -1,11 +1,9 @@
 import BASE_URL from '../index'
 
 async function loadUser(userId) {
-  // console.log('aqui');
   const response = await fetch(BASE_URL + '/user/' + userId);
   const user = await response.json();
   const res = user === {} ? 'No data' : user;
-  // console.log(user);
   return res;
 }
 
@@ -31,6 +29,12 @@ async function logUser(userData) {
   return user;
 }
 
+async function logOutUser() {
+  const response = await fetch(BASE_URL + '/logout');
+  const data = await response.json();
+  return data;
+}
+
 async function updateUser(userData) {
   return fetch(BASE_URL + '/user', {
     method: 'PUT',
@@ -41,4 +45,4 @@ async function updateUser(userData) {
     .catch((err) => console.log(err));
 }
 
-export { loadUser, createUser, logUser, updateUser };
+export { loadUser, createUser, logUser, logOutUser, updateUser };

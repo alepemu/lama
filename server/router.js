@@ -9,7 +9,7 @@ const itemController = require('./controllers/controller.item');
 const emailController = require('./controllers/controller.email');
 const aiController = require('./controllers/controller.ai');
 
-router.get('/health', (ctx) => { ctx.body = 'Hello LAMA'})
+router.get('/health', (ctx) => { ctx.body = 'Hello LAMA' })
 
 router.get('/user/:id', userController.getUserById);
 router.post('/register', userController.registerUser);

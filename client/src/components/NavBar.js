@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import iconbw from '../img/icon-lama-bw.png';
 import './NavBar.css';
+import { logOutUser } from '../services/ApiUser';
 
-function NavBar({ isLoggedIn, setIsLoggedIn }) {
+function NavBar({ isLoggedIn, setIsLoggedIn, setUser, setCookie }) {
   return (
     <div className="NavBar">
       <div id="nav-links">
@@ -24,7 +25,9 @@ function NavBar({ isLoggedIn, setIsLoggedIn }) {
               to="/login"
               onClick={() => {
                 setIsLoggedIn(false);
-
+                setUser({});
+                setCookie('koa.sess', '', { expires: new Date(0) })
+                logOutUser()
                 alert('You have been logged out');
               }}
             >

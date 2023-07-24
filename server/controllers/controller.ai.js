@@ -5,7 +5,6 @@ const { openai } = require('../services/service.ai');
 exports.sendMessage = async (ctx) => {
   try {
     const { chats } = ctx.request.body;
-    console.log('chats', chats);
     const result = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: [

@@ -4,7 +4,7 @@ import logo from '../img/icon-512x512.png';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-function Home() {
+function Home({ isLoggedIn }) {
   return (
     <div className="Home">
       <div id="home-header">
@@ -12,9 +12,15 @@ function Home() {
           <h1>LAMA brings all your tasks, lists and reminders together</h1>
           <h3 className='text-center'>Keep everything in the same place</h3>
           <h3 className='text-center'>Be notified on time</h3>
-          <Link className="register" to="/signup">
-            Sign up - it's free!
-          </Link>
+          {isLoggedIn ?
+            <Link className="register" to="/dashboard">
+              Got to your dashboard!
+            </Link>
+            :
+            <Link className="register" to="/signup">
+              Sign up - it's free!
+            </Link>
+          }
         </div>
         <div id="home-right">
           <div id="lama-logo">

@@ -39,13 +39,20 @@ exports.logIn = async (ctx) => {
     // { "email", "password" }
     const { email, password } = ctx.request.body;
     const user = await User.findOne({ email });
-    const validatedPass = await bcrypt.compare(password, user.password);
-    if (!validatedPass) throw new Error();
-    const userObject = user.toObject();
-    delete userObject.password;
-    ctx.session.uid = user._id;
-    ctx.body = userObject;
-    ctx.status = 202;
+    if (!user) {
+      throw new Error();
+    } else {
+      const validatedPass = await bcrypt.compare(password, user.password);
+      if (!validatedPass) {
+        throw new Error();
+      } else {
+        const userObject = user.toObject();
+        delete userObject.password;
+        ctx.session.id = user._id;
+        ctx.body = userObject;
+        ctx.status = 202;
+      }
+    }
   } catch (error) {
     ctx.body = { error, message: 'Username or/and password is incorrect' };
     ctx.status = 401;
@@ -54,7 +61,14 @@ exports.logIn = async (ctx) => {
 
 exports.logOut = async (ctx) => {
   try {
-    ctx.session.uid = null;
+    if (ctx.session.id) {
+      ctx.session = null;
+      ctx.body = 'Logged out succesfully';
+      ctx.status = 200;
+    } else {
+      ctx.body = 'No user currently logged';
+      ctx.status = 200;
+    }
   } catch (error) {
     ctx.body = { error, message: 'Error when logging out' };
     ctx.status = 401;
@@ -76,7 +90,7 @@ exports.updateUser = async (ctx) => {
 
     // If notif_due ff --> Turn them OFF
     if (!updatedUser.notif_due) {
-      console.log('quita!');
+      console.log('quitalo!');
     }
 
     // If notif_opt on --> Turn them ON
