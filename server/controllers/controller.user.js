@@ -1,14 +1,17 @@
-'use strict';
+"use strict";
 
-const bcrypt = require('bcrypt');
-const { User } = require('../models/models');
-const { programUser } = require('../services/service.dispatcher')
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
+const { User } = require("../models/models");
+const { programUser } = require("../services/service.dispatcher");
+const jwt = require("jsonwebtoken");
 
 exports.getUserById = async (ctx) => {
   try {
+    console.log("aqui");
     const userId = ctx.params.id;
+    console.log("params", userId);
     const user = await User.findById(userId);
+    console.log("user", user);
     const userObject = user.toObject();
     delete userObject.password;
     ctx.body = userObject;
@@ -30,7 +33,7 @@ exports.registerUser = async (ctx) => {
     ctx.body = userObject;
     ctx.status = 201;
   } catch (error) {
-    ctx.body = { error, message: 'Could not create user' };
+    ctx.body = { error, message: "Could not create user" };
     ctx.status = 400;
   }
 };
@@ -49,13 +52,13 @@ exports.logIn = async (ctx) => {
       } else {
         const userObject = user.toObject();
         delete userObject.password;
-        const token = jwt.sign({ id: userObject._id }, 'shared-secret');
+        const token = jwt.sign({ id: userObject._id }, "shared-secret");
         ctx.body = { ...userObject, token };
         ctx.status = 202;
       }
     }
   } catch (error) {
-    ctx.body = { error, message: 'Username or/and password is incorrect' };
+    ctx.body = { error, message: "Username or/and password is incorrect" };
     ctx.status = 401;
   }
 };
@@ -64,14 +67,14 @@ exports.logOut = async (ctx) => {
   try {
     // if (ctx.session.id) {
 
-    ctx.body = 'Logged out succesfully';
+    ctx.body = "Logged out succesfully";
     ctx.status = 200;
     // } else {
     // ctx.body = 'No user currently logged';
     // ctx.status = 200;
     // }
   } catch (error) {
-    ctx.body = { error, message: 'Error when logging out' };
+    ctx.body = { error, message: "Error when logging out" };
     ctx.status = 401;
   }
 };
@@ -81,17 +84,21 @@ exports.updateUser = async (ctx) => {
     // { USER }
     const userChanges = ctx.request.body;
     const userId = userChanges._id;
-    const updatedUser = await User.findByIdAndUpdate(userId, { $set: userChanges }, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: userChanges },
+      { new: true }
+    );
 
     // If notif_due on --> Turn them ON
     if (updatedUser.notif_due) {
-      console.log('programa!');
-      programUser(updatedUser)
+      console.log("programa!");
+      programUser(updatedUser);
     }
 
     // If notif_due ff --> Turn them OFF
     if (!updatedUser.notif_due) {
-      console.log('quitalo!');
+      console.log("quitalo!");
     }
 
     // If notif_opt on --> Turn them ON
@@ -100,7 +107,7 @@ exports.updateUser = async (ctx) => {
     ctx.body = updatedUser;
     ctx.status = 202;
   } catch (error) {
-    ctx.body = { error, message: 'Failed to update user' };
+    ctx.body = { error, message: "Failed to update user" };
     ctx.status = 500;
   }
 };

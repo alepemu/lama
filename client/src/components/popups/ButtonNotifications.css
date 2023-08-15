@@ -16,7 +16,7 @@
 
 .notif-line {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding-right: 15px;
 }
@@ -37,7 +37,7 @@
   width: 70px;
   display: flex;
   justify-content: space-between;
-  margin-left: 5px;
+  margin-top: 15px;
   padding: 0px 5px;
   display: flex;
   background-color: rgb(239, 239, 239);
@@ -61,3 +61,17 @@ input::-webkit-inner-spin-button {
 .strike {
   text-decoration: line-through;
 }
+
+/* #block-screen {
+position: absolute;
+bottom: 21px;
+width: 175px;
+height: 30px;
+ background: repeating-linear-gradient(
+  45deg,
+  rgb(255, 0, 0, 0.2),
+  rgb(255, 0, 0, 0.2) 5px,
+  rgba(0, 0, 0, 0) 5px,
+  rgba(0, 0, 0, 0) 10px
+  );
+} */
