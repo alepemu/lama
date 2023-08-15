@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { logUser } from '../services/ApiUser';
-import { useNavigate } from 'react-router-dom';
-import './LogIn.css';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { logUser } from "../services/ApiUser";
+import { useNavigate } from "react-router-dom";
+import "./LogIn.css";
 
-const initialState = { email: '', pw: '' };
+const initialState = { email: "", pw: "" };
 
 function LogIn({ setIsLoggedIn, setCurrentUser }) {
   const [userLogin, setUserLogin] = useState(initialState);
@@ -31,7 +31,7 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
       setCurrentUser(res);
       setIsLoggedIn(true);
       localStorage.setItem("token", res.token);
-      navigate('/dashboard');
+      navigate("/dashboard");
     }
   }
 
@@ -69,9 +69,9 @@ function LogIn({ setIsLoggedIn, setCurrentUser }) {
           </Link>
           <p>now.</p>
         </div>
-        <div className="form-footer">
+        {/* <div className="form-footer">
           <p>Forgot your password? Bad luck! =)</p>
-        </div>
+        </div> */}
       </form>
     </div>
   );

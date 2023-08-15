@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const nodeCron = require('node-cron');
+const nodeCron = require("node-cron");
 
-const { User, Category, Item } = require('../models/models');
-const { mailAll, mailItem } = require('./service.email');
+const { User, Category, Item } = require("../models/models");
+const { mailAll, mailItem } = require("./service.email");
 
 async function itemsWithDate() {
   const items = await Item.find();
@@ -34,8 +34,10 @@ async function programItems() {
       start_date: msgs[i].start_date,
     };
 
-    console.log('One email programmed');
-    nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData)).start();
+    console.log("1- One email programmed");
+    nodeCron
+      .schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData))
+      .start();
   }
 }
 
@@ -60,32 +62,30 @@ programItems();
 // It needs some testing before
 // programAll();
 
-
 async function programUser(user) {
-
   const categories = user.categories;
   const itemsId = [];
 
   for (let i = 0; i < categories.length; i++) {
-    const cat = await Category.findById(categories[i].toString())
+    const cat = await Category.findById(categories[i].toString());
     if (cat.items.length) {
-      itemsId.push(...cat.items)
+      itemsId.push(...cat.items);
     }
   }
 
   // console.log('items id', itemsId);
 
-  const itemsWithDate = []
+  const itemsWithDate = [];
   for (let i = 0; i < itemsId.length; i++) {
-    const item = await Item.findById(itemsId[i].toString())
-    if (item.start_date !== null) {
-      itemsWithDate.push(item)
+    const item = await Item.findById(itemsId[i].toString());
+    if (item.start_date !== null && !item.checked) {
+      itemsWithDate.push(item);
     }
   }
 
   // console.log('items with date', itemsWithDate);
 
-for (let i = 0; i < itemsWithDate.length; i++) {
+  for (let i = 0; i < itemsWithDate.length; i++) {
     if (itemsWithDate[i].start_date < Date.now()) continue;
 
     const dt = new Date(itemsWithDate[i].start_date);
@@ -101,9 +101,13 @@ for (let i = 0; i < itemsWithDate.length; i++) {
       start_date: itemsWithDate[i].start_date,
     };
 
-    console.log('One email programmed');
-    nodeCron.schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData)).start();
+    console.log("User - One email programmed");
+    const job = nodeCron
+      .schedule(`00 ${min} ${hour} ${day} ${month} *`, () => mailItem(itemData))
+      .start();
+
+    console.log("job", job);
   }
 }
 
-module.exports = { programUser }
+module.exports = { programUser };

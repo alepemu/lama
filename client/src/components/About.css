@@ -5,25 +5,34 @@
   align-items: center;
   margin: auto;
   user-select: none;
-  /* overflow: hidden; */
 }
 
 #about-llama-pic {
   width: 100%;
-  height: 100%;
+  height: 500px;
   object-fit: cover;
   position: absolute;
+  top: 0;
   z-index: -10;
+  overflow: none;
+}
+
+#llama-pic {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
 }
 
 #about-title {
-  /* background-color: aqua; */
-  /* backdrop-filter: blur(20px); */
   margin-bottom: 20px;
 }
 
 #about-title > h3 {
   margin-top: 80px;
+  color: black;
+  font-weight: 300;
   text-shadow: 1px 1px white;
 }
 
@@ -33,32 +42,32 @@
 }
 
 #about-container > ul {
-  height: 600px;
+  height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  /* margin-top: 20px; */
+  gap: 20px;
   list-style-type: none;
+  /* background-color: red; */
+  margin: 20px;
+  /* margin-bottom: 50px; */
 }
 
 #about-container > ul > li {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-basis: 400px;
-  flex-grow: 0;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-basis: 30%;
+  flex-grow: 1;
   user-select: none;
   color: rgba(0, 0, 0, 0);
-  /* background-color: rgba(255, 255, 255, 1); */
   background-color: rgba(255, 255, 255, 0);
-  padding: 5px;
-  border: 2px dashed rgba(255, 255, 255, 0);
+  border: 2px dashed rgba(255, 255, 255, 50);
   border-radius: 15px;
   transition: all 0.5s ease-in-out;
-  /* cursor: pointer; */
+  padding: 20px;
 }
 
 #about-container > ul > li:hover {
@@ -69,16 +78,12 @@
   transition: all 0.5s ease-in-out;
 }
 
-@media only screen and (min-width: 875px) {
+@media only screen and (max-width: 875px) {
   #about-container > ul {
     gap: 30px;
   }
 
-  #about-llama-pic {
-    object-position: 0px 0%;
-  }
-
   #about-container > ul > li {
-    padding: 20px;
+    flex-basis: 100%;
   }
 }

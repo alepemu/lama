@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import iconbw from '../img/icon-lama-bw.png';
-import './NavBar.css';
-import { logOutUser } from '../services/ApiUser';
+import { Link } from "react-router-dom";
+import iconbw from "../img/icon-lama-bw.png";
+import "./NavBar.css";
+import { logOutUser } from "../services/ApiUser";
 
 function NavBar({ isLoggedIn, setIsLoggedIn, setUser }) {
   return (
@@ -14,8 +14,12 @@ function NavBar({ isLoggedIn, setIsLoggedIn, setUser }) {
               LAMA
             </Link>
           </div>
-          {isLoggedIn ? <Link to="/dashboard">Dashboard</Link> : <Link to="/login">Board</Link>}
-          <Link to="/about">+</Link>
+          {isLoggedIn ? (
+            <Link to="/dashboard">Dashboard</Link>
+          ) : (
+            <Link to="/login">Board</Link>
+          )}
+          {/* <Link to="/about">+</Link> */}
         </div>
 
         <div id="nav-right">
@@ -26,9 +30,9 @@ function NavBar({ isLoggedIn, setIsLoggedIn, setUser }) {
               onClick={() => {
                 setIsLoggedIn(false);
                 setUser({});
-                localStorage.removeItem('token');
-                logOutUser()
-                alert('You have been logged out');
+                localStorage.removeItem("token");
+                logOutUser();
+                alert("You have been logged out");
               }}
             >
               Log Out

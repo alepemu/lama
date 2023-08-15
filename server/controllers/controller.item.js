@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const { Category, Item } = require('../models/models');
+const { Category, Item } = require("../models/models");
 
 exports.getItemById = async (ctx) => {
   try {
@@ -39,7 +39,9 @@ exports.deleteItem = async (ctx) => {
     const deletedItem = await Item.findByIdAndDelete(itemId);
 
     await Category.findByIdAndUpdate(catId, {
-      $set: { items: category.items.filter((item) => item.toString() !== itemId) },
+      $set: {
+        items: category.items.filter((item) => item.toString() !== itemId),
+      },
     });
 
     ctx.body = deletedItem;
@@ -55,7 +57,11 @@ exports.updateItem = async (ctx) => {
     // { ITEM OBJECT }
     const itemChanges = ctx.request.body;
     const itemId = itemChanges._id;
-    const updatedItem = await Item.findByIdAndUpdate(itemId, { $set: itemChanges }, { new: true });
+    const updatedItem = await Item.findByIdAndUpdate(
+      itemId,
+      { $set: itemChanges },
+      { new: true }
+    );
 
     // If item has a date and notifications are on, program email
 
