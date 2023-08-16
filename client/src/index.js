@@ -9,10 +9,6 @@ const BASE_URL = process.env.REACT_APP_NETLIFY
   ? "https://lama-server.onrender.com"
   : "http://localhost:3100";
 
-// const BASE_URL = "https://lama-server-a8qg-dev.fl0.io";
-// const BASE_URL = "http://localhost:3100";
-// const BASE_URL = "https://lama-server.onrender.com";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
