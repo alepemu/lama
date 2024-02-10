@@ -10,6 +10,9 @@
   align-items: center;
 }
 
+.el-not-checked {
+  color: rgb(0, 0, 0, 0.75);
+}
 .el-checked {
   color: rgb(162, 162, 162);
   text-decoration: line-through;
@@ -27,13 +30,9 @@
   align-items: center;
 }
 
-.el-edit {
-  opacity: 10%;
-}
-
 .el-remove {
+  color: rgb(0, 0, 0, 0.2);
   cursor: pointer;
-  opacity: 20%;
 }
 
 .el-remove:hover {

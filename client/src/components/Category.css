@@ -34,6 +34,7 @@
 }
 
 .cat-header {
+  color: black;
   background-color: rgb(224, 224, 224, 50%);
   display: flex;
   justify-content: space-between;
@@ -78,8 +79,8 @@
   cursor: pointer;
 }
 
-
 .btn-new-item {
+  color: black;
   opacity: 30%;
   transform: rotate(180deg);
   cursor: pointer;

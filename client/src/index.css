@@ -6,21 +6,11 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgb(245, 233, 221) 100%);
+  color: white;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgb(76, 76, 76) 0%, rgb(36, 35, 33) 100%);
 }
 
-/* Dark mode to be implemented and set by default
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgb(76, 76, 76) 0%, rgb(36, 35, 33) 100%);
-  }
-  input {
-    background-color: rgb(65, 65, 65);
-  }
-} */
 
 /* Modified Scrollbar */
 

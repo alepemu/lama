@@ -37,8 +37,9 @@
   width: 70px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 15px;
-  padding: 0px 5px;
+  padding: 3px 5px;
   display: flex;
   background-color: rgb(239, 239, 239);
   border-radius: 5px;

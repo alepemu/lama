@@ -75,6 +75,7 @@
 }
 
 .msg {
+  color: black;
   padding: 5px;
   border-radius: 5px;
   margin: 3px 0px;
@@ -136,5 +137,9 @@
 
 .from-advisor {
   align-self: flex-end;
+  text-shadow: 1px 1px 2px black;
+}
 
+.from-user {
+  text-shadow: 1px 1px 2px black;
 }

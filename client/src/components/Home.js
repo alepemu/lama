@@ -27,16 +27,16 @@ function Home({ isLoggedIn }) {
             <img id="logo" src={logo} alt="Lama logo"></img>
             <div id="logo-text">
               <h2>
-                <span className="first-letter">L</span>-ife
+                <span className="first-letter">L</span> ife
               </h2>
               <h2>
-                <span className="first-letter">A</span>-dmin
+                <span className="first-letter">A</span> dmin
               </h2>
               <h2>
-                <span className="first-letter">M</span>-anagement
+                <span className="first-letter">M</span> anagement
               </h2>
               <h2>
-                <span className="first-letter">A</span>-dvisor
+                <span className="first-letter">A</span> dvisor
               </h2>
             </div>
           </div>

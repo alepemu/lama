@@ -70,7 +70,7 @@
 
 #logo-text {
   font-size: 25px;
-  color: rgb(134, 129, 119);
+  color: rgb(255, 255, 255, 0.5);
 }
 
 #logo-text > h2 {
@@ -79,7 +79,7 @@
 
 .first-letter {
   font-weight: 800;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255, 0.9);
 }
 
 #home-down {

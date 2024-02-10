@@ -48,6 +48,8 @@ form {
 
 .log-link {
   margin: 0px 5px;
+  color: rgb(207, 173, 146);
+
 }
 
 @media only screen and (max-width: 500px) {
